@@ -1,0 +1,137 @@
+package dev.jojo.agilus;
+
+import android.app.ProgressDialog;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseUser;
+import com.parse.SaveCallback;
+import com.parse.SignUpCallback;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import dev.jojo.agilus.core.CodeGenerator;
+
+public class NewPilotAccountActivity extends AppCompatActivity {
+
+    @BindView(R.id.etPilotUserName) EditText ePilotUser;
+    @BindView(R.id.etPilotPassword) EditText ePilotPass;
+    @BindView(R.id.etPilotName) EditText ePilotName;
+    @BindView(R.id.etDroneName) EditText eDroneName;
+
+    @BindView(R.id.btnSaveAccount) Button bSave;
+
+    private ProgressDialog prg;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_new_pilot_account);
+
+        ButterKnife.bind(this);
+        generateAuth();
+        initButton();
+
+        prg = new ProgressDialog(NewPilotAccountActivity.this);
+
+    }
+
+    private void generateAuth(){
+        CodeGenerator cgen = new CodeGenerator();
+        ePilotPass.setText(cgen.getAuthCode());
+    }
+
+    private void initButton(){
+        bSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                prg.setMessage("Creating pilot account...");
+
+                final String pUser = ePilotUser.getText().toString();
+                final String pPass = ePilotPass.getText().toString();
+                String pName = ePilotName.getText().toString();
+                String pDrone = eDroneName.getText().toString();
+
+                if(pUser.length() >=8){
+                    if(pName.length() >= 2){
+                        if(pDrone.length() >= 3){
+
+                            prg.show();
+
+                            ParseObject parseObject = new ParseObject("PilotAccounts");
+
+                            parseObject.put("PilotUser",pUser);
+                            parseObject.put("PilotPass",pPass);
+                            parseObject.put("PilotName",pName);
+                            parseObject.put("PilotDrone",pDrone);
+                            parseObject.put("PilotAdmin",ParseUser.getCurrentUser().getObjectId());
+
+                            parseObject.saveInBackground(new SaveCallback() {
+                                @Override
+                                public void done(ParseException e) {
+
+                                    if(e==null){
+
+                                        prg.setMessage("Creating login account...");
+
+                                        ParseUser pilotUser = new ParseUser();
+
+                                        pilotUser.setUsername(pUser);
+                                        pilotUser.setPassword(pPass);
+                                        pilotUser.put("Role","Pilot");
+
+                                        pilotUser.signUpInBackground(new SignUpCallback() {
+                                            @Override
+                                            public void done(ParseException e) {
+
+                                                prg.dismiss();
+
+                                                if(e==null){
+                                                    Snackbar.make(ePilotName,"Successfully created account!",Snackbar.LENGTH_LONG).show();
+                                                    finish();
+                                                }
+                                                else{
+                                                    Log.e("Parse problem",e.getMessage());
+                                                    Snackbar.make(ePilotName,"There was a problem saving " +
+                                                            "account. Please check internet connection." + e.getMessage(),Snackbar.LENGTH_LONG).show();
+                                                }
+                                            }
+                                        });
+
+
+                                    }
+                                    else{
+                                        prg.dismiss();
+                                        Snackbar.make(ePilotName,"There was a problem saving " +
+                                                "account. Please check internet connection." + e.getMessage(),Snackbar.LENGTH_LONG).show();
+                                    }
+                                }
+                            });
+                        }
+                        else{
+                            Snackbar.make(eDroneName,"Drones must be at least " +
+                                    "3 characters in length.",Snackbar.LENGTH_LONG).show();
+                        }
+                    }
+                    else{
+                        Snackbar.make(eDroneName,"Pilot name must be at least " +
+                                "3 characters in length.",Snackbar.LENGTH_LONG).show();
+                    }
+                }
+                else{
+                    Snackbar.make(eDroneName,"Pilot username must be at least " +
+                            "3 characters in length.",Snackbar.LENGTH_LONG).show();
+                }
+
+            }
+        });
+    }
+}

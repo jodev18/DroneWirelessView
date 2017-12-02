@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Agilus</string>
+    <string name="title_activity_accounts">AccountsActivity</string>
+    <string name="title_activity_drone_list">DroneListActivity</string>
+</resources>
