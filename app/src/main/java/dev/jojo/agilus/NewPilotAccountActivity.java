@@ -60,6 +60,8 @@ public class NewPilotAccountActivity extends AppCompatActivity {
                 String pName = ePilotName.getText().toString();
                 String pDrone = eDroneName.getText().toString();
 
+                final String currUserToken = ParseUser.getCurrentUser().getSessionToken();
+
                 if(pUser.length() >=8){
                     if(pName.length() >= 2){
                         if(pDrone.length() >= 3){
@@ -93,6 +95,13 @@ public class NewPilotAccountActivity extends AppCompatActivity {
                                             public void done(ParseException e) {
 
                                                 prg.dismiss();
+
+                                                try{
+                                                    ParseUser.become(currUserToken);
+                                                }
+                                                catch (ParseException pEx){
+                                                    Log.e("PARSE_RESTORE_SESSION","Restore session failed. Reason: " + pEx.getMessage());
+                                                }
 
                                                 if(e==null){
                                                     Snackbar.make(ePilotName,"Successfully created account!",Snackbar.LENGTH_LONG).show();

@@ -110,7 +110,14 @@ public class AccountsActivity extends AppCompatActivity {
     @Override
     protected void onResume(){
         super.onResume();
-        loadAssocPilots();
+
+        Toast.makeText(this, ParseUser.getCurrentUser().getUsername(), Toast.LENGTH_SHORT).show();
+        h.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                loadAssocPilots();
+            }
+        },1000);
     }
 
 

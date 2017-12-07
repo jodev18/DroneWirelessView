@@ -34,6 +34,10 @@ public class LoginActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
 
+
+        setButtonListeners();
+        prg = new ProgressDialog(LoginActivity.this);
+
         if(ParseUser.getCurrentUser() != null){
             startActivity(new Intent(getApplicationContext(),AccountsActivity.class));
             //finish();

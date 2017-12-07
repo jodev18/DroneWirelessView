@@ -29,7 +29,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".NewPilotAccountActivity" />
         <activity
-            android:name=".DroneListActivity"
+            android:name=".ScannedAreaListActivity"
             android:label="@string/title_activity_drone_list"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".NewDroneActivity"></activity>

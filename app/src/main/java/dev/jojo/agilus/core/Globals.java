@@ -5,4 +5,10 @@ package dev.jojo.agilus.core;
  */
 
 public class Globals {
+
+    public class PilotAccounts{
+
+        public static final String CLASS_NAME = "PilotAccounts";
+
+    }
 }

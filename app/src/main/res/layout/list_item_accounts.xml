@@ -12,7 +12,7 @@
         android:layout_alignParentTop="true"
         android:text="Pilot Name"
         android:textColor="@android:color/black"
-        android:textSize="36sp"
+        android:textSize="24sp"
         android:textStyle="bold" />
 
     <TextView
@@ -23,7 +23,7 @@
         android:layout_below="@+id/tvPilotName"
         android:text="Drone Name"
         android:textColor="@android:color/black"
-        android:textSize="30sp" />
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/tvIsActiveStat"
@@ -33,6 +33,6 @@
         android:layout_below="@+id/tvDroneName"
         android:text="Is Active"
         android:textColor="@android:color/black"
-        android:textSize="18sp"
+        android:textSize="12sp"
         android:textStyle="italic" />
 </RelativeLayout>
