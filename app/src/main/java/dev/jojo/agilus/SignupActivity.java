@@ -57,7 +57,7 @@ public class SignupActivity extends AppCompatActivity {
                 if(s_user.length() >= 8){
                     if(s_pass.length() >= 8){
                         if(s_c_pass.length() >= 8){
-                            if(s_c_pass.equals(s_c_pass)){
+                            if(s_c_pass.equals(s_pass)){
                                 if(s_email.length()>=3 && s_email.contains("@")){
                                     ParseUser parseUser = new ParseUser();
                                     parseUser.setUsername(s_user);
@@ -78,6 +78,8 @@ public class SignupActivity extends AppCompatActivity {
                                             else{
                                                 Snackbar.make(nUser,"Error in signing up " +
                                                         "was encountered. Please check network connection.",Snackbar.LENGTH_LONG).show();
+
+                                                Toast.makeText(SignupActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                                             }
                                         }
                                     });

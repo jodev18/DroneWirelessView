@@ -9,9 +9,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.parse.LogInCallback;
 import com.parse.ParseException;
+import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
 import butterknife.BindView;
@@ -65,11 +67,22 @@ public class LoginActivity extends AppCompatActivity {
                         ParseUser.logInInBackground(uname, upword, new LogInCallback() {
                             @Override
                             public void done(ParseUser user, ParseException e) {
-                                prg.dismiss();
+
                                 if(e==null){
-                                    startActivity(new Intent(getApplicationContext(),AccountsActivity.class));
+
+                                    prg.setMessage("Checking account...");
+
+                                    String role = user.getString("Role");
+
+                                    if(role.equals("Admin")){
+                                        startActivity(new Intent(getApplicationContext(),AccountsActivity.class));
+                                    }
+                                    else{
+                                        startActivity(new Intent(getApplicationContext(),ScannedAreaListActivity.class));
+                                    }
                                 }
                                 else{
+                                    prg.dismiss();
                                     Snackbar.make(eUsername,"There was a problem encountered" +
                                             " while logging in. Please check your internet connection.",Snackbar.LENGTH_LONG).show();
                                     Log.e("Login Problem",e.getMessage());
