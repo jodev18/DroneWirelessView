@@ -41,7 +41,14 @@ public class LoginActivity extends AppCompatActivity {
         prg = new ProgressDialog(LoginActivity.this);
 
         if(ParseUser.getCurrentUser() != null){
-            startActivity(new Intent(getApplicationContext(),AccountsActivity.class));
+            String role = ParseUser.getCurrentUser().getString("Role");
+
+            if(role.equals("Admin")){
+                startActivity(new Intent(getApplicationContext(),AccountsActivity.class));
+            }
+            else{
+                startActivity(new Intent(getApplicationContext(),ScannedAreaListActivity.class));
+            }
             //finish();
         }
         else{
@@ -80,6 +87,8 @@ public class LoginActivity extends AppCompatActivity {
                                     else{
                                         startActivity(new Intent(getApplicationContext(),ScannedAreaListActivity.class));
                                     }
+
+                                    prg.dismiss();
                                 }
                                 else{
                                     prg.dismiss();
