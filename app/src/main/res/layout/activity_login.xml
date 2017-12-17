@@ -31,7 +31,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Username"
-                android:textColor="@android:color/black"
+                android:textColor="@android:color/background_light"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -41,14 +41,15 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Enter username..."
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:textColor="@android:color/background_light" />
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Password"
-                android:textColor="@android:color/black"
+                android:textColor="@android:color/background_light"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -58,19 +59,25 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Enter Password..."
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:textColor="@android:color/background_light" />
 
             <Button
                 android:id="@+id/btnLogin"
+                style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Login" />
+                android:background="@color/colorPrimaryDark"
+                android:text="Login"
+                android:textColor="@android:color/background_light" />
 
             <Button
                 android:id="@+id/btnSignup"
+                style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Sign Up" />
+                android:text="Sign Up"
+                android:textColor="@android:color/background_light" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

@@ -4,14 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
+    android:background="@color/colorPrimaryDark"
     tools:context="dev.jojo.agilus.SplashActivity">
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/textView11"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         app:srcCompat="@drawable/agilus_graphic" />
@@ -25,7 +24,7 @@
         android:layout_marginBottom="95dp"
         android:fontFamily="serif"
         android:text="AGILUS"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/background_light"
         android:textSize="30sp"
         android:textStyle="bold" />
 

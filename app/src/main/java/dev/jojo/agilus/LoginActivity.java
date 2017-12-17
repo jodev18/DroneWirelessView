@@ -4,10 +4,9 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,13 +27,15 @@ public class LoginActivity extends AppCompatActivity {
     @BindView(R.id.etUsername) EditText eUsername;
     @BindView(R.id.etPassword) EditText ePassword;
 
+
+
     private ProgressDialog prg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+        setTitle("AGILUS");
         ButterKnife.bind(this);
 
         setButtonListeners();
@@ -47,7 +48,7 @@ public class LoginActivity extends AppCompatActivity {
             }
             else{
                 if(ParseUser.getCurrentUser().getString(Globals.USER_ROLE).equals(Globals.ROLE_ADMIN)){
-                    startActivity(new Intent(getApplicationContext(),AccountsActivity.class));
+                    startActivity(new Intent(getApplicationContext(),AdminActivity.class));
                 }
                 else{
                     //Something's wrong. You quit.
@@ -81,9 +82,8 @@ public class LoginActivity extends AppCompatActivity {
                                     startActivity(new Intent(getApplicationContext(),AccountsActivity.class));
                                 }
                                 else{
-                                    Snackbar.make(eUsername,"There was a problem encountered" +
-                                            " while logging in. Please check your internet connection.",Snackbar.LENGTH_LONG).show();
-                                    Log.e("Login Problem",e.getMessage());
+                                    invokeSnackBar("There was a problem encountered" +
+                                            " while logging in. Please check your internet connection.");
                                 }
 
                                 eUsername.setText("");
@@ -92,13 +92,15 @@ public class LoginActivity extends AppCompatActivity {
                         });
                     }
                     else{
-                        Snackbar.make(eUsername,"Please enter your password, " +
-                                "which is should be at least 8 characters.",Snackbar.LENGTH_LONG).show();
+                        invokeSnackBar("Please enter your password, " +
+                                "which is should be at least 8 characters.");
                     }
                 }
                 else {
-                    Snackbar.make(eUsername,"Please enter your username, " +
-                            "which is should be at least 8 characters.",Snackbar.LENGTH_LONG).show();
+
+                    //Snackbar.make(eUsername,,Snackbar.LENGTH_LONG).show();
+                    invokeSnackBar("Please enter your username, " +
+                                  "which is should be at least 8 characters.");
                 }
 
             }
@@ -110,6 +112,13 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(),SignupActivity.class));
             }
         });
+    }
+
+    private void invokeSnackBar(String message){
+        Snackbar snackbar = Snackbar.make(eUsername, message, Snackbar.LENGTH_LONG);
+        View snackBarView = snackbar.getView();
+        snackBarView.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+        snackbar.show();
     }
 
     @Override
