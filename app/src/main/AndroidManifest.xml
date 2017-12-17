@@ -47,7 +47,12 @@
 
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps"></activity>
+            android:label="@string/title_activity_maps" />
+        <activity android:name=".PinnedLocations" />
+        <activity
+            android:name=".objects.PilotActivity"
+            android:label="@string/title_activity_pilot"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

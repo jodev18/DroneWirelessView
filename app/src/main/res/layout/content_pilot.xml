@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="dev.jojo.agilus.objects.PilotActivity"
+    tools:showIn="@layout/activity_pilot"
+    android:padding="15dp">
+
+
+    <TextView
+        android:id="@+id/tvPilotName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        android:text="Pilot Name"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvDroneName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvPilotName"
+        android:layout_centerHorizontal="true"
+        android:text="Drone Name"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        android:paddingBottom="8dp"/>
+
+    <ListView
+        android:id="@+id/lvPilotMenu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tvDroneName"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>

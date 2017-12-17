@@ -16,6 +16,7 @@ import com.parse.ParseUser;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import dev.jojo.agilus.objects.PilotActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -39,7 +40,14 @@ public class LoginActivity extends AppCompatActivity {
         prg = new ProgressDialog(LoginActivity.this);
 
         if(ParseUser.getCurrentUser() != null){
-            startActivity(new Intent(getApplicationContext(),AccountsActivity.class));
+
+            if(ParseUser.getCurrentUser().getString("Role").equals("Pilot")){
+                startActivity(new Intent().setClass(getApplicationContext(), PilotActivity.class));
+            }
+            else{
+                //TODO FIX THIS LAZY EVALUATION
+                startActivity(new Intent(getApplicationContext(),AccountsActivity.class));
+            }
             //finish();
         }
         else{
