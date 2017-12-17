@@ -44,10 +44,16 @@ public class PilotMenuAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+
         if (convertView != null)
             convertView = this.act.getLayoutInflater().inflate(R.layout.list_item_pilot_menu,null);
 
+        PilotMenuItem pItem = this.menuItemList.get(position);
 
+
+
+
+        return convertView;
 
     }
 }

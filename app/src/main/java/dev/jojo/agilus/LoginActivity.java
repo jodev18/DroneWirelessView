@@ -1,6 +1,8 @@
 package dev.jojo.agilus;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -16,7 +18,7 @@ import com.parse.ParseUser;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import dev.jojo.agilus.objects.PilotActivity;
+import dev.jojo.agilus.core.Globals;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -35,25 +37,26 @@ public class LoginActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
 
-
         setButtonListeners();
         prg = new ProgressDialog(LoginActivity.this);
 
         if(ParseUser.getCurrentUser() != null){
 
-            if(ParseUser.getCurrentUser().getString("Role").equals("Pilot")){
+            if(ParseUser.getCurrentUser().getString(Globals.USER_ROLE).equals(Globals.ROLE_PILOT)){
                 startActivity(new Intent().setClass(getApplicationContext(), PilotActivity.class));
             }
             else{
-                //TODO FIX THIS LAZY EVALUATION
-                startActivity(new Intent(getApplicationContext(),AccountsActivity.class));
+                if(ParseUser.getCurrentUser().getString(Globals.USER_ROLE).equals(Globals.ROLE_ADMIN)){
+                    startActivity(new Intent(getApplicationContext(),AccountsActivity.class));
+                }
+                else{
+                    //Something's wrong. You quit.
+                    finish();
+                }
             }
             //finish();
         }
-        else{
-            setButtonListeners();
-            prg = new ProgressDialog(LoginActivity.this);
-        }
+
     }
 
     private void setButtonListeners(){
@@ -82,6 +85,9 @@ public class LoginActivity extends AppCompatActivity {
                                             " while logging in. Please check your internet connection.",Snackbar.LENGTH_LONG).show();
                                     Log.e("Login Problem",e.getMessage());
                                 }
+
+                                eUsername.setText("");
+                                ePassword.setText("");
                             }
                         });
                     }
@@ -104,6 +110,33 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(),SignupActivity.class));
             }
         });
+    }
+
+    @Override
+    public void onBackPressed(){
+
+        AlertDialog.Builder ab = new AlertDialog.Builder(LoginActivity.this);
+
+        ab.setTitle("Exit?");
+
+        ab.setMessage("Are you sure you want to exit?");
+
+        ab.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                LoginActivity.super.onBackPressed();
+            }
+        });
+
+        ab.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        ab.create().show();
+
     }
 
 
