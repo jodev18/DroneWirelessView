@@ -18,8 +18,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="18dp"
         android:text="Pilot Name"
-        android:textColor="@android:color/black"
-        android:textSize="24sp"
+        android:textColor="@android:color/background_light"
+        android:textSize="36sp"
         android:textStyle="bold" />
 
     <TextView
@@ -28,10 +28,10 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvPilotName"
         android:layout_centerHorizontal="true"
+        android:paddingBottom="8dp"
         android:text="Drone Name"
-        android:textColor="@android:color/black"
-        android:textSize="16sp"
-        android:paddingBottom="8dp"/>
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp" />
 
     <ListView
         android:id="@+id/lvPilotMenu"

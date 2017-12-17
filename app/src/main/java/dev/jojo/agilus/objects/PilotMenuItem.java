@@ -7,5 +7,6 @@ package dev.jojo.agilus.objects;
 public class PilotMenuItem {
 
     public String MENU_NAME;
+    public String MENU_DESC;
     public int DRAWABLE_RESOURCE;
 }

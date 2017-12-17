@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
+    android:background="?attr/colorPrimary"
     android:padding="16dp"
     tools:context="dev.jojo.agilus.LoginActivity">
 
@@ -24,7 +24,7 @@
                 android:id="@+id/imageView2"
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
-                app:srcCompat="@drawable/agilus_pic" />
+                app:srcCompat="@drawable/agilus_graphic" />
 
             <TextView
                 android:id="@+id/textView"

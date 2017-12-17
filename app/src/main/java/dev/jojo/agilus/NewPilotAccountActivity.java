@@ -18,6 +18,7 @@ import com.parse.SignUpCallback;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import dev.jojo.agilus.core.CodeGenerator;
+import dev.jojo.agilus.core.Globals;
 
 public class NewPilotAccountActivity extends AppCompatActivity {
 
@@ -68,13 +69,13 @@ public class NewPilotAccountActivity extends AppCompatActivity {
 
                             prg.show();
 
-                            ParseObject parseObject = new ParseObject("PilotAccounts");
+                            final ParseObject parseObject = new ParseObject(Globals.PILOT_CLASS_NAME);
 
-                            parseObject.put("PilotUser",pUser);
-                            parseObject.put("PilotPass",pPass);
-                            parseObject.put("PilotName",pName);
-                            parseObject.put("PilotDrone",pDrone);
-                            parseObject.put("PilotAdmin",ParseUser.getCurrentUser().getObjectId());
+                            parseObject.put(Globals.PILOT_USER,pUser);
+                            parseObject.put(Globals.PILOT_PASS,pPass);
+                            parseObject.put(Globals.PILOT_NAME,pName);
+                            parseObject.put(Globals.PILOT_DRONE,pDrone);
+                            parseObject.put(Globals.PILOT_ADMIN,ParseUser.getCurrentUser().getObjectId());
 
                             parseObject.saveInBackground(new SaveCallback() {
                                 @Override
@@ -88,7 +89,8 @@ public class NewPilotAccountActivity extends AppCompatActivity {
 
                                         pilotUser.setUsername(pUser);
                                         pilotUser.setPassword(pPass);
-                                        pilotUser.put("Role","Pilot");
+                                        pilotUser.put(Globals.USER_ROLE,Globals.ROLE_PILOT);
+                                        pilotUser.put(Globals.PILOT_INFO_TRACKER,parseObject.getObjectId());
 
                                         pilotUser.signUpInBackground(new SignUpCallback() {
                                             @Override
