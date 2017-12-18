@@ -18,10 +18,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="97dp"
+        android:layout_alignStart="@+id/btnLogout"
+        android:layout_marginTop="102dp"
+        android:fontFamily="serif"
         android:text="TextView"
         android:textColor="@android:color/background_light"
+        android:textSize="18sp"
         android:textStyle="bold" />
 
     <TextView
@@ -30,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/textView11"
         android:layout_below="@+id/textView11"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="13dp"
         android:text="TextView"
         android:textColor="@android:color/background_light" />
 </RelativeLayout>

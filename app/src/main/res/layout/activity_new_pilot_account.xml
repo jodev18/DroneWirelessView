@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
     android:padding="16dp"
     tools:context="dev.jojo.agilus.NewPilotAccountActivity">
 
@@ -23,7 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Pilot Username"
-                android:textColor="@android:color/black" />
+                android:textColor="@android:color/background_light" />
 
             <EditText
                 android:id="@+id/etPilotUserName"
@@ -31,14 +32,15 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Enter pilot username..."
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:textColor="@android:color/background_light" />
 
             <TextView
                 android:id="@+id/textView8"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Pilot Password"
-                android:textColor="@android:color/black" />
+                android:textColor="@android:color/background_light" />
 
             <EditText
                 android:id="@+id/etPilotPassword"
@@ -50,6 +52,7 @@
                 android:hint="Enter pilot password"
                 android:inputType="textPersonName"
                 android:singleLine="true"
+                android:textColor="@android:color/background_light"
                 android:textStyle="bold" />
 
             <TextView
@@ -57,7 +60,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Pilot Name"
-                android:textColor="@android:color/black" />
+                android:textColor="@android:color/background_light" />
 
             <EditText
                 android:id="@+id/etPilotName"
@@ -65,14 +68,15 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Enter pilot name..."
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:textColor="@android:color/background_light" />
 
             <TextView
                 android:id="@+id/textView10"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Drone Name"
-                android:textColor="@android:color/black" />
+                android:textColor="@android:color/background_light" />
 
             <EditText
                 android:id="@+id/etDroneName"
@@ -80,7 +84,8 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Enter drone name..."
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:textColor="@android:color/background_light" />
 
             <Button
                 android:id="@+id/btnSaveAccount"

@@ -139,8 +139,8 @@ public class LoginActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed(){
-
         AlertDialog.Builder ab = new AlertDialog.Builder(LoginActivity.this);
+
 
         ab.setTitle("Exit?");
 

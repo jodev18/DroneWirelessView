@@ -2,18 +2,31 @@ package dev.jojo.agilus;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import com.parse.FindCallback;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+import com.parse.ParseUser;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import dev.jojo.agilus.objects.AccountObject;
 import devlight.io.library.ntb.NavigationTabBar;
 
 public class AdminActivity extends AppCompatActivity {
@@ -54,7 +67,8 @@ public class AdminActivity extends AppCompatActivity {
                     case 0:
 
                         final View view = LayoutInflater.from(
-                                getBaseContext()).inflate(R.layout.pager_accounts, null, false);
+                                getBaseContext()).inflate(R.layout.activity_accounts, null, false);
+                        initAccountDisplay(view);
 
                         //final TextView txtPage = (TextView) view.findViewById(R.id.id);
                         //txtPage.setText(String.format("Page #%d", position));
@@ -122,6 +136,80 @@ public class AdminActivity extends AppCompatActivity {
         navigationTabBar.setViewPager(viewPager, 0);
     }
 
+    private void initMapList(View pager){
+
+    }
+
+    private void initPilotList(View pager){
+
+
+    }
+
+    private void initAccountDisplay(View pager){
+
+        Toolbar toolbar = (Toolbar)pager.findViewById(R.id.toolbar);
+        toolbar.setNavigationIcon(R.drawable.agilus_graphic);
+
+        FloatingActionButton fab = (FloatingActionButton)pager.findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),NewPilotAccountActivity.class));
+            }
+        });
+
+        final ListView lvPilotList = (ListView)pager.findViewById(R.id.lvAccountsList);
+        final TextView tvStat = (TextView)pager.findViewById(R.id.tvStatusNone);
+
+        ParseQuery<ParseObject> pq = ParseQuery.getQuery("PilotAccounts");
+
+        pq.whereEqualTo("PilotAdmin", ParseUser.getCurrentUser().getObjectId());
+
+        //Toast.makeText(this, "OBJECT ID--" + ParseUser.getCurrentUser().getObjectId(), Toast.LENGTH_SHORT).show();
+
+        pq.findInBackground(new FindCallback<ParseObject>() {
+            @Override
+            public void done(List<ParseObject> objects, ParseException e) {
+
+                //prg.dismiss();
+
+                if (e == null) {
+
+                    if (objects.size() > 0) {
+                        List<AccountObject> accountObjects = new ArrayList<>();
+
+                        int accs = objects.size();
+
+                        for (int i = 0; i < accs; i++) {
+                            AccountObject accObj
+                                    = new AccountObject(objects.get(i).getString("PilotUserName"),
+                                    objects.get(i).getString("PilotPassword"),
+                                    objects.get(i).getString("PilotName"),
+                                    objects.get(i).getString("PilotDrone"),
+                                    objects.get(i).getObjectId());
+
+                            accountObjects.add(accObj);
+                        }
+
+                        AccountsAdapter accountsAdapter = new AccountsAdapter(AdminActivity.this, accountObjects);
+                        lvPilotList.setAdapter(accountsAdapter);
+                        tvStat.setVisibility(TextView.GONE);
+                    } else {
+                        tvStat.setVisibility(TextView.VISIBLE);
+                        tvStat.setText("No accounts yet.");
+                    }
+                } else {
+                    tvStat.setText("There was a problem encountered while loading accounts.");
+                }
+            }
+        });
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        initUI();
+    }
 
     @Override
     public void onBackPressed(){
