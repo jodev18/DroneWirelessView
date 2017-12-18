@@ -41,6 +41,13 @@ public class SignupActivity extends AppCompatActivity {
         prg = new ProgressDialog(SignupActivity.this);
     }
 
+    private void invokeSnackBar(String message){
+        Snackbar snackbar = Snackbar.make(nUser, message, Snackbar.LENGTH_LONG);
+        View snackBarView = snackbar.getView();
+        snackBarView.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+        snackbar.show();
+    }
+
     private void initButton(){
         bCreate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,8 +64,8 @@ public class SignupActivity extends AppCompatActivity {
                 if(s_user.length() >= 8){
                     if(s_pass.length() >= 8){
                         if(s_c_pass.length() >= 8){
-                            if(s_c_pass.equals(s_c_pass)){
-                                if(s_email.length()>=3 && s_email.contains("@")){
+                            if(s_c_pass.equals(s_pass)){
+                                if(s_email.length()>=3 && s_email.contains("@") && s_email.contains(".")){
                                     ParseUser parseUser = new ParseUser();
                                     parseUser.setUsername(s_user);
                                     parseUser.setPassword(s_c_pass);
@@ -76,39 +83,40 @@ public class SignupActivity extends AppCompatActivity {
                                                 finish();
                                             }
                                             else{
-                                                Snackbar.make(nUser,"Error in signing up " +
-                                                        "was encountered. Please check network connection.",Snackbar.LENGTH_LONG).show();
+                                                invokeSnackBar("Error in signing up " +
+                                                        "was encountered. Please check network connection.");
                                             }
                                         }
                                     });
                                 }
                                 else{
                                     prg.dismiss();
-                                    Snackbar.make(nUser,"Please enter your correct email address.",Snackbar.LENGTH_LONG).show();
+                                    invokeSnackBar("Please enter your correct email address.");
                                 }
                             }
                             else{
                                 prg.dismiss();
-                                Snackbar.make(nUser,"Password and confirm " +
-                                        "password must be the same.",Snackbar.LENGTH_LONG).show();
+                                invokeSnackBar("Password and confirm " +
+                                        "password must be the same.");
+
                             }
                         }
                         else{
                             prg.dismiss();
-                            Snackbar.make(nUser,"Confirm password must be " +
-                                    "at least 8 characters.",Snackbar.LENGTH_LONG).show();
+                            invokeSnackBar("Confirm password must be " +
+                                    "at least 8 characters.");
                         }
                     }
                     else{
                         prg.dismiss();
-                        Snackbar.make(nUser,"Password must be " +
-                                "at least 8 characters.",Snackbar.LENGTH_LONG).show();
+                        invokeSnackBar("Password must be " +
+                                "at least 8 characters.");
                     }
                 }
                 else{
                     prg.dismiss();
-                    Snackbar.make(nUser,"Username must be " +
-                            "at least 8 characters.",Snackbar.LENGTH_LONG).show();
+                    invokeSnackBar("Username must be " +
+                            "at least 8 characters.");
                 }
             }
         });

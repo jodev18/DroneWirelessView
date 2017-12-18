@@ -27,8 +27,6 @@ public class LoginActivity extends AppCompatActivity {
     @BindView(R.id.etUsername) EditText eUsername;
     @BindView(R.id.etPassword) EditText ePassword;
 
-
-
     private ProgressDialog prg;
 
     @Override
@@ -49,6 +47,7 @@ public class LoginActivity extends AppCompatActivity {
             else{
                 if(ParseUser.getCurrentUser().getString(Globals.USER_ROLE).equals(Globals.ROLE_ADMIN)){
                     startActivity(new Intent(getApplicationContext(),AdminActivity.class));
+                    finish();
                 }
                 else{
                     //Something's wrong. You quit.
@@ -79,11 +78,28 @@ public class LoginActivity extends AppCompatActivity {
                             public void done(ParseUser user, ParseException e) {
                                 prg.dismiss();
                                 if(e==null){
-                                    startActivity(new Intent(getApplicationContext(),AccountsActivity.class));
+
+                                    String role = user.getString(Globals.USER_ROLE);
+
+                                    if(role.equals(Globals.ROLE_PILOT)){
+                                        startActivity(new Intent().setClass(getApplicationContext(),PilotActivity.class));
+                                        finish();
+                                    }
+                                    else if(role.equals(Globals.ROLE_ADMIN)){
+                                        startActivity(new Intent().setClass(getApplicationContext(),AdminActivity.class));
+                                        finish();
+                                    }
+
+
                                 }
                                 else{
-                                    invokeSnackBar("There was a problem encountered" +
-                                            " while logging in. Please check your internet connection.");
+                                    if(e.getMessage().contains("i/o")){
+                                        invokeSnackBar("There was a problem encountered" +
+                                                " while logging in. Please check your internet connection.");
+                                    }
+                                    else{
+                                        invokeSnackBar("Login failed.");
+                                    }
                                 }
 
                                 eUsername.setText("");

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     android:padding="18dp"
     tools:context="dev.jojo.agilus.SignupActivity">
 
@@ -22,7 +23,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="New Username"
-                android:textColor="@android:color/black"
+                android:textColor="@android:color/background_light"
                 android:textStyle="bold" />
 
             <EditText
@@ -31,14 +32,15 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Enter new username..."
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:textColor="@android:color/background_light" />
 
             <TextView
                 android:id="@+id/textView4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="New Password"
-                android:textColor="@android:color/black"
+                android:textColor="@android:color/background_light"
                 android:textStyle="bold" />
 
             <EditText
@@ -48,14 +50,15 @@
                 android:editable="false"
                 android:ems="10"
                 android:hint="Enter new password..."
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:textColor="@android:color/background_light" />
 
             <TextView
                 android:id="@+id/textView5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Confirm password"
-                android:textColor="@android:color/black"
+                android:textColor="@android:color/background_light"
                 android:textStyle="bold" />
 
             <EditText
@@ -64,14 +67,15 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Confirm password..."
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:textColor="@android:color/background_light" />
 
             <TextView
                 android:id="@+id/textView6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Email"
-                android:textColor="@android:color/black"
+                android:textColor="@android:color/background_light"
                 android:textStyle="bold" />
 
             <EditText
@@ -80,13 +84,16 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Enter email..."
-                android:inputType="textEmailAddress" />
+                android:inputType="textEmailAddress"
+                android:textColor="@android:color/background_light" />
 
             <Button
                 android:id="@+id/btnCreateAccount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Create Account" />
+                android:background="@color/colorPrimaryDark"
+                android:text="Create Account"
+                android:textColor="@android:color/background_light" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

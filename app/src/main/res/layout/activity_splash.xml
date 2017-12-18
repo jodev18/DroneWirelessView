@@ -15,17 +15,4 @@
         android:layout_alignParentTop="true"
         app:srcCompat="@drawable/agilus_graphic" />
 
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="95dp"
-        android:fontFamily="serif"
-        android:text="AGILUS"
-        android:textColor="@android:color/background_light"
-        android:textSize="30sp"
-        android:textStyle="bold" />
-
 </RelativeLayout>
