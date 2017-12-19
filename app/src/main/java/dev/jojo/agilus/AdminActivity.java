@@ -182,8 +182,8 @@ public class AdminActivity extends AppCompatActivity {
 
                         for (int i = 0; i < accs; i++) {
                             AccountObject accObj
-                                    = new AccountObject(objects.get(i).getString("PilotUserName"),
-                                    objects.get(i).getString("PilotPassword"),
+                                    = new AccountObject(objects.get(i).getString("PilotUser"),
+                                    objects.get(i).getString("PilotPass"),
                                     objects.get(i).getString("PilotName"),
                                     objects.get(i).getString("PilotDrone"),
                                     objects.get(i).getObjectId());

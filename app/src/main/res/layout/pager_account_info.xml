@@ -14,25 +14,24 @@
         android:text="Log out" />
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/tvUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/btnLogout"
         android:layout_marginTop="102dp"
         android:fontFamily="serif"
-        android:text="TextView"
+        android:text="User name"
         android:textColor="@android:color/background_light"
         android:textSize="18sp"
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/textView12"
+        android:id="@+id/tvUserRole"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/textView11"
-        android:layout_below="@+id/textView11"
-        android:layout_marginTop="13dp"
-        android:text="TextView"
+        android:layout_below="@+id/tvUsername"
+        android:layout_centerHorizontal="true"
+        android:text="Role"
         android:textColor="@android:color/background_light" />
 </RelativeLayout>

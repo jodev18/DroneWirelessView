@@ -46,7 +46,7 @@ public class PilotActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setNavigationIcon(R.drawable.agilus_graphic);
         setSupportActionBar(toolbar);
-
+        setTitle("");
         ButterKnife.bind(this);
 
         initFAB();
@@ -87,6 +87,9 @@ public class PilotActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
+                switch(position){
+
+                }
 
             }
         });

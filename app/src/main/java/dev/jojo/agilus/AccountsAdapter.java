@@ -49,15 +49,20 @@ public class AccountsAdapter extends BaseAdapter {
 
         AccountObject currAcc = accountObjects.get(position);
 
-        TextView pilotName, droneName, isActiveStat;
+        TextView pilotName, droneName, isActiveStat, pilotUser, pilotPass;
 
         pilotName = (TextView)convertView.findViewById(R.id.tvPilotName);
         droneName = (TextView)convertView.findViewById(R.id.tvDroneName);
         isActiveStat = (TextView)convertView.findViewById(R.id.tvIsActiveStat);
+        pilotUser = (TextView)convertView.findViewById(R.id.tvPilotUsername);
+        pilotPass = (TextView)convertView.findViewById(R.id.tvPilotPassword);
 
         pilotName.setText(currAcc.NAME);
         droneName.setText(currAcc.DRONE_ID);
-        isActiveStat.setText(currAcc.IS_ACTIVE);
+        isActiveStat.setText((currAcc.IS_ACTIVE != null) ? currAcc.IS_ACTIVE : "Inactive");
+
+        pilotUser.setText(currAcc.USERNAME);
+        pilotPass.setText(currAcc.PASSWORD);
 
         return convertView;
     }

@@ -5,37 +5,6 @@
     android:layout_height="match_parent"
     android:padding="12dp">
 
-    <TextView
-        android:id="@+id/tvPilotName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/imageView4"
-        android:text="Pilot Name"
-        android:textColor="@android:color/background_light"
-        android:textSize="24sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/tvDroneName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/tvPilotName"
-        android:layout_below="@+id/tvPilotName"
-        android:text="Drone Name"
-        android:textColor="@android:color/background_light"
-        android:textSize="18sp" />
-
-    <TextView
-        android:id="@+id/tvIsActiveStat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/tvDroneName"
-        android:layout_below="@+id/tvDroneName"
-        android:text="Is Active"
-        android:textColor="@android:color/background_light"
-        android:textSize="12sp"
-        android:textStyle="italic" />
 
     <ImageView
         android:id="@+id/imageView4"
@@ -44,4 +13,111 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         app:srcCompat="@drawable/agilus_graphic" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/imageView4"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pilot Name"
+            android:textColor="@android:color/holo_orange_light" />
+
+        <TextView
+            android:id="@+id/tvPilotName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/imageView4"
+            android:text="Pilot Name"
+            android:textAppearance="@android:style/TextAppearance.Material.Medium"
+            android:textColor="@android:color/background_light"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Drone Name"
+            android:textColor="@android:color/holo_orange_light" />
+
+        <TextView
+            android:id="@+id/tvDroneName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/tvPilotName"
+            android:layout_below="@+id/tvPilotName"
+            android:text="Drone Name"
+            android:textColor="@android:color/background_light"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="State"
+            android:textColor="@android:color/holo_orange_light" />
+
+        <TextView
+            android:id="@+id/tvIsActiveStat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/tvDroneName"
+            android:layout_below="@+id/tvDroneName"
+            android:text="Is Active"
+            android:textColor="@android:color/background_light"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/tvIsActiveStat"
+            android:layout_below="@+id/tvIsActiveStat"
+            android:text="--Account Info--"
+            android:textColor="@android:color/background_light"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pilot Username"
+            android:textColor="@android:color/holo_orange_light" />
+
+        <TextView
+            android:id="@+id/tvPilotUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/textView11"
+            android:layout_below="@+id/textView11"
+            android:text="Pilot Username"
+            android:textColor="@android:color/background_light"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pilot Password"
+            android:textColor="@android:color/holo_orange_light" />
+
+        <TextView
+            android:id="@+id/tvPilotPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/tvPilotUsername"
+            android:layout_below="@+id/tvPilotUsername"
+            android:text="Pilot Password"
+            android:textColor="@android:color/background_light"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+
 </RelativeLayout>
