@@ -33,6 +33,7 @@ public class SignupActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
+        setTitle("Sign up to Agilus");
 
         ButterKnife.bind(this);
 

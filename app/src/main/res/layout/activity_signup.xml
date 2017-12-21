@@ -91,9 +91,9 @@
                 android:id="@+id/btnCreateAccount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/colorPrimaryDark"
+                android:background="@color/signupBGButton"
                 android:text="Create Account"
-                android:textColor="@android:color/background_light" />
+                android:textColor="@color/colorPrimaryDark" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

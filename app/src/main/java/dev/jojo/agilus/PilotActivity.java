@@ -7,10 +7,12 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.parse.FindCallback;
 import com.parse.LogOutCallback;
@@ -89,11 +91,95 @@ public class PilotActivity extends AppCompatActivity {
 
                 switch(position){
 
+                    case 0:
+                        //Account info
+
+                        break;
+
+                    case 1:
+                        //Pinned Locations
+
+                        break;
+
+                    case 2:
+
+                        //Images
+
+                        break;
+
+                    case 3:
+                        //Logout
+                        confirmLogoutDialog();
+                        break;
+
+
+                    default:
+
                 }
 
             }
         });
 
+
+    }
+
+    private void showEditInfo(){
+
+
+    }
+
+    private void showPinnedLocations(){
+
+    }
+
+    private void showAllSavedImages(){
+
+    }
+
+    private void confirmLogoutDialog(){
+
+
+        AlertDialog.Builder ab = new AlertDialog.Builder(PilotActivity.this);
+
+        ab.setTitle("Logout");
+
+        ab.setMessage("Are you sure you want to logout?");
+
+        ab.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                prg.setMessage("Logging out...");
+                prg.show();
+
+                ParseUser.logOutInBackground(new LogOutCallback() {
+                    @Override
+                    public void done(ParseException e) {
+
+                        prg.dismiss();
+
+                        if(e == null){
+                            Toast.makeText(PilotActivity.this, "Successfully logged out.", Toast.LENGTH_SHORT).show();
+                            finish();
+                        }
+                        else{
+                            Toast.makeText(PilotActivity.this, "There was an error logging out.", Toast.LENGTH_SHORT).show();
+                            Log.e("LOGOUT_ERR",e.getMessage());
+                        }
+                    }
+                });
+
+            }
+        });
+
+        ab.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+        ab.create().show();
 
     }
     /**

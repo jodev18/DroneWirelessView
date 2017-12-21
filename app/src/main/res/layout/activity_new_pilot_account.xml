@@ -24,7 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Pilot Username"
-                android:textColor="@android:color/background_light" />
+                android:textColor="@color/colorAccent" />
 
             <EditText
                 android:id="@+id/etPilotUserName"
@@ -40,7 +40,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Pilot Password"
-                android:textColor="@android:color/background_light" />
+                android:textColor="@color/colorAccent" />
 
             <EditText
                 android:id="@+id/etPilotPassword"
@@ -60,7 +60,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Pilot Name"
-                android:textColor="@android:color/background_light" />
+                android:textColor="@color/colorAccent" />
 
             <EditText
                 android:id="@+id/etPilotName"
@@ -76,7 +76,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Drone Name"
-                android:textColor="@android:color/background_light" />
+                android:textColor="@color/colorAccent" />
 
             <EditText
                 android:id="@+id/etDroneName"
@@ -91,7 +91,9 @@
                 android:id="@+id/btnSaveAccount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Create Pilot" />
+                android:background="@color/signupBGButton"
+                android:text="Create Pilot"
+                android:textColor="@color/colorPrimaryDark" />
         </LinearLayout>
 
 

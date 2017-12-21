@@ -4,6 +4,8 @@ import android.app.ProgressDialog;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -39,6 +41,7 @@ public class NewPilotAccountActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         generateAuth();
         initButton();
+        initPilotUser();
 
         prg = new ProgressDialog(NewPilotAccountActivity.this);
 
@@ -47,6 +50,35 @@ public class NewPilotAccountActivity extends AppCompatActivity {
     private void generateAuth(){
         CodeGenerator cgen = new CodeGenerator();
         ePilotPass.setText(cgen.getAuthCode());
+    }
+
+    private void initPilotUser(){
+        CodeGenerator code = new CodeGenerator();
+
+        final String prefix = "pilot-" + code.getPilotCode()+"-";
+
+        ePilotUser.setText(prefix);
+        ePilotUser.setSelection(prefix.length());
+
+        ePilotUser.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if(s.length() < prefix.length()){
+                    ePilotUser.setText(prefix);
+                    ePilotUser.setSelection(prefix.length());
+                }
+            }
+        });
     }
 
     private void initButton(){

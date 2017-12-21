@@ -1,6 +1,7 @@
 package dev.jojo.agilus;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
@@ -14,10 +15,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.parse.FindCallback;
+import com.parse.LogOutCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
@@ -31,6 +35,8 @@ import devlight.io.library.ntb.NavigationTabBar;
 
 public class AdminActivity extends AppCompatActivity {
 
+    ProgressDialog prg;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +48,9 @@ public class AdminActivity extends AppCompatActivity {
     }
 
     private void initUI(){
+
+        prg = new ProgressDialog(AdminActivity.this);
+
         final String[] colors = getResources().getStringArray(R.array.vertical_ntb);
 
         final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
@@ -90,7 +99,7 @@ public class AdminActivity extends AppCompatActivity {
                     case 2:
                         final View viewInfo = LayoutInflater.from(
                                 getBaseContext()).inflate(R.layout.pager_account_info, null, false);
-
+                        initInfoDisplay(viewInfo);
                         //final TextView txtPage = (TextView) view.findViewById(R.id.id);
                         //txtPage.setText(String.format("Page #%d", position));
 
@@ -140,9 +149,71 @@ public class AdminActivity extends AppCompatActivity {
 
     }
 
-    private void initPilotList(View pager){
+    private void initInfoDisplay(View pager){
+
+        TextView adminUsername = (TextView)pager.findViewById(R.id.tvUsername);
+        TextView adminRole = (TextView)pager.findViewById(R.id.tvUserRole);
+
+        //TODO Put the username and role here.
+        adminUsername.setText(ParseUser.getCurrentUser().getUsername());
+        adminRole.setText(ParseUser.getCurrentUser().getString("Role"));
+
+        Button logout = (Button)pager.findViewById(R.id.btnLogout);
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showConfirmLogoutDialog();
+            }
+        });
+
+    }
+
+    private void showConfirmLogoutDialog(){
+        AlertDialog.Builder lgConfirm = new AlertDialog.Builder(AdminActivity.this);
+
+        lgConfirm.setTitle("Log out");
+        lgConfirm.setMessage("Are you sure you want to logout?");
+
+        lgConfirm.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                prg.setMessage("Logging out...");
+                prg.show();
+
+                ParseUser.logOutInBackground(new LogOutCallback() {
+                    @Override
+                    public void done(ParseException e) {
+                        
+                        prg.dismiss();
+
+                        if(e == null){
+                            Toast.makeText(AdminActivity.this, 
+                                    "Logged out successfully.", Toast.LENGTH_SHORT).show();
+                            finish();
+
+                            startActivity(new Intent().setClass(getApplicationContext(),LoginActivity.class));
+                        }
+                        else{
+                            Toast.makeText(AdminActivity.this,
+                                    "Failed to log out.", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
 
 
+            }
+        });
+
+        lgConfirm.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        lgConfirm.create().show();
     }
 
     private void initAccountDisplay(View pager){
