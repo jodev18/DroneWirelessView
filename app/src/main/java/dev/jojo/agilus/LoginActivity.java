@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +13,8 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.github.pwittchen.reactivenetwork.library.rx2.Connectivity;
+import com.github.pwittchen.reactivenetwork.library.rx2.ReactiveNetwork;
 import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
@@ -19,6 +22,10 @@ import com.parse.ParseUser;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import dev.jojo.agilus.core.Globals;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -28,7 +35,10 @@ public class LoginActivity extends AppCompatActivity {
     @BindView(R.id.etUsername) EditText eUsername;
     @BindView(R.id.etPassword) EditText ePassword;
 
+    private AlertDialog alertInfoDialog;
+
     private ProgressDialog prg;
+    private Disposable netDisposable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +68,38 @@ public class LoginActivity extends AppCompatActivity {
             //finish();
         }
 
+        initNetworkListener();
+
+    }
+
+    private void initNetworkListener(){
+
+        netDisposable = ReactiveNetwork.observeNetworkConnectivity(getApplicationContext())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<Connectivity>() {
+                    @Override public void accept(final Connectivity connectivity) {
+                        // do something with connectivity
+                        // you can call connectivity.getState();
+                        // connectivity.getType(); or connectivity.toString();
+                        if(connectivity.getState().equals(NetworkInfo.State.CONNECTED)){
+                            if(alertInfoDialog != null){
+                                if(alertInfoDialog.isShowing()){
+                                    alertInfoDialog.dismiss();
+                                }
+                            }
+                            Snackbar.make(bLogin,"Device connected.",Snackbar.LENGTH_SHORT).show();
+                        }
+                        else{
+                            AlertDialog.Builder dc = new AlertDialog.Builder(LoginActivity.this);
+                            dc.setTitle("Device offline");
+                            dc.setMessage("The device is currently offline. Service is unavailable.");
+                            dc.setCancelable(false);
+                            alertInfoDialog = dc.create();
+                            alertInfoDialog.show();
+                        }
+                    }
+                });
     }
 
     private void setButtonListeners(){
@@ -163,6 +205,16 @@ public class LoginActivity extends AppCompatActivity {
 
         ab.create().show();
 
+    }
+
+    @Override
+    public void onDestroy(){
+
+        if (netDisposable != null && !netDisposable.isDisposed()) {
+            netDisposable.dispose();
+        }
+
+        super.onDestroy();
     }
 
 

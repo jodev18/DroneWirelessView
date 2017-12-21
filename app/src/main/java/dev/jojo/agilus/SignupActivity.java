@@ -3,20 +3,27 @@ package dev.jojo.agilus;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.net.NetworkInfo;
+import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.github.pwittchen.reactivenetwork.library.rx2.Connectivity;
+import com.github.pwittchen.reactivenetwork.library.rx2.ReactiveNetwork;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
 
 public class SignupActivity extends AppCompatActivity {
 
@@ -28,6 +35,9 @@ public class SignupActivity extends AppCompatActivity {
     @BindView(R.id.btnCreateAccount) Button bCreate;
 
     private ProgressDialog prg;
+    private AlertDialog alertInfoDialog;
+
+    private Disposable netDisposable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +50,38 @@ public class SignupActivity extends AppCompatActivity {
         initButton();
 
         prg = new ProgressDialog(SignupActivity.this);
+
+        initNetworkListener();
+    }
+
+    private void initNetworkListener(){
+
+        netDisposable = ReactiveNetwork.observeNetworkConnectivity(getApplicationContext())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<Connectivity>() {
+                    @Override public void accept(final Connectivity connectivity) {
+                        // do something with connectivity
+                        // you can call connectivity.getState();
+                        // connectivity.getType(); or connectivity.toString();
+                        if(connectivity.getState().equals(NetworkInfo.State.CONNECTED)){
+                            if(alertInfoDialog != null){
+                                if(alertInfoDialog.isShowing()){
+                                    alertInfoDialog.dismiss();
+                                }
+                            }
+                            Snackbar.make(nUser,"Device connected.",Snackbar.LENGTH_SHORT).show();
+                        }
+                        else{
+                            AlertDialog.Builder dc = new AlertDialog.Builder(SignupActivity.this);
+                            dc.setTitle("Device offline");
+                            dc.setMessage("The device is currently offline. Service is unavailable.");
+                            dc.setCancelable(false);
+                            alertInfoDialog = dc.create();
+                            alertInfoDialog.show();
+                        }
+                    }
+                });
     }
 
     private void invokeSnackBar(String message){
@@ -146,5 +188,14 @@ public class SignupActivity extends AppCompatActivity {
         });
 
         bb.create().show();
+    }
+
+    @Override
+    public void onDestroy(){
+        if (netDisposable != null && !netDisposable.isDisposed()) {
+            netDisposable.dispose();
+        }
+
+        super.onDestroy();
     }
 }

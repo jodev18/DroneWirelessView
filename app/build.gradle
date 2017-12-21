@@ -36,4 +36,7 @@ dependencies {
     implementation 'com.parse:parse-android:1.16.3'
 
     compile 'devlight.io:navigationtabbar:1.2.5'
+
+    compile 'com.github.pwittchen:reactivenetwork-rx2:0.12.2'
+
 }
