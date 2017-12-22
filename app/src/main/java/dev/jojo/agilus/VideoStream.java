@@ -9,7 +9,6 @@ import android.graphics.Typeface;
 import android.hardware.usb.UsbDevice;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Surface;
 import android.view.SurfaceHolder;
@@ -22,6 +21,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import com.serenegiant.common.BaseActivity;
+import com.serenegiant.opencv.ImageProcessor;
+import com.serenegiant.usb.CameraDialog;
+import com.serenegiant.usb.USBMonitor;
+import com.serenegiant.usb.UVCCamera;
+import com.serenegiant.usbcameracommon.UVCCameraHandlerMultiSurface;
+import com.serenegiant.utils.CpuMonitor;
+import com.serenegiant.utils.ViewAnimationHelper;
+import com.serenegiant.widget.UVCCameraTextureView;
+
 import java.nio.ByteBuffer;
 import java.util.Locale;
 
@@ -29,7 +38,7 @@ public class VideoStream extends BaseActivity
         implements CameraDialog.CameraDialogParent {
 
     private static final boolean DEBUG = true;	// TODO set false on release
-    private static final String TAG = "MainActivity";
+    private static final String TAG = "VideoStream";
 
     /**
      * set true if you want to record movie using MediaSurfaceEncoder
@@ -100,7 +109,7 @@ public class VideoStream extends BaseActivity
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (DEBUG) Log.v(TAG, "onCreate:");
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_video_stream);
         mCameraButton = (ToggleButton)findViewById(R.id.camera_button);
         mCameraButton.setOnCheckedChangeListener(mOnCheckedChangeListener);
         mCaptureButton = (ImageButton)findViewById(R.id.capture_button);
@@ -218,7 +227,7 @@ public class VideoStream extends BaseActivity
             switch (compoundButton.getId()) {
                 case R.id.camera_button:
                     if (isChecked && !mCameraHandler.isOpened()) {
-                        CameraDialog.showDialog(MainActivity.this);
+                        CameraDialog.showDialog(VideoStream.this);
                     } else {
                         stopPreview();
                     }
@@ -303,18 +312,18 @@ public class VideoStream extends BaseActivity
         setCameraButton(false);
     }
 
-    private final OnDeviceConnectListener mOnDeviceConnectListener
-            = new OnDeviceConnectListener() {
+    private final USBMonitor.OnDeviceConnectListener mOnDeviceConnectListener
+            = new USBMonitor.OnDeviceConnectListener() {
 
         @Override
         public void onAttach(final UsbDevice device) {
-            Toast.makeText(MainActivity.this,
+            Toast.makeText(VideoStream.this,
                     "USB_DEVICE_ATTACHED", Toast.LENGTH_SHORT).show();
         }
 
         @Override
         public void onConnect(final UsbDevice device,
-                              final UsbControlBlock ctrlBlock, final boolean createNew) {
+                              final USBMonitor.UsbControlBlock ctrlBlock, final boolean createNew) {
 
             if (DEBUG) Log.v(TAG, "onConnect:");
             mCameraHandler.open(ctrlBlock);
@@ -324,7 +333,7 @@ public class VideoStream extends BaseActivity
 
         @Override
         public void onDisconnect(final UsbDevice device,
-                                 final UsbControlBlock ctrlBlock) {
+                                 final USBMonitor.UsbControlBlock ctrlBlock) {
 
             if (DEBUG) Log.v(TAG, "onDisconnect:");
             if (mCameraHandler != null) {
@@ -339,7 +348,7 @@ public class VideoStream extends BaseActivity
         }
         @Override
         public void onDettach(final UsbDevice device) {
-            Toast.makeText(MainActivity.this,
+            Toast.makeText(VideoStream.this,
                     "USB_DEVICE_DETACHED", Toast.LENGTH_SHORT).show();
         }
 
@@ -685,11 +694,4 @@ public class VideoStream extends BaseActivity
 
     }
 
-}
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_video_stream);
-    }
 }

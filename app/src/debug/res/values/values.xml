@@ -1,101 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
     <attr default="-1.0" format="float" name="aspect_ratio"/>
-    <attr format="reference" name="constraintSet"/>
     <attr default="true" format="boolean" name="handle_touch_event"/>
-    <attr format="integer" name="layout_constraintBaseline_creator"/>
-    <attr format="reference|enum" name="layout_constraintBaseline_toBaselineOf">
-        <enum name="parent" value="0"/>
-    </attr>
-    <attr format="integer" name="layout_constraintBottom_creator"/>
-    <attr format="reference|enum" name="layout_constraintBottom_toBottomOf">
-        <enum name="parent" value="0"/>
-    </attr>
-    <attr format="reference|enum" name="layout_constraintBottom_toTopOf">
-        <enum name="parent" value="0"/>
-    </attr>
-    <attr format="string" name="layout_constraintDimensionRatio"/>
-    <attr format="reference|enum" name="layout_constraintEnd_toEndOf">
-        <enum name="parent" value="0"/>
-    </attr>
-    <attr format="reference|enum" name="layout_constraintEnd_toStartOf">
-        <enum name="parent" value="0"/>
-    </attr>
-    <attr format="dimension" name="layout_constraintGuide_begin"/>
-    <attr format="dimension" name="layout_constraintGuide_end"/>
-    <attr format="float" name="layout_constraintGuide_percent"/>
-    <attr name="layout_constraintHeight_default">
-        <enum name="spread" value="0"/>
-        <enum name="wrap" value="1"/>
-    </attr>
-    <attr format="dimension" name="layout_constraintHeight_max"/>
-    <attr format="dimension" name="layout_constraintHeight_min"/>
-    <attr format="float" name="layout_constraintHorizontal_bias"/>
-    <attr format="enum" name="layout_constraintHorizontal_chainStyle">
-        <enum name="spread" value="0"/>
-        <enum name="spread_inside" value="1"/>
-        <enum name="packed" value="2"/>
-    </attr>
-    <attr format="float" name="layout_constraintHorizontal_weight"/>
-    <attr format="integer" name="layout_constraintLeft_creator"/>
-    <attr format="reference|enum" name="layout_constraintLeft_toLeftOf">
-        <enum name="parent" value="0"/>
-    </attr>
-    <attr format="reference|enum" name="layout_constraintLeft_toRightOf">
-        <enum name="parent" value="0"/>
-    </attr>
-    <attr format="integer" name="layout_constraintRight_creator"/>
-    <attr format="reference|enum" name="layout_constraintRight_toLeftOf">
-        <enum name="parent" value="0"/>
-    </attr>
-    <attr format="reference|enum" name="layout_constraintRight_toRightOf">
-        <enum name="parent" value="0"/>
-    </attr>
-    <attr format="reference|enum" name="layout_constraintStart_toEndOf">
-        <enum name="parent" value="0"/>
-    </attr>
-    <attr format="reference|enum" name="layout_constraintStart_toStartOf">
-        <enum name="parent" value="0"/>
-    </attr>
-    <attr format="integer" name="layout_constraintTop_creator"/>
-    <attr format="reference|enum" name="layout_constraintTop_toBottomOf">
-        <enum name="parent" value="0"/>
-    </attr>
-    <attr format="reference|enum" name="layout_constraintTop_toTopOf">
-        <enum name="parent" value="0"/>
-    </attr>
-    <attr format="float" name="layout_constraintVertical_bias"/>
-    <attr format="enum" name="layout_constraintVertical_chainStyle">
-        <enum name="spread" value="0"/>
-        <enum name="spread_inside" value="1"/>
-        <enum name="packed" value="2"/>
-    </attr>
-    <attr format="float" name="layout_constraintVertical_weight"/>
-    <attr name="layout_constraintWidth_default">
-        <enum name="spread" value="0"/>
-        <enum name="wrap" value="1"/>
-    </attr>
-    <attr format="dimension" name="layout_constraintWidth_max"/>
-    <attr format="dimension" name="layout_constraintWidth_min"/>
-    <attr format="dimension" name="layout_editor_absoluteX"/>
-    <attr format="dimension" name="layout_editor_absoluteY"/>
-    <attr format="dimension" name="layout_goneMarginBottom"/>
-    <attr format="dimension" name="layout_goneMarginEnd"/>
-    <attr format="dimension" name="layout_goneMarginLeft"/>
-    <attr format="dimension" name="layout_goneMarginRight"/>
-    <attr format="dimension" name="layout_goneMarginStart"/>
-    <attr format="dimension" name="layout_goneMarginTop"/>
-    <attr name="layout_optimizationLevel">
-        <flag name="none" value="1"/>
-        <flag name="all" value="2"/>
-        <flag name="basic" value="4"/>
-        <flag name="chains" value="8"/>
-    </attr>
     <attr default="scale_none" name="scale_mode">
-		<enum name="keep_aspect" value="0"/>
-		<enum name="stretch_to_fit" value="1"/>
-		<enum name="crop_center" value="2"/>
-	</attr>
+        <enum name="keep_aspect" value="0"/>
+        <enum name="stretch_to_fit" value="1"/>
+        <enum name="crop_center" value="2"/>
+    </attr>
     <color name="ALICEBLUE">#fff0f8ff</color>
     <color name="ANTIQUEWHITE">#fffaebd7</color>
     <color name="AQUA">#ff00ffff</color>
@@ -626,48 +537,39 @@
     <color name="viewfinder_laser">#ffcc0000</color>
     <color name="viewfinder_mask">#60000000</color>
     <declare-styleable name="AspectScaledTextureView"><attr name="aspect_ratio"/><attr name="scale_mode"/></declare-styleable>
-    <declare-styleable name="CameraBridgeViewBase"><attr format="boolean" name="show_fps"/><attr format="integer" name="camera_id">
-          <enum name="any" value="-1"/>
-          <enum name="back" value="99"/>
-          <enum name="front" value="98"/>
-       </attr></declare-styleable>
-    <declare-styleable name="ConstraintLayout_Layout"><attr name="android:orientation"/><attr name="android:minWidth"/><attr name="android:minHeight"/><attr name="android:maxWidth"/><attr name="android:maxHeight"/><attr name="layout_optimizationLevel"/><attr name="constraintSet"/><attr name="layout_constraintGuide_begin"/><attr name="layout_constraintGuide_end"/><attr name="layout_constraintGuide_percent"/><attr name="layout_constraintLeft_toLeftOf"/><attr name="layout_constraintLeft_toRightOf"/><attr name="layout_constraintRight_toLeftOf"/><attr name="layout_constraintRight_toRightOf"/><attr name="layout_constraintTop_toTopOf"/><attr name="layout_constraintTop_toBottomOf"/><attr name="layout_constraintBottom_toTopOf"/><attr name="layout_constraintBottom_toBottomOf"/><attr name="layout_constraintBaseline_toBaselineOf"/><attr name="layout_constraintStart_toEndOf"/><attr name="layout_constraintStart_toStartOf"/><attr name="layout_constraintEnd_toStartOf"/><attr name="layout_constraintEnd_toEndOf"/><attr name="layout_goneMarginLeft"/><attr name="layout_goneMarginTop"/><attr name="layout_goneMarginRight"/><attr name="layout_goneMarginBottom"/><attr name="layout_goneMarginStart"/><attr name="layout_goneMarginEnd"/><attr name="layout_constraintHorizontal_bias"/><attr name="layout_constraintVertical_bias"/><attr name="layout_constraintWidth_default"/><attr name="layout_constraintHeight_default"/><attr name="layout_constraintWidth_min"/><attr name="layout_constraintWidth_max"/><attr name="layout_constraintHeight_min"/><attr name="layout_constraintHeight_max"/><attr name="layout_constraintLeft_creator"/><attr name="layout_constraintTop_creator"/><attr name="layout_constraintRight_creator"/><attr name="layout_constraintBottom_creator"/><attr name="layout_constraintBaseline_creator"/><attr name="layout_constraintDimensionRatio"/><attr name="layout_constraintHorizontal_weight"/><attr name="layout_constraintVertical_weight"/><attr name="layout_constraintHorizontal_chainStyle"/><attr name="layout_constraintVertical_chainStyle"/><attr name="layout_editor_absoluteX"/><attr name="layout_editor_absoluteY"/></declare-styleable>
-    <declare-styleable name="ConstraintSet"><attr name="android:orientation"/><attr name="android:id"/><attr name="android:visibility"/><attr name="android:alpha"/><attr name="android:elevation"/><attr name="android:rotationX"/><attr name="android:rotationY"/><attr name="android:scaleX"/><attr name="android:scaleY"/><attr name="android:transformPivotX"/><attr name="android:transformPivotY"/><attr name="android:translationX"/><attr name="android:translationY"/><attr name="android:translationZ"/><attr name="android:layout_width"/><attr name="android:layout_height"/><attr name="android:layout_marginStart"/><attr name="android:layout_marginBottom"/><attr name="android:layout_marginTop"/><attr name="android:layout_marginEnd"/><attr name="android:layout_marginLeft"/><attr name="android:layout_marginRight"/><attr name="layout_constraintGuide_begin"/><attr name="layout_constraintGuide_end"/><attr name="layout_constraintGuide_percent"/><attr name="layout_constraintLeft_toLeftOf"/><attr name="layout_constraintLeft_toRightOf"/><attr name="layout_constraintRight_toLeftOf"/><attr name="layout_constraintRight_toRightOf"/><attr name="layout_constraintTop_toTopOf"/><attr name="layout_constraintTop_toBottomOf"/><attr name="layout_constraintBottom_toTopOf"/><attr name="layout_constraintBottom_toBottomOf"/><attr name="layout_constraintBaseline_toBaselineOf"/><attr name="layout_constraintStart_toEndOf"/><attr name="layout_constraintStart_toStartOf"/><attr name="layout_constraintEnd_toStartOf"/><attr name="layout_constraintEnd_toEndOf"/><attr name="layout_goneMarginLeft"/><attr name="layout_goneMarginTop"/><attr name="layout_goneMarginRight"/><attr name="layout_goneMarginBottom"/><attr name="layout_goneMarginStart"/><attr name="layout_goneMarginEnd"/><attr name="layout_constraintHorizontal_bias"/><attr name="layout_constraintVertical_bias"/><attr name="layout_constraintWidth_default"/><attr name="layout_constraintHeight_default"/><attr name="layout_constraintWidth_min"/><attr name="layout_constraintWidth_max"/><attr name="layout_constraintHeight_min"/><attr name="layout_constraintHeight_max"/><attr name="layout_constraintLeft_creator"/><attr name="layout_constraintTop_creator"/><attr name="layout_constraintRight_creator"/><attr name="layout_constraintBottom_creator"/><attr name="layout_constraintBaseline_creator"/><attr name="layout_constraintDimensionRatio"/><attr name="layout_constraintHorizontal_weight"/><attr name="layout_constraintVertical_weight"/><attr name="layout_constraintHorizontal_chainStyle"/><attr name="layout_constraintVertical_chainStyle"/><attr name="layout_editor_absoluteX"/><attr name="layout_editor_absoluteY"/></declare-styleable>
     <declare-styleable name="FrameView"><attr default="frame_type_frame" name="frame_type">
-			<enum name="frame_type_none" value="0"/>
-			<enum name="frame_type_frame" value="1"/>
-			<enum name="frame_type_cross_full" value="2"/>
-			<enum name="frame_type_cross_quarter" value="3"/>
-			<enum name="frame_type_circle" value="4"/>
-			<enum name="frame_type_cross_circle" value="5"/>
-			<enum name="frame_type_circle2" value="6"/>
-			<enum name="frame_type_cross_circle2" value="7"/>
-		</attr><attr default="3dp" format="dimension" name="frame_width"/><attr default="#ffb1b1b1" format="reference|color|integer" name="frame_color"/><attr default="scale_none" name="scale_type">
-			<enum name="scale_none" value="0"/>
-			<enum name="scale_inch" value="1"/>
-			<enum name="scale_mm" value="2"/>
-		</attr><attr default="3dp" format="dimension" name="scale_width"/><attr default="#ffb1b1b1" format="reference|color|integer" name="scale_color"/><attr default="0" format="float" name="scale_rotation"/><attr default="1" format="float" name="scale_scale"/><attr default="#ffb1b1b1" format="reference|color|integer" name="tick_color"/></declare-styleable>
+        <enum name="frame_type_none" value="0"/>
+        <enum name="frame_type_frame" value="1"/>
+        <enum name="frame_type_cross_full" value="2"/>
+        <enum name="frame_type_cross_quarter" value="3"/>
+        <enum name="frame_type_circle" value="4"/>
+        <enum name="frame_type_cross_circle" value="5"/>
+        <enum name="frame_type_circle2" value="6"/>
+        <enum name="frame_type_cross_circle2" value="7"/>
+    </attr><attr default="3dp" format="dimension" name="frame_width"/><attr default="#ffb1b1b1" format="reference|color|integer" name="frame_color"/><attr default="scale_none" name="scale_type">
+        <enum name="scale_none" value="0"/>
+        <enum name="scale_inch" value="1"/>
+        <enum name="scale_mm" value="2"/>
+    </attr><attr default="3dp" format="dimension" name="scale_width"/><attr default="#ffb1b1b1" format="reference|color|integer" name="scale_color"/><attr default="0" format="float" name="scale_rotation"/><attr default="1" format="float" name="scale_scale"/><attr default="#ffb1b1b1" format="reference|color|integer" name="tick_color"/></declare-styleable>
     <declare-styleable name="IAspectRatioView"><attr name="aspect_ratio"/></declare-styleable>
     <declare-styleable name="IScaledView"><attr name="scale_mode"/></declare-styleable>
     <declare-styleable name="ItemPicker"><attr format="reference" name="ItemPickerIncrementSrc"/><attr format="reference" name="ItemPickerDecrementSrc"/><attr format="reference" name="ItemPickerIncrementBackground"/><attr format="reference" name="ItemPickerDecrementBackground"/><attr format="reference" name="ItemPickerEditTextBackground"/><attr format="integer" name="ItemPickerMinItemValue"/><attr format="integer" name="ItemPickerMaxItemValue"/><attr format="integer" name="ItemPickerCurrentItemValue"/><attr format="integer" name="ItemPickerSpeed"/><attr format="reference" name="ItemPickerDisplayedValue"/></declare-styleable>
-    <declare-styleable name="LinearConstraintLayout"><attr name="android:orientation"/></declare-styleable>
     <declare-styleable name="RecycleViewWithEmptyView"><attr format="color|reference" name="listDivider" value="@null"/></declare-styleable>
-    <declare-styleable name="RecyclerView"><attr format="string" name="layoutManager"/><attr name="android:orientation"/><attr name="android:descendantFocusability"/><attr format="integer" name="spanCount"/><attr format="boolean" name="reverseLayout"/><attr format="boolean" name="stackFromEnd"/></declare-styleable>
     <declare-styleable name="SeekBarPreference"><attr default="0" format="integer|reference" name="min_value"/><attr default="100" format="integer|reference" name="max_value"/><attr default="0" format="integer|reference" name="default_value"/><attr default="0" format="reference" name="seekbar_layout"/><attr default="@id/seekbar" format="reference" name="seekbar_id"/><attr default="@id/seekbar_value_label" format="reference" name="seekbar_label_id"/><attr default="1" format="float" name="scale_value"/><attr default="1" format="string|reference" name="value_format"/></declare-styleable>
     <declare-styleable name="TimePicker"><attr format="integer" name="TimePickerDefaultValue"/></declare-styleable>
     <declare-styleable name="TwoPainViewGroup"><attr default="horizontal" format="enum|integer" name="orientation">
-			<enum name="horizontal" value="0"/>
-			<enum name="vertical" value="1"/>
-		</attr><attr default="split" format="enum|integer" name="displayMode">
-			<enum name="split" value="0"/>
-			<enum name="select1" value="1"/>
-			<enum name="select2" value="2"/>
-			<enum name="single1" value="3"/>
-			<enum name="single2" value="4"/>
-		</attr><attr default="true" format="boolean" name="enableSubWindow">
-		</attr><attr default="false" format="boolean" name="flipChildPos">
-		</attr><attr default="0.2" format="float" name="subWindowScale">
-		</attr></declare-styleable>
+        <enum name="horizontal" value="0"/>
+        <enum name="vertical" value="1"/>
+    </attr><attr default="split" format="enum|integer" name="displayMode">
+        <enum name="split" value="0"/>
+        <enum name="select1" value="1"/>
+        <enum name="select2" value="2"/>
+        <enum name="single1" value="3"/>
+        <enum name="single2" value="4"/>
+    </attr><attr default="true" format="boolean" name="enableSubWindow">
+    </attr><attr default="false" format="boolean" name="flipChildPos">
+    </attr><attr default="0.2" format="float" name="subWindowScale">
+    </attr></declare-styleable>
     <declare-styleable name="ZoomAspectScaledTextureView"><attr name="aspect_ratio"/><attr name="scale_mode"/><attr name="handle_touch_event"/></declare-styleable>
     <dimen name="color_picker_margin_horizontal">16dp</dimen>
     <dimen name="color_picker_margin_vertical">16dp</dimen>
@@ -675,9 +577,6 @@
     <dimen name="color_swatch_margins_large">8dip</dimen>
     <dimen name="color_swatch_margins_small">4dip</dimen>
     <dimen name="color_swatch_small">48dip</dimen>
-    <dimen name="item_touch_helper_max_drag_scroll_per_frame">20dp</dimen>
-    <dimen name="item_touch_helper_swipe_escape_max_velocity">800dp</dimen>
-    <dimen name="item_touch_helper_swipe_escape_velocity">120dp</dimen>
     <dimen name="list_item_bluetooth_info_padding">8dp</dimen>
     <dimen name="scale_type_margin_top">18dp</dimen>
     <dimen name="scale_type_padding">16dp</dimen>
@@ -688,7 +587,6 @@
     <item name="anim_type" type="id"/>
     <item name="has_divider" type="id"/>
     <item name="icon" type="id"/>
-    <item name="item_touch_helper_previous_elevation" type="id"/>
     <item name="mediastorephotoadapter" type="id"/>
     <item name="name" type="id"/>
     <item name="position" type="id"/>
@@ -698,7 +596,6 @@
     <item name="title" type="id"/>
     <integer name="card_flip_time_full">300</integer>
     <integer name="card_flip_time_half">150</integer>
-    <string name="app_name">Test-api</string>
     <string name="color_picker_cancel">Cancel</string>
     <string name="color_picker_default_title">Select a Color</string>
     <string name="color_picker_select">Select</string>
@@ -730,7 +627,7 @@
     <string name="scale_type_mm">mm scale</string>
     <string name="scale_type_none">none</string>
     <style name="SeekBarPreference_summary" parent="@android:style/TextAppearance.Small">
-		<!-- <item name="android:textColor">#ffa500</item> -->
-	</style>
+        <!-- <item name="android:textColor">#ffa500</item> -->
+    </style>
     <style name="SeekBarPreference_title" parent="@android:style/TextAppearance.Large"/>
 </resources>

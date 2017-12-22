@@ -54,15 +54,15 @@ public final class R {
         public static int layout_optimizationLevel = 0x7f040042;
     }
     public static final class id {
-        public static int all = 0x7f0c0003;
-        public static int basic = 0x7f0c0009;
-        public static int chains = 0x7f0c000a;
-        public static int none = 0x7f0c0035;
-        public static int packed = 0x7f0c0036;
-        public static int parent = 0x7f0c0037;
-        public static int spread = 0x7f0c0048;
-        public static int spread_inside = 0x7f0c0049;
-        public static int wrap = 0x7f0c004f;
+        public static int all = 0x7f0c0002;
+        public static int basic = 0x7f0c0008;
+        public static int chains = 0x7f0c0009;
+        public static int none = 0x7f0c0033;
+        public static int packed = 0x7f0c0034;
+        public static int parent = 0x7f0c0035;
+        public static int spread = 0x7f0c0045;
+        public static int spread_inside = 0x7f0c0046;
+        public static int wrap = 0x7f0c004b;
     }
     public static final class styleable {
         public static int[] ConstraintLayout_Layout = { 0x01010120, 0x0101011f, 0x01010140, 0x0101013f, 0x010100c4, 0x7f04000e, 0x7f040018, 0x7f040019, 0x7f04001a, 0x7f04001b, 0x7f04001c, 0x7f04001d, 0x7f04001e, 0x7f04001f, 0x7f040020, 0x7f040021, 0x7f040022, 0x7f040023, 0x7f040024, 0x7f040025, 0x7f040026, 0x7f040027, 0x7f040028, 0x7f040029, 0x7f04002a, 0x7f04002b, 0x7f04002c, 0x7f04002d, 0x7f04002e, 0x7f04002f, 0x7f040030, 0x7f040031, 0x7f040032, 0x7f040033, 0x7f040034, 0x7f040035, 0x7f040036, 0x7f040037, 0x7f040038, 0x7f040039, 0x7f04003a, 0x7f04003b, 0x7f04003c, 0x7f04003d, 0x7f04003e, 0x7f04003f, 0x7f040040, 0x7f040041, 0x7f040042 };
