@@ -4,6 +4,9 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AgilusProject.iml" filepath="$PROJECT_DIR$/AgilusProject.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libuvccamera-release/libuvccamera-release.iml" filepath="$PROJECT_DIR$/libuvccamera-release/libuvccamera-release.iml" />
+      <module fileurl="file://$PROJECT_DIR$/opencv/opencv.iml" filepath="$PROJECT_DIR$/opencv/opencv.iml" />
+      <module fileurl="file://$PROJECT_DIR$/usbCameraCommon-release/usbCameraCommon-release.iml" filepath="$PROJECT_DIR$/usbCameraCommon-release/usbCameraCommon-release.iml" />
     </modules>
   </component>
 </project>

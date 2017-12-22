@@ -9,7 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,7 +18,6 @@ import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
-import com.parse.ParseUser;
 
 import java.util.List;
 
@@ -72,7 +71,7 @@ public class AccountsAdapter extends BaseAdapter {
 
         final TextView pilotName, droneName, isActiveStat, pilotUser, pilotPass;
 
-        final Button bRemove,bEdit;
+        final ImageButton bRemove,bEdit;
 
         pilotName = (TextView)convertView.findViewById(R.id.tvPilotName);
         droneName = (TextView)convertView.findViewById(R.id.tvDroneName);
@@ -80,13 +79,15 @@ public class AccountsAdapter extends BaseAdapter {
         pilotUser = (TextView)convertView.findViewById(R.id.tvPilotUsername);
         pilotPass = (TextView)convertView.findViewById(R.id.tvPilotPassword);
 
-        bRemove = (Button)convertView.findViewById(R.id.imgbtRemovePilot);
-        bEdit = (Button)convertView.findViewById(R.id.imgbtRemovePilot);
+        bRemove = (ImageButton)convertView.findViewById(R.id.imgbtRemovePilot);
+        bEdit = (ImageButton)convertView.findViewById(R.id.imgbtEditPilot);
+
+        final int pos = position;
 
         bRemove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                confirmRemove(currAcc.NAME,currAcc.OBJECT_ID);
+                confirmRemove(currAcc.NAME,currAcc.OBJECT_ID,pos);
             }
         });
 
@@ -126,7 +127,7 @@ public class AccountsAdapter extends BaseAdapter {
         return convertView;
     }
 
-    private void confirmRemove(String pilotName, final String objectId){
+    private void confirmRemove(String pilotName, final String objectId, final int currIndex){
 
         AlertDialog.Builder rem = new AlertDialog.Builder(this.ac);
 
@@ -153,56 +154,37 @@ public class AccountsAdapter extends BaseAdapter {
                         prg.setMessage("Removing from records...");
 
                         if(e==null){
-                            final String userObjId = object.getObjectId();
+                            if(object != null){
+                                final String userObjId = object.getObjectId();
 
-                            //remove the record from pilotaccounts
-                            object.deleteInBackground(new DeleteCallback() {
-                                @Override
-                                public void done(ParseException e) {
+                                Log.d("REMOVE_OBJ_ID",userObjId);
 
-                                    prg.setMessage("Removing account...");
+                                //remove the record from pilotaccounts
+                                object.deleteInBackground(new DeleteCallback() {
+                                    @Override
+                                    public void done(ParseException e) {
 
-                                    if (e == null){
-                                        //Remove the pilot account for login
-                                        ParseQuery<ParseUser> qUser = ParseUser.getQuery();
-                                        qUser.whereEqualTo("PilotTrackID",userObjId);
-                                        qUser.getFirstInBackground(new GetCallback<ParseUser>() {
-                                            @Override
-                                            public void done(ParseUser object, ParseException e) {
+                                        prg.setMessage("Removing account...");
 
-                                                if(e==null){
-                                                    object.deleteInBackground(new DeleteCallback() {
-                                                        @Override
-                                                        public void done(ParseException e) {
+                                        if (e == null){
+                                            prg.dismiss();
 
-                                                            prg.dismiss();
+                                            Toast.makeText(AccountsAdapter.this.ac, "Removed account.", Toast.LENGTH_SHORT).show();
 
-                                                            if(e==null){
-                                                                Toast.makeText(AccountsAdapter.this.ac, "Successfully removed pilot.", Toast.LENGTH_SHORT).show();
-                                                            }
-                                                            else{
-                                                                Log.e("ERRORR_ACCOUNT_PILOT",e.getMessage());
-                                                                Toast.makeText(ac, "There was a problem encountered while removing this pilot.", Toast.LENGTH_SHORT).show();
-                                                            }
+                                            AccountsAdapter.this.accountObjects.remove(currIndex);
+                                            notifyDataSetChanged();
+                                        }
+                                        else{
+                                            Log.e("ERRORR_REMOVE_ACCOUNT",e.getMessage());
+                                            Toast.makeText(ac, "There was a problem encountered while removing this pilot.", Toast.LENGTH_SHORT).show();
+                                        }
 
-                                                        }
-                                                    });
-
-                                                }
-                                                else{
-                                                    Log.e("ERRORR_FIND_PILOT_ACCT",e.getMessage());
-                                                    Toast.makeText(ac, "There was a problem encountered while removing this pilot.", Toast.LENGTH_SHORT).show();
-                                                }
-                                            }
-                                        });
                                     }
-                                    else{
-                                        Log.e("ERRORR_REMOVE_ACCOUNT",e.getMessage());
-                                        Toast.makeText(ac, "There was a problem encountered while removing this pilot.", Toast.LENGTH_SHORT).show();
-                                    }
-
-                                }
-                            });
+                                });
+                            }
+                            else{
+                                Log.e("PILOT_DATA","Error locating pilot data.");
+                            }
                         }
                         else{
                             prg.dismiss();

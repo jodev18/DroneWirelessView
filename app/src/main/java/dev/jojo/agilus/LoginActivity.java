@@ -8,6 +8,7 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -15,9 +16,15 @@ import android.widget.EditText;
 
 import com.github.pwittchen.reactivenetwork.library.rx2.Connectivity;
 import com.github.pwittchen.reactivenetwork.library.rx2.ReactiveNetwork;
+import com.parse.FindCallback;
 import com.parse.LogInCallback;
+import com.parse.LogOutCallback;
 import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
 import com.parse.ParseUser;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -54,6 +61,7 @@ public class LoginActivity extends AppCompatActivity {
 
             if(ParseUser.getCurrentUser().getString(Globals.USER_ROLE).equals(Globals.ROLE_PILOT)){
                 startActivity(new Intent().setClass(getApplicationContext(), PilotActivity.class));
+                finish();
             }
             else{
                 if(ParseUser.getCurrentUser().getString(Globals.USER_ROLE).equals(Globals.ROLE_ADMIN)){
@@ -119,14 +127,48 @@ public class LoginActivity extends AppCompatActivity {
                         ParseUser.logInInBackground(uname, upword, new LogInCallback() {
                             @Override
                             public void done(ParseUser user, ParseException e) {
-                                prg.dismiss();
+                                prg.setMessage("Checking records...");
                                 if(e==null){
 
                                     String role = user.getString(Globals.USER_ROLE);
 
                                     if(role.equals(Globals.ROLE_PILOT)){
-                                        startActivity(new Intent().setClass(getApplicationContext(),PilotActivity.class));
-                                        finish();
+
+                                        prg.setMessage("Authenticating pilot...");
+
+                                        ParseQuery<ParseObject> pPilot = ParseQuery.getQuery(Globals.PILOT_CLASS_NAME);
+
+                                        pPilot.whereEqualTo("objectId",user.getString("PilotTrackID"));
+
+                                        pPilot.findInBackground(new FindCallback<ParseObject>() {
+                                            @Override
+                                            public void done(List<ParseObject> objects, ParseException e) {
+                                                prg.dismiss();
+                                                if(e==null){
+                                                    if(objects.size() > 0){
+                                                        Log.e("OBJECT_LOCATED",objects.get(0).getObjectId());
+                                                        startActivity(new Intent().setClass(getApplicationContext(),PilotActivity.class));
+                                                        finish();
+                                                    }
+                                                    else{
+                                                        prg.setMessage("Your account has been deauthenticated. Revoking credentials...");
+                                                        ParseUser.getCurrentUser().logOutInBackground(new LogOutCallback() {
+                                                            @Override
+                                                            public void done(ParseException e) {
+                                                                if(e == null){
+                                                                    invokeSnackBar("Login rejected.");
+                                                                }
+                                                            }
+                                                        });
+                                                    }
+                                                }
+                                                else{
+                                                    Log.e("ERROR_LOGIN",e.getMessage());
+                                                    invokeSnackBar("Login Failed.");
+                                                }
+                                            }
+                                        });
+
                                     }
                                     else if(role.equals(Globals.ROLE_ADMIN)){
                                         startActivity(new Intent().setClass(getApplicationContext(),AdminActivity.class));

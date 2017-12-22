@@ -2,8 +2,11 @@ package dev.jojo.agilus;
 
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -14,6 +17,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.github.pwittchen.reactivenetwork.library.rx2.Connectivity;
+import com.github.pwittchen.reactivenetwork.library.rx2.ReactiveNetwork;
 import com.parse.FindCallback;
 import com.parse.LogOutCallback;
 import com.parse.ParseException;
@@ -29,6 +34,10 @@ import butterknife.ButterKnife;
 import dev.jojo.agilus.adapters.PilotMenuAdapter;
 import dev.jojo.agilus.core.Globals;
 import dev.jojo.agilus.objects.PilotMenuItem;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
 
 public class PilotActivity extends AppCompatActivity {
 
@@ -39,6 +48,9 @@ public class PilotActivity extends AppCompatActivity {
 
 
     private ProgressDialog prg;
+
+    private Disposable netDisposable;
+    private AlertDialog alertInfoDialog;
 
 
     @Override
@@ -56,6 +68,7 @@ public class PilotActivity extends AppCompatActivity {
         initProgressDialog();
         initProfileData();
         initPilotMenu();
+        initNetworkListener();
 
     }
 
@@ -160,6 +173,7 @@ public class PilotActivity extends AppCompatActivity {
 
                         if(e == null){
                             Toast.makeText(PilotActivity.this, "Successfully logged out.", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent().setClass(getApplicationContext(),LoginActivity.class));
                             finish();
                         }
                         else{
@@ -175,13 +189,43 @@ public class PilotActivity extends AppCompatActivity {
         ab.setNegativeButton("No", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-
+                dialog.dismiss();
             }
         });
 
         ab.create().show();
 
     }
+    private void initNetworkListener(){
+
+        netDisposable = ReactiveNetwork.observeNetworkConnectivity(getApplicationContext())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<Connectivity>() {
+                    @Override public void accept(final Connectivity connectivity) {
+                        // do something with connectivity
+                        // you can call connectivity.getState();
+                        // connectivity.getType(); or connectivity.toString();
+                        if(connectivity.getState().equals(NetworkInfo.State.CONNECTED)){
+                            if(alertInfoDialog != null){
+                                if(alertInfoDialog.isShowing()){
+                                    alertInfoDialog.dismiss();
+                                }
+                            }
+                            Snackbar.make(profName,"Device connected.",Snackbar.LENGTH_SHORT).show();
+                        }
+                        else{
+                            AlertDialog.Builder dc = new AlertDialog.Builder(PilotActivity.this);
+                            dc.setTitle("Device offline");
+                            dc.setMessage("The device is currently offline. Service is unavailable.");
+                            dc.setCancelable(false);
+                            alertInfoDialog = dc.create();
+                            alertInfoDialog.show();
+                        }
+                    }
+                });
+    }
+
     /**
      * Gets location data from the parse database.
 
@@ -221,7 +265,7 @@ public class PilotActivity extends AppCompatActivity {
 
             ParseQuery<ParseObject> pilotInfo = ParseQuery.getQuery(Globals.PILOT_CLASS_NAME);
 
-            pilotInfo.whereEqualTo(Globals.PILOT_INFO_TRACKER,currUser.getString(Globals.PILOT_INFO_TRACKER));
+            pilotInfo.whereEqualTo("objectId",currUser.getString(Globals.PILOT_INFO_TRACKER));
 
             pilotInfo.findInBackground(new FindCallback<ParseObject>() {
                 @Override
@@ -263,12 +307,8 @@ public class PilotActivity extends AppCompatActivity {
                         @Override
                         public void done(ParseException e) {//TODO Handle logout callback
 
-                            if(e == null){
-
-                            }
-                            else{
-
-                            }
+                            startActivity(new Intent().setClass(getApplicationContext(),LoginActivity.class));
+                            finish();
                         }
                     });
                 }
@@ -301,20 +341,14 @@ public class PilotActivity extends AppCompatActivity {
 
         AlertDialog.Builder ab = new AlertDialog.Builder(PilotActivity.this);
 
-        ab.setTitle("Log out");
+        ab.setTitle("Quit");
 
-        ab.setMessage("Pressing the back button will log you out." +
-                " Are you sure you want to logout?");
+        ab.setMessage("Are you sure you want to quit?");
 
         ab.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                ParseUser.logOutInBackground(new LogOutCallback() {
-                    @Override
-                    public void done(ParseException e) {
 
-                    }
-                });
                 PilotActivity.super.onBackPressed();
             }
         });
@@ -327,6 +361,15 @@ public class PilotActivity extends AppCompatActivity {
         });
 
         ab.create().show();
+    }
+
+    @Override
+    public void onDestroy(){
+        if (netDisposable != null && !netDisposable.isDisposed()) {
+            netDisposable.dispose();
+        }
+
+        super.onDestroy();
     }
 
 }

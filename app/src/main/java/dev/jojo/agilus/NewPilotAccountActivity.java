@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.parse.ParseACL;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
@@ -123,6 +124,11 @@ public class NewPilotAccountActivity extends AppCompatActivity {
                                         pilotUser.setPassword(pPass);
                                         pilotUser.put(Globals.USER_ROLE,Globals.ROLE_PILOT);
                                         pilotUser.put(Globals.PILOT_INFO_TRACKER,parseObject.getObjectId());
+
+                                        ParseACL pACL = new ParseACL(ParseUser.getCurrentUser());
+                                        pACL.setWriteAccess(ParseUser.getCurrentUser().getObjectId(),true);
+
+                                        pilotUser.setACL(pACL);
 
                                         pilotUser.signUpInBackground(new SignUpCallback() {
                                             @Override
