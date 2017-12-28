@@ -138,6 +138,9 @@ public class VideoStream extends BaseActivity
 
         mCpuLoadTv = (TextView)findViewById(R.id.cpu_load_textview);
         mCpuLoadTv.setTypeface(Typeface.MONOSPACE);
+
+        //Hide CPU load
+        mCpuLoadTv.setVisibility(TextView.GONE);
         //
         mFpsTv = (TextView)findViewById(R.id.fps_textview);
         mFpsTv.setText(null);
@@ -291,7 +294,7 @@ public class VideoStream extends BaseActivity
                         mPreviewSurfaceId = surface.hashCode();
                         mCameraHandler.addSurface(mPreviewSurfaceId, surface, false);
                     }
-                    mCaptureButton.setVisibility(View.VISIBLE);
+                    //mCaptureButton.setVisibility(View.VISIBLE);
                     startImageProcessor(PREVIEW_WIDTH, PREVIEW_HEIGHT);
                 } catch (final Exception e) {
                     Log.w(TAG, e);
@@ -405,13 +408,13 @@ public class VideoStream extends BaseActivity
         public void run() {
             if (isFinishing()) return;
             final int visible_active = isActive() ? View.VISIBLE : View.INVISIBLE;
-            mToolsLayout.setVisibility(visible_active);
-            mBrightnessButton.setVisibility(
-                    checkSupportFlag(UVCCamera.PU_BRIGHTNESS)
-                            ? visible_active : View.INVISIBLE);
-            mContrastButton.setVisibility(
-                    checkSupportFlag(UVCCamera.PU_CONTRAST)
-                            ? visible_active : View.INVISIBLE);
+           //mToolsLayout.setVisibility(visible_active);
+            //mBrightnessButton.setVisibility(
+              //      checkSupportFlag(UVCCamera.PU_BRIGHTNESS)
+                //            ? visible_active : View.INVISIBLE);
+            //mContrastButton.setVisibility(
+              //      checkSupportFlag(UVCCamera.PU_CONTRAST)
+                //            ? visible_active : View.INVISIBLE);
         }
     };
 

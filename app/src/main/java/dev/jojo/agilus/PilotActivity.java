@@ -278,7 +278,6 @@ public class PilotActivity extends AppCompatActivity {
 
                             profName.setText(sPilotName);
                             droneName.setText(sDroneName);
-
                         }
 
 

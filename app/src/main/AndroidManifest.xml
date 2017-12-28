@@ -65,7 +65,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".AdminActivity" />
         <activity android:name=".EmptyMapTest" />
-        <activity android:name=".VideoStream"></activity>
+        <activity android:name=".VideoStream"
+            android:screenOrientation="landscape"></activity>
     </application>
 
 </manifest>
