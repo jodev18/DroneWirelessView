@@ -4,11 +4,14 @@ import android.app.ProgressDialog;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.parse.ParseACL;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
@@ -18,6 +21,7 @@ import com.parse.SignUpCallback;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import dev.jojo.agilus.core.CodeGenerator;
+import dev.jojo.agilus.core.Globals;
 
 public class NewPilotAccountActivity extends AppCompatActivity {
 
@@ -38,6 +42,7 @@ public class NewPilotAccountActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         generateAuth();
         initButton();
+        initPilotUser();
 
         prg = new ProgressDialog(NewPilotAccountActivity.this);
 
@@ -46,6 +51,35 @@ public class NewPilotAccountActivity extends AppCompatActivity {
     private void generateAuth(){
         CodeGenerator cgen = new CodeGenerator();
         ePilotPass.setText(cgen.getAuthCode());
+    }
+
+    private void initPilotUser(){
+        CodeGenerator code = new CodeGenerator();
+
+        final String prefix = "pilot-" + code.getPilotCode()+"-";
+
+        ePilotUser.setText(prefix);
+        ePilotUser.setSelection(prefix.length());
+
+        ePilotUser.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if(s.length() < prefix.length()){
+                    ePilotUser.setText(prefix);
+                    ePilotUser.setSelection(prefix.length());
+                }
+            }
+        });
     }
 
     private void initButton(){
@@ -68,13 +102,13 @@ public class NewPilotAccountActivity extends AppCompatActivity {
 
                             prg.show();
 
-                            ParseObject parseObject = new ParseObject("PilotAccounts");
+                            final ParseObject parseObject = new ParseObject(Globals.PILOT_CLASS_NAME);
 
-                            parseObject.put("PilotUser",pUser);
-                            parseObject.put("PilotPass",pPass);
-                            parseObject.put("PilotName",pName);
-                            parseObject.put("PilotDrone",pDrone);
-                            parseObject.put("PilotAdmin",ParseUser.getCurrentUser().getObjectId());
+                            parseObject.put(Globals.PILOT_USER,pUser);
+                            parseObject.put(Globals.PILOT_PASS,pPass);
+                            parseObject.put(Globals.PILOT_NAME,pName);
+                            parseObject.put(Globals.PILOT_DRONE,pDrone);
+                            parseObject.put(Globals.PILOT_ADMIN,ParseUser.getCurrentUser().getObjectId());
 
                             parseObject.saveInBackground(new SaveCallback() {
                                 @Override
@@ -88,7 +122,13 @@ public class NewPilotAccountActivity extends AppCompatActivity {
 
                                         pilotUser.setUsername(pUser);
                                         pilotUser.setPassword(pPass);
-                                        pilotUser.put("Role","Pilot");
+                                        pilotUser.put(Globals.USER_ROLE,Globals.ROLE_PILOT);
+                                        pilotUser.put(Globals.PILOT_INFO_TRACKER,parseObject.getObjectId());
+
+                                        ParseACL pACL = new ParseACL(ParseUser.getCurrentUser());
+                                        pACL.setWriteAccess(ParseUser.getCurrentUser().getObjectId(),true);
+
+                                        pilotUser.setACL(pACL);
 
                                         pilotUser.signUpInBackground(new SignUpCallback() {
                                             @Override
