@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimaryDark"
+    android:padding="12dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pilot Name"
+                android:textColor="@color/colorAccent" />
+
+            <EditText
+                android:id="@+id/etEditPilotName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Enter pilot name..."
+                android:inputType="textPersonName"
+                android:textColor="@android:color/background_light" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Drone Name"
+                android:textColor="@color/colorAccent" />
+
+            <EditText
+                android:id="@+id/etEditDroneName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Enter drone name..."
+                android:inputType="textPersonName"
+                android:textColor="@android:color/background_light" />
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</LinearLayout>

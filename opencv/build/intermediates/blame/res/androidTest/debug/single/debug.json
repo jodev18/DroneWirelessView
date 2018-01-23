@@ -1,822 +1,406 @@
 [
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-hdpi-v4_ic_transparent.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-hdpi-v4/ic_transparent.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-xxxhdpi-v4_ic_transparent.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-xxxhdpi-v4\\ic_transparent.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-ldpi-v4_ic_transparent.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-ldpi-v4/ic_transparent.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-hdpi-v4_btn_repeat_shutter_recording_pressed_holo.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-hdpi-v4\\btn_repeat_shutter_recording_pressed_holo.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-xhdpi-v4_ic_color_circle.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-xhdpi-v4/ic_color_circle.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-mdpi-v4_ic_frame_cross_circle.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-mdpi-v4\\ic_frame_cross_circle.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-mdpi-v4_ic_color_circle.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-mdpi-v4/ic_color_circle.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-hdpi-v4_ic_decrement.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-hdpi-v4\\ic_decrement.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-hdpi-v4_btn_shutter_video_default.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-hdpi-v4/btn_shutter_video_default.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_frame.9.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\drawable\\frame.9.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/drawable_toggle_slide.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/drawable/toggle_slide.xml"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim_slide_out_left.xml.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\anim\\slide_out_left.xml"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-hdpi-v4_btn_repeat_shutter_recording_pressed_holo.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-hdpi-v4/btn_repeat_shutter_recording_pressed_holo.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-xxxhdpi-v4_ic_frame_cross_circle2.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-xxxhdpi-v4\\ic_frame_cross_circle2.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-hdpi-v4_ic_drawer.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-hdpi-v4/ic_drawer.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-xxhdpi-v4_ic_frame_cross_circle.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-xxhdpi-v4\\ic_frame_cross_circle.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-mdpi-v4_ic_frame_circle.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-mdpi-v4/ic_frame_circle.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_btn_repeat_shutter_recording.xml.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\drawable\\btn_repeat_shutter_recording.xml"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-mdpi-v4_ic_frame_frame.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-mdpi-v4/ic_frame_frame.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_border_black.xml.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\drawable\\border_black.xml"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-mdpi-v4_ic_frame_circle_2.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-mdpi-v4/ic_frame_circle_2.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-mdpi-v4_ic_color_circle.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-mdpi-v4\\ic_color_circle.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/animator_card_flip_left_out.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/animator/card_flip_left_out.xml"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-mdpi-v4_ic_frame_frame.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-mdpi-v4\\ic_frame_frame.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-xxhdpi-v4_ic_color_circle.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-xxhdpi-v4/ic_color_circle.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-xxhdpi-v4_ic_transparent.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-xxhdpi-v4\\ic_transparent.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-hdpi-v4_ic_frame_cross_circle.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-hdpi-v4/ic_frame_cross_circle.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_btn_new_shutter.xml.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\drawable\\btn_new_shutter.xml"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-ldpi-v4_ic_color_circle.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-ldpi-v4/ic_color_circle.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim_slide_in_left.xml.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\anim\\slide_in_left.xml"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/drawable_border_gray.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/drawable/border_gray.xml"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-ldpi-v4_ic_color_circle.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-ldpi-v4\\ic_color_circle.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/animator_card_flip_right_in.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/animator/card_flip_right_in.xml"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-xxhdpi-v4_ic_drawer.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-xxhdpi-v4\\ic_drawer.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-xhdpi-v4_ic_frame_circle_2.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-xhdpi-v4/ic_frame_circle_2.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_mask_circle.xml.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\drawable\\mask_circle.xml"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-hdpi-v4_ic_frame_circle_2.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-hdpi-v4/ic_frame_circle_2.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-hdpi-v4_ic_frame_circle_2.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-hdpi-v4\\ic_frame_circle_2.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/drawable_toggle_button_base.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/drawable/toggle_button_base.xml"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-ldpi-v4_ic_frame_cross_circle2.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-ldpi-v4\\ic_frame_cross_circle2.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-ldpi-v4_ic_frame_circle.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-ldpi-v4/ic_frame_circle.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-mdpi-v4_ic_frame_cross.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-mdpi-v4\\ic_frame_cross.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/animator_card_flip_right_in.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/animator/card_flip_right_in.xml"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-xxhdpi-v4_ic_color_circle.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-xxhdpi-v4\\ic_color_circle.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-xhdpi-v4_ic_frame_cross.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-xhdpi-v4/ic_frame_cross.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-xxhdpi-v4_ic_frame_cross.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-xxhdpi-v4\\ic_frame_cross.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/drawable_mask_circle.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/drawable/mask_circle.xml"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-xhdpi-v4_ic_frame_cross_circle2.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-xhdpi-v4\\ic_frame_cross_circle2.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-hdpi-v4_btn_repeat_shutter_default.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-hdpi-v4/btn_repeat_shutter_default.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_view_frame_selector.xml.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\layout\\view_frame_selector.xml"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-xhdpi-v4_ic_frame_cross_quarter.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-xhdpi-v4/ic_frame_cross_quarter.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-xxxhdpi-v4_ic_frame_circle.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-xxxhdpi-v4\\ic_frame_circle.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-xxxhdpi-v4_ic_transparent.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-xxxhdpi-v4/ic_transparent.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-hdpi-v4_btn_repeat_shutter_recording_holo.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-hdpi-v4\\btn_repeat_shutter_recording_holo.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/drawable_btn_repeat_shutter_recording.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/drawable/btn_repeat_shutter_recording.xml"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_border.xml.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\drawable\\border.xml"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/layout_item_picker.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/layout/item_picker.xml"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-xhdpi-v4_ic_frame_frame.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-xhdpi-v4\\ic_frame_frame.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-hdpi-v4_ic_frame_frame.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-hdpi-v4/ic_frame_frame.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-ldpi-v4_ic_frame_circle_2.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-ldpi-v4\\ic_frame_circle_2.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-ldpi-v4_ic_frame_frame.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-ldpi-v4/ic_frame_frame.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-xxxhdpi-v4_ic_color_circle.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-xxxhdpi-v4\\ic_color_circle.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-hdpi-v4_ic_frame_circle.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-hdpi-v4/ic_frame_circle.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-ldpi-v4_ic_frame_cross_quarter.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-ldpi-v4\\ic_frame_cross_quarter.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/anim_slide_out_left.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/anim/slide_out_left.xml"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_toggle_button_base.xml.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\drawable\\toggle_button_base.xml"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-hdpi-v4_ic_decrement.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-hdpi-v4/ic_decrement.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-mdpi-v4_ic_transparent.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-mdpi-v4\\ic_transparent.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/drawable_btn_new_shutter.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/drawable/btn_new_shutter.xml"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_color_picker.xml.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\layout\\color_picker.xml"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/layout_dialog_camera.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/libuvccamera-release.aar/5a82fbcca5f2bdab3783ec19b384ad3d/res/layout/dialog_camera.xml"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\animator_card_flip_right_out.xml.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\animator\\card_flip_right_out.xml"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-xxhdpi-v4_ic_transparent.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-xxhdpi-v4/ic_transparent.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-xxhdpi-v4_ic_frame_cross_quarter.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-xxhdpi-v4\\ic_frame_cross_quarter.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-mdpi-v4_ic_frame_cross_quarter.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-mdpi-v4/ic_frame_cross_quarter.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-xhdpi-v4_ic_frame_cross_quarter.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-xhdpi-v4\\ic_frame_cross_quarter.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/anim_slide_in_right.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/anim/slide_in_right.xml"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_btn_new_shutter_video.xml.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\drawable\\btn_new_shutter_video.xml"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-hdpi-v4_btn_shutter_pressed.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-hdpi-v4/btn_shutter_pressed.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-ldpi-v4_ic_frame_cross.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-ldpi-v4\\ic_frame_cross.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-hdpi-v4_btn_repeat_shutter_default.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-hdpi-v4/btn_repeat_shutter_default.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-xxhdpi-v4_ic_frame_frame.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-xxhdpi-v4\\ic_frame_frame.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/anim_slide_in_right.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/anim/slide_in_right.xml"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-hdpi-v4_ic_drawer.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-hdpi-v4\\ic_drawer.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/layout_view_frame_selector.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/layout/view_frame_selector.xml"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-ldpi-v4_ic_transparent.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-ldpi-v4\\ic_transparent.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-mdpi-v4_ic_frame_cross.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-mdpi-v4/ic_frame_cross.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-hdpi-v4_btn_shutter_default.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-hdpi-v4\\btn_shutter_default.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-hdpi-v4_ic_frame_cross_circle2.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-hdpi-v4/ic_frame_cross_circle2.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_item_picker.xml.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\layout\\item_picker.xml"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-xxxhdpi-v4_ic_frame_frame.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-xxxhdpi-v4/ic_frame_frame.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-xxxhdpi-v4_ic_frame_cross_quarter.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-xxxhdpi-v4\\ic_frame_cross_quarter.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-xxxhdpi-v4_ic_color_circle.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-xxxhdpi-v4/ic_color_circle.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-hdpi-v4_ic_frame_cross_quarter.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-hdpi-v4\\ic_frame_cross_quarter.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-ldpi-v4_ic_frame_circle_2.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-ldpi-v4/ic_frame_circle_2.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-xhdpi-v4_ic_transparent.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-xhdpi-v4\\ic_transparent.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-xhdpi-v4_ic_frame_circle.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-xhdpi-v4/ic_frame_circle.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-hdpi-v4_ic_frame_cross.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-hdpi-v4\\ic_frame_cross.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-hdpi-v4_btn_repeat_shutter_pressed.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-hdpi-v4/btn_repeat_shutter_pressed.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_color_picker_dialog.xml.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\layout\\color_picker_dialog.xml"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-hdpi-v4_btn_repeat_shutter_recording_pressed_holo.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-hdpi-v4/btn_repeat_shutter_recording_pressed_holo.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-hdpi-v4_btn_shutter_pressed.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-hdpi-v4\\btn_shutter_pressed.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-mdpi-v4_ic_frame_circle_2.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-mdpi-v4/ic_frame_circle_2.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\animator_card_flip_left_in.xml.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\animator\\card_flip_left_in.xml"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-hdpi-v4_ic_frame_frame.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-hdpi-v4/ic_frame_frame.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-hdpi-v4_btn_repeat_shutter_default.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-hdpi-v4\\btn_repeat_shutter_default.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-xxhdpi-v4_ic_frame_frame.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-xxhdpi-v4/ic_frame_frame.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_recordingtime.xml.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\drawable\\recordingtime.xml"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-hdpi-v4_ic_frame_cross_quarter.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-hdpi-v4/ic_frame_cross_quarter.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-hdpi-v4_btn_shutter_video_default.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-hdpi-v4\\btn_shutter_video_default.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-xhdpi-v4_ic_frame_circle_2.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-xhdpi-v4/ic_frame_circle_2.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\animator_card_flip_left_out.xml.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\animator\\card_flip_left_out.xml"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-ldpi-v4_ic_color_circle.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-ldpi-v4/ic_color_circle.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-xxxhdpi-v4_ic_frame_cross_circle.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-xxxhdpi-v4\\ic_frame_cross_circle.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-xxhdpi-v4_ic_frame_cross_circle2.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-xxhdpi-v4/ic_frame_cross_circle2.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-mdpi-v4_ic_frame_cross_quarter.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-mdpi-v4\\ic_frame_cross_quarter.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-xhdpi-v4_ic_frame_circle.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-xhdpi-v4/ic_frame_circle.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-xhdpi-v4_ic_frame_circle_2.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-xhdpi-v4\\ic_frame_circle_2.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/animator_card_flip_left_in.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/animator/card_flip_left_in.xml"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-hdpi-v4_btn_video_shutter_recording_holo.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-hdpi-v4\\btn_video_shutter_recording_holo.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-hdpi-v4_ic_frame_cross.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-hdpi-v4/ic_frame_cross.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-xhdpi-v4_ic_frame_circle.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-xhdpi-v4\\ic_frame_circle.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-hdpi-v4_btn_repeat_shutter_recording_holo.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-hdpi-v4/btn_repeat_shutter_recording_holo.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\animator_card_flip_right_in.xml.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\animator\\card_flip_right_in.xml"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-hdpi-v4_btn_video_shutter_recording_holo.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-hdpi-v4/btn_video_shutter_recording_holo.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-xhdpi-v4_ic_frame_cross.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-xhdpi-v4\\ic_frame_cross.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-ldpi-v4_ic_frame_circle.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-ldpi-v4/ic_frame_circle.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-hdpi-v4_ic_transparent.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-hdpi-v4\\ic_transparent.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/drawable_recordingtime.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/drawable/recordingtime.xml"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_quater_clear_rect.xml.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\drawable\\quater_clear_rect.xml"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-mdpi-v4_ic_color_circle.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-mdpi-v4/ic_color_circle.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim_slide_in_right.xml.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\anim\\slide_in_right.xml"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-xxxhdpi-v4_ic_frame_circle.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-xxxhdpi-v4/ic_frame_circle.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-ldpi-v4_ic_frame_circle.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-ldpi-v4\\ic_frame_circle.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-hdpi-v4_ic_drawer.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-hdpi-v4/ic_drawer.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_toggle_slide.xml.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\drawable\\toggle_slide.xml"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/layout_color_picker.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/layout/color_picker.xml"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-mdpi-v4_ic_frame_cross_circle2.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-mdpi-v4\\ic_frame_cross_circle2.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-hdpi-v4_btn_shutter_video_pressed.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-hdpi-v4/btn_shutter_video_pressed.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-xxhdpi-v4_ic_frame_circle.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-xxhdpi-v4\\ic_frame_circle.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-ldpi-v4_ic_frame_cross_circle2.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-ldpi-v4/ic_frame_cross_circle2.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-xxxhdpi-v4_ic_frame_frame.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-xxxhdpi-v4\\ic_frame_frame.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/drawable_frame_cross.9.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/drawable/frame_cross.9.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-mdpi-v4_ic_frame_circle_2.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-mdpi-v4\\ic_frame_circle_2.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-mdpi-v4_ic_frame_cross_circle2.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-mdpi-v4/ic_frame_cross_circle2.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-ldpi-v4_ic_frame_frame.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-ldpi-v4\\ic_frame_frame.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-xxhdpi-v4_ic_frame_cross_circle.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-xxhdpi-v4/ic_frame_cross_circle.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-xxhdpi-v4_ic_frame_circle_2.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-xxhdpi-v4\\ic_frame_circle_2.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/drawable_transparent_rect.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/drawable/transparent_rect.xml"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim_slide_out_right.xml.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\anim\\slide_out_right.xml"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-hdpi-v4_ic_frame_cross_circle.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-hdpi-v4/ic_frame_cross_circle.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-hdpi-v4_ic_frame_cross_circle.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-hdpi-v4\\ic_frame_cross_circle.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/layout_list_item_bluetooth_device_info.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/layout/list_item_bluetooth_device_info.xml"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-hdpi-v4_ic_frame_circle.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-hdpi-v4\\ic_frame_circle.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-mdpi-v4_ic_frame_cross.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-mdpi-v4/ic_frame_cross.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-hdpi-v4_ic_color_circle.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-hdpi-v4\\ic_color_circle.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-hdpi-v4_btn_shutter_video_pressed.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-hdpi-v4/btn_shutter_video_pressed.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-hdpi-v4_btn_repeat_shutter_pressed.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-hdpi-v4\\btn_repeat_shutter_pressed.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/animator_card_flip_right_out.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/animator/card_flip_right_out.xml"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-ldpi-v4_ic_frame_cross_circle.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-ldpi-v4\\ic_frame_cross_circle.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/animator_card_flip_right_out.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/animator/card_flip_right_out.xml"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-hdpi-v4_ic_frame_frame.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-hdpi-v4\\ic_frame_frame.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-xhdpi-v4_ic_frame_frame.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-xhdpi-v4/ic_frame_frame.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-hdpi-v4_ic_frame_cross_circle2.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-hdpi-v4\\ic_frame_cross_circle2.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-ldpi-v4_ic_transparent.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-ldpi-v4/ic_transparent.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-v21_star.xml.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\drawable-v21\\star.xml"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-xxxhdpi-v4_ic_transparent.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-xxxhdpi-v4/ic_transparent.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-xxxhdpi-v4_ic_frame_circle_2.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-xxxhdpi-v4\\ic_frame_circle_2.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/animator_card_flip_left_in.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/animator/card_flip_left_in.xml"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_frame_cross.9.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\drawable\\frame_cross.9.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-xhdpi-v4_ic_drawer.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-xhdpi-v4/ic_drawer.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_transparent_rect.xml.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\drawable\\transparent_rect.xml"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/drawable_quater_clear_rect.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/drawable/quater_clear_rect.xml"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-hdpi-v4_btn_video_shutter_recording_pressed_holo.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-hdpi-v4\\btn_video_shutter_recording_pressed_holo.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-xhdpi-v4_ic_frame_cross_quarter.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-xhdpi-v4/ic_frame_cross_quarter.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-mdpi-v4_ic_drawer.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-mdpi-v4\\ic_drawer.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-xxhdpi-v4_ic_drawer.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-xxhdpi-v4/ic_drawer.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_border_gray.xml.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\drawable\\border_gray.xml"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-mdpi-v4_ic_transparent.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-mdpi-v4/ic_transparent.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_list_item_bluetooth_device_info.xml.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\layout\\list_item_bluetooth_device_info.xml"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/drawable_btn_new_shutter_video.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/drawable/btn_new_shutter_video.xml"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-hdpi-v4_btn_shutter_video_pressed.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-hdpi-v4\\btn_shutter_video_pressed.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-xxxhdpi-v4_ic_color_circle.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-xxxhdpi-v4/ic_color_circle.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-xhdpi-v4_ic_color_circle.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-xhdpi-v4\\ic_color_circle.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-xhdpi-v4_ic_frame_frame.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-xhdpi-v4/ic_frame_frame.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_btn_shutter_video_recording.xml.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\drawable\\btn_shutter_video_recording.xml"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/anim_slide_out_right.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/anim/slide_out_right.xml"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-xhdpi-v4_ic_drawer.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-xhdpi-v4\\ic_drawer.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/drawable_border_black.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/drawable/border_black.xml"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-hdpi-v4_ic_increment.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-hdpi-v4\\ic_increment.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/drawable_border.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/drawable/border.xml"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-xxxhdpi-v4_ic_frame_cross.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-xxxhdpi-v4\\ic_frame_cross.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-xxhdpi-v4_ic_frame_circle_2.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-xxhdpi-v4/ic_frame_circle_2.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_toggle.xml.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\drawable\\toggle.xml"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-xxxhdpi-v4_ic_frame_cross.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-xxxhdpi-v4/ic_frame_cross.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-mdpi-v4_ic_frame_circle.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-mdpi-v4\\ic_frame_circle.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-xxxhdpi-v4_ic_frame_cross_circle2.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-xxxhdpi-v4/ic_frame_cross_circle2.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-xhdpi-v4_ic_frame_cross_circle.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-xhdpi-v4\\ic_frame_cross_circle.png"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-ldpi-v4_ic_frame_cross.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-ldpi-v4/ic_frame_cross.png"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_seekbar_preference.xml.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\layout\\seekbar_preference.xml"
     },
     {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/drawable_quater_clear_rect.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/drawable/quater_clear_rect.xml"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/xml_device_filter.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/libuvccamera-release.aar/5a82fbcca5f2bdab3783ec19b384ad3d/res/xml/device_filter.xml"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/layout_seekbar_preference.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/layout/seekbar_preference.xml"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-ldpi-v4_ic_frame_cross.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-ldpi-v4/ic_frame_cross.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/drawable_frame.9.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/drawable/frame.9.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-xxxhdpi-v4_ic_frame_cross_circle.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-xxxhdpi-v4/ic_frame_cross_circle.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/drawable_btn_new_shutter_video.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/drawable/btn_new_shutter_video.xml"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-xxhdpi-v4_ic_drawer.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-xxhdpi-v4/ic_drawer.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-mdpi-v4_ic_transparent.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-mdpi-v4/ic_transparent.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-ldpi-v4_ic_frame_circle_2.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-ldpi-v4/ic_frame_circle_2.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-hdpi-v4_btn_shutter_default.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-hdpi-v4/btn_shutter_default.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-ldpi-v4_ic_frame_frame.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-ldpi-v4/ic_frame_frame.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/drawable_border.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/drawable/border.xml"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-xxxhdpi-v4_ic_frame_frame.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-xxxhdpi-v4/ic_frame_frame.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/anim_slide_in_left.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/anim/slide_in_left.xml"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-xhdpi-v4_ic_transparent.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-xhdpi-v4/ic_transparent.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-xxxhdpi-v4_ic_frame_circle_2.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-xxxhdpi-v4/ic_frame_circle_2.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/layout_view_frame_selector.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/layout/view_frame_selector.xml"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-ldpi-v4_ic_frame_cross_circle.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-ldpi-v4/ic_frame_cross_circle.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/layout_color_picker.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/layout/color_picker.xml"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/drawable-v21_star.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/drawable-v21/star.xml"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/drawable_toggle_slide.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/drawable/toggle_slide.xml"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-hdpi-v4_ic_frame_cross.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-hdpi-v4/ic_frame_cross.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/drawable_frame.9.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/drawable/frame.9.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/drawable_recordingtime.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/drawable/recordingtime.xml"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-hdpi-v4_ic_increment.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-hdpi-v4/ic_increment.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-mdpi-v4_ic_drawer.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-mdpi-v4/ic_drawer.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-xxxhdpi-v4_ic_frame_circle.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-xxxhdpi-v4/ic_frame_circle.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-xxxhdpi-v4_ic_frame_cross_circle2.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-xxxhdpi-v4/ic_frame_cross_circle2.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-hdpi-v4_ic_color_circle.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-hdpi-v4/ic_color_circle.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-xhdpi-v4_ic_frame_cross_circle2.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-xhdpi-v4/ic_frame_cross_circle2.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-hdpi-v4_ic_transparent.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-hdpi-v4/ic_transparent.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/layout_item_picker.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/layout/item_picker.xml"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-xxhdpi-v4_ic_frame_cross.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-xxhdpi-v4/ic_frame_cross.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/drawable_toggle.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/drawable/toggle.xml"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-hdpi-v4_ic_increment.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-hdpi-v4/ic_increment.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-xhdpi-v4_ic_frame_cross_circle.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-xhdpi-v4/ic_frame_cross_circle.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/layout_list_item_bluetooth_device_info.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/layout/list_item_bluetooth_device_info.xml"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-hdpi-v4_ic_color_circle.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-hdpi-v4/ic_color_circle.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-hdpi-v4_btn_repeat_shutter_recording_holo.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-hdpi-v4/btn_repeat_shutter_recording_holo.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/drawable_transparent_rect.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/drawable/transparent_rect.xml"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-hdpi-v4_btn_shutter_pressed.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-hdpi-v4/btn_shutter_pressed.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-xhdpi-v4_ic_frame_cross_circle2.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-xhdpi-v4/ic_frame_cross_circle2.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-mdpi-v4_ic_frame_cross_circle.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-mdpi-v4/ic_frame_cross_circle.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-xxxhdpi-v4_ic_frame_cross.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-xxxhdpi-v4/ic_frame_cross.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-hdpi-v4_ic_frame_circle.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-hdpi-v4/ic_frame_circle.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-hdpi-v4_ic_frame_circle_2.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-hdpi-v4/ic_frame_circle_2.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/drawable_border_gray.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/drawable/border_gray.xml"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/drawable_border_black.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/drawable/border_black.xml"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-ldpi-v4_ic_frame_cross_quarter.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-ldpi-v4/ic_frame_cross_quarter.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-xxhdpi-v4_ic_frame_circle.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-xxhdpi-v4/ic_frame_circle.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-xxhdpi-v4_ic_frame_cross_quarter.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-xxhdpi-v4/ic_frame_cross_quarter.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-xhdpi-v4_ic_color_circle.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-xhdpi-v4/ic_color_circle.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-mdpi-v4_ic_frame_circle.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-mdpi-v4/ic_frame_circle.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/anim_slide_out_right.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/anim/slide_out_right.xml"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-xxhdpi-v4_ic_frame_cross_quarter.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-xxhdpi-v4/ic_frame_cross_quarter.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-hdpi-v4_btn_video_shutter_recording_pressed_holo.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-hdpi-v4/btn_video_shutter_recording_pressed_holo.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/drawable_mask_circle.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/drawable/mask_circle.xml"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-mdpi-v4_ic_frame_cross_circle.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-mdpi-v4/ic_frame_cross_circle.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-xxxhdpi-v4_ic_frame_cross_circle.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-xxxhdpi-v4/ic_frame_cross_circle.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-hdpi-v4_btn_shutter_default.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-hdpi-v4/btn_shutter_default.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-hdpi-v4_ic_frame_cross_quarter.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-hdpi-v4/ic_frame_cross_quarter.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-xxxhdpi-v4_ic_frame_cross_quarter.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-xxxhdpi-v4/ic_frame_cross_quarter.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-hdpi-v4_btn_video_shutter_recording_pressed_holo.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-hdpi-v4/btn_video_shutter_recording_pressed_holo.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-hdpi-v4_btn_video_shutter_recording_holo.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-hdpi-v4/btn_video_shutter_recording_holo.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-xhdpi-v4_ic_frame_cross_circle.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-xhdpi-v4/ic_frame_cross_circle.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-mdpi-v4_ic_drawer.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-mdpi-v4/ic_drawer.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-xxhdpi-v4_ic_frame_cross_circle.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-xxhdpi-v4/ic_frame_cross_circle.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-xhdpi-v4_ic_frame_cross.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-xhdpi-v4/ic_frame_cross.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-ldpi-v4_ic_frame_cross_quarter.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-ldpi-v4/ic_frame_cross_quarter.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/drawable_btn_shutter_video_recording.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/drawable/btn_shutter_video_recording.xml"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/drawable_btn_repeat_shutter_recording.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/drawable/btn_repeat_shutter_recording.xml"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-xxhdpi-v4_ic_frame_circle_2.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-xxhdpi-v4/ic_frame_circle_2.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-hdpi-v4_btn_shutter_video_default.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-hdpi-v4/btn_shutter_video_default.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-xxhdpi-v4_ic_frame_frame.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-xxhdpi-v4/ic_frame_frame.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-xxhdpi-v4_ic_frame_cross.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-xxhdpi-v4/ic_frame_cross.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-mdpi-v4_ic_frame_frame.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-mdpi-v4/ic_frame_frame.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-xxhdpi-v4_ic_color_circle.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-xxhdpi-v4/ic_color_circle.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/anim_slide_in_left.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/anim/slide_in_left.xml"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/layout_seekbar_preference.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/layout/seekbar_preference.xml"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/anim_slide_out_left.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/anim/slide_out_left.xml"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-xxhdpi-v4_ic_frame_cross_circle2.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-xxhdpi-v4/ic_frame_cross_circle2.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-xxhdpi-v4_ic_transparent.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-xxhdpi-v4/ic_transparent.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-mdpi-v4_ic_frame_cross_quarter.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-mdpi-v4/ic_frame_cross_quarter.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-ldpi-v4_ic_frame_cross_circle.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-ldpi-v4/ic_frame_cross_circle.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-xhdpi-v4_ic_drawer.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-xhdpi-v4/ic_drawer.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/layout_color_picker_dialog.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/layout/color_picker_dialog.xml"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/drawable_frame_cross.9.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/drawable/frame_cross.9.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/drawable_toggle_button_base.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/drawable/toggle_button_base.xml"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-xxxhdpi-v4_ic_frame_cross_quarter.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-xxxhdpi-v4/ic_frame_cross_quarter.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/drawable-v21_star.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/drawable-v21/star.xml"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-hdpi-v4_btn_repeat_shutter_pressed.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-hdpi-v4/btn_repeat_shutter_pressed.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-hdpi-v4_ic_frame_cross_circle2.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-hdpi-v4/ic_frame_cross_circle2.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/drawable_btn_shutter_video_recording.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/drawable/btn_shutter_video_recording.xml"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-mdpi-v4_ic_frame_cross_circle2.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-mdpi-v4/ic_frame_cross_circle2.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-xxxhdpi-v4_ic_frame_circle_2.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-xxxhdpi-v4/ic_frame_circle_2.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-hdpi-v4_ic_decrement.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-hdpi-v4/ic_decrement.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-xxhdpi-v4_ic_frame_circle.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-xxhdpi-v4/ic_frame_circle.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/layout_listitem_device.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/libuvccamera-release.aar/5a82fbcca5f2bdab3783ec19b384ad3d/res/layout/listitem_device.xml"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/layout_color_picker_dialog.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/layout/color_picker_dialog.xml"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/animator_card_flip_left_out.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/animator/card_flip_left_out.xml"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-xhdpi-v4_ic_transparent.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-xhdpi-v4/ic_transparent.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/drawable_btn_new_shutter.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/drawable/btn_new_shutter.xml"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/OpenCVwithUVC/opencv/build/intermediates/res/merged/androidTest/debug/mipmap-ldpi-v4_ic_frame_cross_circle2.png.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/mipmap-ldpi-v4/ic_frame_cross_circle2.png"
-    },
-    {
-        "merged": "/Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/build/intermediates/res/merged/androidTest/debug/drawable_toggle.xml.flat",
-        "source": "/Users/vice/.gradle/caches/transforms-1/files-1.1/common-1.5.20.aar/2c8ad1b2cc0a94858a78baab2bb24f1d/res/drawable/toggle.xml"
+        "merged": "D:\\AgilusProject\\opencv\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-xxhdpi-v4_ic_frame_cross_circle2.png.flat",
+        "source": "C:\\Users\\myxroft\\.gradle\\caches\\transforms-1\\files-1.1\\common-1.5.20.aar\\eb29810e526f760f1872c205b43f94fc\\res\\mipmap-xxhdpi-v4\\ic_frame_cross_circle2.png"
     }
 ]

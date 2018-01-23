@@ -1,35 +1,35 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/src/main/AndroidManifest.xml:1:1-46
-INJECTED from /Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/src/main/AndroidManifest.xml:1:1-46
-INJECTED from /Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/src/main/AndroidManifest.xml:1:1-46
-INJECTED from /Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/src/main/AndroidManifest.xml:1:1-46
-INJECTED from /Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/src/main/AndroidManifest.xml:1:1-46
-INJECTED from /Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/src/main/AndroidManifest.xml:1:1-46
-INJECTED from /Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/src/main/AndroidManifest.xml:1:1-46
+ADDED from D:\AgilusProject\opencv\src\main\AndroidManifest.xml:1:1-46
+INJECTED from D:\AgilusProject\opencv\src\main\AndroidManifest.xml:1:1-46
+INJECTED from D:\AgilusProject\opencv\src\main\AndroidManifest.xml:1:1-46
+INJECTED from D:\AgilusProject\opencv\src\main\AndroidManifest.xml:1:1-46
+INJECTED from D:\AgilusProject\opencv\src\main\AndroidManifest.xml:1:1-46
+INJECTED from D:\AgilusProject\opencv\src\main\AndroidManifest.xml:1:1-46
+INJECTED from D:\AgilusProject\opencv\src\main\AndroidManifest.xml:1:1-46
 	package
-		ADDED from /Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/src/main/AndroidManifest.xml:1:11-43
-		INJECTED from /Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/src/main/AndroidManifest.xml
-		INJECTED from /Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/src/main/AndroidManifest.xml
+		ADDED from D:\AgilusProject\opencv\src\main\AndroidManifest.xml:1:11-43
+		INJECTED from D:\AgilusProject\opencv\src\main\AndroidManifest.xml
+		INJECTED from D:\AgilusProject\opencv\src\main\AndroidManifest.xml
 	android:versionName
-		INJECTED from /Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/src/main/AndroidManifest.xml
-		ADDED from /Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/src/main/AndroidManifest.xml:1:1-46
-		INJECTED from /Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/src/main/AndroidManifest.xml
+		INJECTED from D:\AgilusProject\opencv\src\main\AndroidManifest.xml
+		ADDED from D:\AgilusProject\opencv\src\main\AndroidManifest.xml:1:1-46
+		INJECTED from D:\AgilusProject\opencv\src\main\AndroidManifest.xml
 	android:versionCode
-		INJECTED from /Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/src/main/AndroidManifest.xml
-		ADDED from /Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/src/main/AndroidManifest.xml:1:1-46
-		INJECTED from /Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/src/main/AndroidManifest.xml
+		INJECTED from D:\AgilusProject\opencv\src\main\AndroidManifest.xml
+		ADDED from D:\AgilusProject\opencv\src\main\AndroidManifest.xml:1:1-46
+		INJECTED from D:\AgilusProject\opencv\src\main\AndroidManifest.xml
 uses-sdk
-INJECTED from /Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/src/main/AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from /Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/src/main/AndroidManifest.xml
-INJECTED from /Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/src/main/AndroidManifest.xml
-INJECTED from /Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/src/main/AndroidManifest.xml
-INJECTED from /Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/src/main/AndroidManifest.xml
+INJECTED from D:\AgilusProject\opencv\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from D:\AgilusProject\opencv\src\main\AndroidManifest.xml
+INJECTED from D:\AgilusProject\opencv\src\main\AndroidManifest.xml
+INJECTED from D:\AgilusProject\opencv\src\main\AndroidManifest.xml
+INJECTED from D:\AgilusProject\opencv\src\main\AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from /Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/src/main/AndroidManifest.xml
-		ADDED from /Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/src/main/AndroidManifest.xml
-		INJECTED from /Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/src/main/AndroidManifest.xml
+		INJECTED from D:\AgilusProject\opencv\src\main\AndroidManifest.xml
+		ADDED from D:\AgilusProject\opencv\src\main\AndroidManifest.xml
+		INJECTED from D:\AgilusProject\opencv\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from /Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/src/main/AndroidManifest.xml
-		ADDED from /Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/src/main/AndroidManifest.xml
-		INJECTED from /Users/vice/Desktop/Telmarc/MultiPurpose Telmarc Android/AgilusProject/opencv/src/main/AndroidManifest.xml
+		INJECTED from D:\AgilusProject\opencv\src\main\AndroidManifest.xml
+		ADDED from D:\AgilusProject\opencv\src\main\AndroidManifest.xml
+		INJECTED from D:\AgilusProject\opencv\src\main\AndroidManifest.xml

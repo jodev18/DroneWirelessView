@@ -4,16 +4,20 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.parse.DeleteCallback;
+import com.parse.FindCallback;
 import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
@@ -94,7 +98,7 @@ public class AccountsAdapter extends BaseAdapter {
         bEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                showEditPilotDialog(currAcc);
             }
         });
 
@@ -125,6 +129,101 @@ public class AccountsAdapter extends BaseAdapter {
         });
 
         return convertView;
+    }
+
+    private void showEditPilotDialog(final AccountObject accToEdit){
+
+        AlertDialog.Builder eAccDg = new AlertDialog.Builder(this.ac);
+        eAccDg.setTitle("");
+
+        //View
+        View accView = this.ac.getLayoutInflater()
+                .inflate(R.layout.dialog_edit_account,null);
+
+        final EditText pName = (EditText)accView.findViewById(R.id.etEditPilotName);
+        EditText dName = (EditText)accView.findViewById(R.id.etEditDroneName);
+
+        pName.setText(accToEdit.NAME);
+        dName.setText(accToEdit.DRONE_ID);
+
+        eAccDg.setView(accView);
+        eAccDg.setPositiveButton("Save", null);
+
+        eAccDg.setNegativeButton("Cancel", null);
+
+        AlertDialog adEdit = eAccDg.create();
+
+        adEdit.setOnShowListener(new DialogInterface.OnShowListener() {
+            @Override
+            public void onShow(DialogInterface dialog) {
+
+                Button saveEntry = ((AlertDialog) dialog).getButton(AlertDialog.BUTTON_POSITIVE);
+
+                saveEntry.setTextColor(Color.parseColor("#1d3356"));
+
+                saveEntry.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        AlertDialog.Builder confSave = new AlertDialog.Builder(ac);
+
+                        confSave.setTitle("Save Changes?");
+
+                        confSave.setMessage("Are you sure you want to save the changes?" +
+                                " You won't be able to revert back once you save it.");
+
+                        confSave.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                //Perform save
+
+                                ParseQuery<ParseObject> qSave = ParseQuery.getQuery(Globals.PILOT_CLASS_NAME);
+
+                                prg = new ProgressDialog(ac);
+
+                                qSave.getInBackground(accToEdit.OBJECT_ID, new GetCallback<ParseObject>() {
+                                    @Override
+                                    public void done(ParseObject object, ParseException e) {
+
+                                        if(e==null){
+
+                                        }
+                                        else{
+                                            Toast.makeText(ac, e.getMessage(), Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                });
+                            }
+                        });
+
+                        confSave.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
+
+                        confSave.create().show();
+
+                    }
+                });
+
+                Button cancelSave = ((AlertDialog) dialog).getButton(AlertDialog.BUTTON_NEGATIVE);
+
+                cancelSave.setTextColor(Color.parseColor("#1d3356"));
+
+                cancelSave.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        AlertDialog.Builder confChange = new AlertDialog.Builder(ac);
+                    }
+                });
+            }
+        });
+
+        adEdit.show();
+
     }
 
     private void confirmRemove(String pilotName, final String objectId, final int currIndex){
