@@ -1,6 +1,7 @@
 package dev.jojo.agilus;
 
 import android.animation.Animator;
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
@@ -31,8 +32,15 @@ import com.serenegiant.utils.CpuMonitor;
 import com.serenegiant.utils.ViewAnimationHelper;
 import com.serenegiant.widget.UVCCameraTextureView;
 
+import org.opencv.android.BaseLoaderCallback;
+import org.opencv.android.LoaderCallbackInterface;
+import org.opencv.android.OpenCVLoader;
 import org.opencv.core.Mat;
+import org.opencv.objdetect.CascadeClassifier;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.util.Locale;
 
@@ -107,6 +115,9 @@ public class VideoStream extends BaseActivity
     private TextView mFpsTv;
     private final CpuMonitor cpuMonitor = new CpuMonitor();
 
+    //Haar cascade classifier
+    private CascadeClassifier mClassifier;
+
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -148,6 +159,59 @@ public class VideoStream extends BaseActivity
         mUSBMonitor = new USBMonitor(this, mOnDeviceConnectListener);
         mCameraHandler = UVCCameraHandlerMultiSurface.createHandler(this, mUVCCameraView,
                 USE_SURFACE_ENCODER ? 0 : 1, PREVIEW_WIDTH, PREVIEW_HEIGHT, PREVIEW_MODE);
+    }
+
+    private BaseLoaderCallback baseLoaderCallback = new BaseLoaderCallback(this) {
+        @Override
+        public void onManagerConnected(int status) {
+            switch (status) {
+                case LoaderCallbackInterface.SUCCESS:
+                    initializeOpenCVDependencies();
+                    break;
+                default:
+                    super.onManagerConnected(status);
+                    finish();
+                    break;
+            }
+        }
+    };
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        if (!OpenCVLoader.initDebug()) {
+            Log.d(TAG, "Internal OpenCV library not found. Using OpenCV Manager for initialization");
+            OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_2_4_11, this, baseLoaderCallback);
+        } else {
+            Log.d(TAG, "OpenCV library found inside package. Using it!");
+            baseLoaderCallback.onManagerConnected(LoaderCallbackInterface.SUCCESS);
+        }
+    }
+
+    private void initializeOpenCVDependencies() {
+
+        try {
+            // Copy the resource into a temp file so OpenCV can load it
+            InputStream is = getResources().openRawResource(R.raw.haarcascade_fullbody);
+            File cascadeDir = getDir("cascade", Context.MODE_PRIVATE);
+            File mCascadeFile = new File(cascadeDir, "cascade.xml");
+            FileOutputStream os = new FileOutputStream(mCascadeFile);
+
+            byte[] buffer = new byte[4096];
+            int bytesRead;
+            while ((bytesRead = is.read(buffer)) != -1) {
+                os.write(buffer, 0, bytesRead);
+            }
+            is.close();
+            os.close();
+
+            // Load the cascade classifier
+            mClassifier = new CascadeClassifier(mCascadeFile.getAbsolutePath());
+
+        } catch (Exception e) {
+            Log.e("OpenCVActivity", "Error loading cascade", e);
+        }
+
     }
 
     @Override
@@ -200,6 +264,7 @@ public class VideoStream extends BaseActivity
                             if (!mCameraHandler.isRecording()) {
                                 mCaptureButton.setColorFilter(0xffff0000);	// turn red
                                 mCameraHandler.startRecording();
+
                             } else {
                                 mCaptureButton.setColorFilter(0);	// return to default color
                                 mCameraHandler.stopRecording();
