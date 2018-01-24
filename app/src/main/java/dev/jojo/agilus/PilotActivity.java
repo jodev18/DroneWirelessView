@@ -3,6 +3,7 @@ package dev.jojo.agilus;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -13,6 +14,8 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,11 +23,13 @@ import android.widget.Toast;
 import com.github.pwittchen.reactivenetwork.library.rx2.Connectivity;
 import com.github.pwittchen.reactivenetwork.library.rx2.ReactiveNetwork;
 import com.parse.FindCallback;
+import com.parse.GetCallback;
 import com.parse.LogOutCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
+import com.parse.SaveCallback;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,12 +57,14 @@ public class PilotActivity extends AppCompatActivity {
     private Disposable netDisposable;
     private AlertDialog alertInfoDialog;
 
+    private String pilotObjId;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pilot);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setNavigationIcon(R.drawable.agilus_graphic);
         setSupportActionBar(toolbar);
         setTitle("");
@@ -106,7 +113,7 @@ public class PilotActivity extends AppCompatActivity {
 
                     case 0:
                         //Account info
-
+                        showEditPilotDialog();
                         break;
 
                     case 1:
@@ -132,11 +139,6 @@ public class PilotActivity extends AppCompatActivity {
 
             }
         });
-
-
-    }
-
-    private void showEditInfo(){
 
 
     }
@@ -250,6 +252,142 @@ public class PilotActivity extends AppCompatActivity {
 
     } */
 
+    private void showEditPilotDialog(){
+
+        AlertDialog.Builder eAccDg = new AlertDialog.Builder(PilotActivity.this);
+        eAccDg.setTitle("Edit Account Info");
+
+        //View
+        View accView = this.getLayoutInflater()
+                .inflate(R.layout.dialog_edit_account,null);
+
+        final EditText pName = accView.findViewById(R.id.etEditPilotName);
+        final EditText dName = accView.findViewById(R.id.etEditDroneName);
+
+        pName.setText(profName.getText().toString());
+        dName.setText(droneName.getText().toString());
+
+        eAccDg.setView(accView);
+
+        eAccDg.setPositiveButton("Save", null);
+        eAccDg.setNegativeButton("Cancel", null);
+
+        final AlertDialog pEdit = eAccDg.create();
+
+        pEdit.setOnShowListener(new DialogInterface.OnShowListener() {
+            @Override
+            public void onShow(DialogInterface dialog) {
+                Button saveEntry = ((AlertDialog) dialog).getButton(AlertDialog.BUTTON_POSITIVE);
+
+                saveEntry.setTextColor(Color.parseColor("#1d3356"));
+
+                saveEntry.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        AlertDialog.Builder confSave = new AlertDialog.Builder(PilotActivity.this);
+
+                        confSave.setTitle("Save Changes?");
+
+                        confSave.setMessage("Are you sure you want to save the changes?" +
+                                " You won't be able to revert back once you save it.");
+
+                        confSave.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                                pEdit.dismiss();
+                                //Perform save
+
+                                ParseQuery<ParseObject> qSave = ParseQuery.getQuery(Globals.PILOT_CLASS_NAME);
+
+                                prg = new ProgressDialog(PilotActivity.this);
+
+                                qSave.getInBackground(pilotObjId, new GetCallback<ParseObject>() {
+                                    @Override
+                                    public void done(ParseObject object, ParseException e) {
+
+                                        if(e==null){
+
+                                            final String pilotNewName = pName.getText().toString();
+                                            final String droneNewName = dName.getText().toString();
+
+                                            object.put(Globals.PILOT_NAME,pilotNewName);
+                                            object.put(Globals.PILOT_DRONE,droneNewName);
+
+                                            object.saveInBackground(new SaveCallback() {
+                                                @Override
+                                                public void done(ParseException e) {
+                                                    if(e==null){
+                                                        profName.setText(pilotNewName);
+                                                        droneName.setText(droneNewName);
+                                                        Toast.makeText(PilotActivity.this, "Successfully saved pilot!", Toast.LENGTH_SHORT).show();
+                                                    }
+                                                    else{
+                                                        Toast.makeText(PilotActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+                                                    }
+                                                }
+                                            });
+                                        }
+                                        else{
+                                            Toast.makeText(PilotActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                });
+                            }
+                        });
+
+                        confSave.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
+
+                        confSave.create().show();
+
+                    }
+                });
+
+                Button cancelSave = ((AlertDialog) dialog).getButton(AlertDialog.BUTTON_NEGATIVE);
+
+                cancelSave.setTextColor(Color.parseColor("#1d3356"));
+
+                cancelSave.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        AlertDialog.Builder confChange
+                                = new AlertDialog.Builder(PilotActivity.this);
+
+                        confChange.setTitle("Cancel");
+
+                        confChange.setMessage("Cancel editing?");
+
+                        confChange.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                pEdit.dismiss();
+                                dialog.dismiss();
+                            }
+                        });
+
+                        confChange.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
+
+                        confChange.create().show();
+                    }
+                });
+            }
+        });
+
+        pEdit.show();
+    }
+
     /**
      * Initializes menu and profile information.
      */
@@ -259,7 +397,7 @@ public class PilotActivity extends AppCompatActivity {
         prg.show();
 
 
-        ParseUser currUser = ParseUser.getCurrentUser();
+        final ParseUser currUser = ParseUser.getCurrentUser();
 
         if(currUser != null){
 
@@ -279,20 +417,18 @@ public class PilotActivity extends AppCompatActivity {
                             profName.setText(sPilotName);
                             droneName.setText(sDroneName);
 
+                            pilotObjId = currUser.getString(Globals.PILOT_INFO_TRACKER);
                         }
-
 
                         prg.dismiss();
                     }
                 }
             });
 
-
         }
         else{
 
             prg.dismiss();
-
 
             AlertDialog.Builder sessExp = new AlertDialog.Builder(PilotActivity.this);
 
@@ -326,7 +462,7 @@ public class PilotActivity extends AppCompatActivity {
      */
     private void initFAB(){
 
-        FloatingActionButton fab = (FloatingActionButton)findViewById(R.id.fab);
+        FloatingActionButton fab = findViewById(R.id.fab);
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override

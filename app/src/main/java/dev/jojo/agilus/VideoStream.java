@@ -31,6 +31,8 @@ import com.serenegiant.utils.CpuMonitor;
 import com.serenegiant.utils.ViewAnimationHelper;
 import com.serenegiant.widget.UVCCameraTextureView;
 
+import org.opencv.core.Mat;
+
 import java.nio.ByteBuffer;
 import java.util.Locale;
 
@@ -110,17 +112,17 @@ public class VideoStream extends BaseActivity
         super.onCreate(savedInstanceState);
         if (DEBUG) Log.v(TAG, "onCreate:");
         setContentView(R.layout.activity_video_stream);
-        mCameraButton = (ToggleButton)findViewById(R.id.camera_button);
+        mCameraButton = findViewById(R.id.camera_button);
         mCameraButton.setOnCheckedChangeListener(mOnCheckedChangeListener);
-        mCaptureButton = (ImageButton)findViewById(R.id.capture_button);
+        mCaptureButton = findViewById(R.id.capture_button);
         mCaptureButton.setOnClickListener(mOnClickListener);
         mCaptureButton.setVisibility(View.INVISIBLE);
 
-        mUVCCameraView = (UVCCameraTextureView)findViewById(R.id.camera_view);
+        mUVCCameraView = findViewById(R.id.camera_view);
         mUVCCameraView.setOnLongClickListener(mOnLongClickListener);
         mUVCCameraView.setAspectRatio(PREVIEW_WIDTH / (float)PREVIEW_HEIGHT);
 
-        mResultView = (SurfaceView)findViewById(R.id.result_view);
+        mResultView = findViewById(R.id.result_view);
 
         mBrightnessButton = findViewById(R.id.brightness_button);
         mBrightnessButton.setOnClickListener(mOnClickListener);
@@ -128,7 +130,7 @@ public class VideoStream extends BaseActivity
         mContrastButton.setOnClickListener(mOnClickListener);
         mResetButton = findViewById(R.id.reset_button);
         mResetButton.setOnClickListener(mOnClickListener);
-        mSettingSeekbar = (SeekBar)findViewById(R.id.setting_seekbar);
+        mSettingSeekbar = findViewById(R.id.setting_seekbar);
         mSettingSeekbar.setOnSeekBarChangeListener(mOnSeekBarChangeListener);
 
         mToolsLayout = findViewById(R.id.tools_layout);
@@ -136,10 +138,10 @@ public class VideoStream extends BaseActivity
         mValueLayout = findViewById(R.id.value_layout);
         mValueLayout.setVisibility(View.INVISIBLE);
 
-        mCpuLoadTv = (TextView)findViewById(R.id.cpu_load_textview);
+        mCpuLoadTv = findViewById(R.id.cpu_load_textview);
         mCpuLoadTv.setTypeface(Typeface.MONOSPACE);
         //
-        mFpsTv = (TextView)findViewById(R.id.fps_textview);
+        mFpsTv = findViewById(R.id.fps_textview);
         mFpsTv.setText(null);
         mFpsTv.setTypeface(Typeface.MONOSPACE);
 
@@ -405,13 +407,13 @@ public class VideoStream extends BaseActivity
         public void run() {
             if (isFinishing()) return;
             final int visible_active = isActive() ? View.VISIBLE : View.INVISIBLE;
-            mToolsLayout.setVisibility(visible_active);
-            mBrightnessButton.setVisibility(
-                    checkSupportFlag(UVCCamera.PU_BRIGHTNESS)
-                            ? visible_active : View.INVISIBLE);
-            mContrastButton.setVisibility(
-                    checkSupportFlag(UVCCamera.PU_CONTRAST)
-                            ? visible_active : View.INVISIBLE);
+            //mToolsLayout.setVisibility(visible_active);
+            ///mBrightnessButton.setVisibility(
+                  //  checkSupportFlag(UVCCamera.PU_BRIGHTNESS)
+                    //        ? visible_active : View.INVISIBLE);
+            //mContrastButton.setVisibility(
+              //      checkSupportFlag(UVCCamera.PU_CONTRAST)
+                //            ? visible_active : View.INVISIBLE);
         }
     };
 
@@ -638,6 +640,7 @@ public class VideoStream extends BaseActivity
     protected class MyImageProcessorCallback implements ImageProcessor.ImageProcessorCallback {
         private final int width, height;
         private final Matrix matrix = new Matrix();
+
         private Bitmap mFrame;
         protected MyImageProcessorCallback(
                 final int processing_width, final int processing_height) {

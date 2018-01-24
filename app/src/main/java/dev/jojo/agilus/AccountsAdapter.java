@@ -101,7 +101,7 @@ public class AccountsAdapter extends BaseAdapter {
         bEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showEditPilotDialog(currAcc);
+                showEditPilotDialog(currAcc,pilotName,droneName);
             }
         });
 
@@ -134,10 +134,10 @@ public class AccountsAdapter extends BaseAdapter {
         return convertView;
     }
 
-    private void showEditPilotDialog(final AccountObject accToEdit){
+    private void showEditPilotDialog(final AccountObject accToEdit, final TextView pilot, final TextView drone){
 
         AlertDialog.Builder eAccDg = new AlertDialog.Builder(this.ac);
-        eAccDg.setTitle("");
+        eAccDg.setTitle("Edit Account Info");
 
         //View
         View accView = this.ac.getLayoutInflater()
@@ -178,6 +178,8 @@ public class AccountsAdapter extends BaseAdapter {
                         confSave.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
+
+                                adEdit.dismiss();
                                 //Perform save
 
                                 ParseQuery<ParseObject> qSave = ParseQuery.getQuery(Globals.PILOT_CLASS_NAME);
@@ -189,14 +191,20 @@ public class AccountsAdapter extends BaseAdapter {
                                     public void done(ParseObject object, ParseException e) {
 
                                         if(e==null){
-                                            object.put(Globals.PILOT_NAME,pName.getText().toString());
-                                            object.put(Globals.PILOT_DRONE,dName.getText().toString());
+
+                                            final String pilotName = pName.getText().toString();
+                                            final String droneName = dName.getText().toString();
+
+                                            object.put(Globals.PILOT_NAME,pilotName);
+                                            object.put(Globals.PILOT_DRONE,droneName);
 
                                             object.saveInBackground(new SaveCallback() {
                                                 @Override
                                                 public void done(ParseException e) {
                                                     if(e==null){
-                                                        Toast.makeText(ac, "", Toast.LENGTH_SHORT).show();
+                                                        pilot.setText(pilotName);
+                                                        drone.setText(droneName);
+                                                        Toast.makeText(ac, "Successfully saved pilot!", Toast.LENGTH_SHORT).show();
                                                     }
                                                     else{
                                                         Toast.makeText(ac, e.getMessage(), Toast.LENGTH_LONG).show();
@@ -252,6 +260,8 @@ public class AccountsAdapter extends BaseAdapter {
                                 dialog.dismiss();
                             }
                         });
+
+                        confChange.create().show();
                     }
                 });
             }
