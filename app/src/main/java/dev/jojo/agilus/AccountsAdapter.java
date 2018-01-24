@@ -22,8 +22,11 @@ import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
+import com.parse.SaveCallback;
 
 import java.util.List;
+
+import javax.microedition.khronos.opengles.GL;
 
 import dev.jojo.agilus.core.Globals;
 import dev.jojo.agilus.objects.AccountObject;
@@ -77,14 +80,14 @@ public class AccountsAdapter extends BaseAdapter {
 
         final ImageButton bRemove,bEdit;
 
-        pilotName = (TextView)convertView.findViewById(R.id.tvPilotName);
-        droneName = (TextView)convertView.findViewById(R.id.tvDroneName);
-        isActiveStat = (TextView)convertView.findViewById(R.id.tvIsActiveStat);
-        pilotUser = (TextView)convertView.findViewById(R.id.tvPilotUsername);
-        pilotPass = (TextView)convertView.findViewById(R.id.tvPilotPassword);
+        pilotName = convertView.findViewById(R.id.tvPilotName);
+        droneName = convertView.findViewById(R.id.tvDroneName);
+        isActiveStat = convertView.findViewById(R.id.tvIsActiveStat);
+        pilotUser = convertView.findViewById(R.id.tvPilotUsername);
+        pilotPass = convertView.findViewById(R.id.tvPilotPassword);
 
-        bRemove = (ImageButton)convertView.findViewById(R.id.imgbtRemovePilot);
-        bEdit = (ImageButton)convertView.findViewById(R.id.imgbtEditPilot);
+        bRemove = convertView.findViewById(R.id.imgbtRemovePilot);
+        bEdit = convertView.findViewById(R.id.imgbtEditPilot);
 
         final int pos = position;
 
@@ -140,8 +143,8 @@ public class AccountsAdapter extends BaseAdapter {
         View accView = this.ac.getLayoutInflater()
                 .inflate(R.layout.dialog_edit_account,null);
 
-        final EditText pName = (EditText)accView.findViewById(R.id.etEditPilotName);
-        EditText dName = (EditText)accView.findViewById(R.id.etEditDroneName);
+        final EditText pName = accView.findViewById(R.id.etEditPilotName);
+        final EditText dName = accView.findViewById(R.id.etEditDroneName);
 
         pName.setText(accToEdit.NAME);
         dName.setText(accToEdit.DRONE_ID);
@@ -151,7 +154,7 @@ public class AccountsAdapter extends BaseAdapter {
 
         eAccDg.setNegativeButton("Cancel", null);
 
-        AlertDialog adEdit = eAccDg.create();
+        final AlertDialog adEdit = eAccDg.create();
 
         adEdit.setOnShowListener(new DialogInterface.OnShowListener() {
             @Override
@@ -186,7 +189,20 @@ public class AccountsAdapter extends BaseAdapter {
                                     public void done(ParseObject object, ParseException e) {
 
                                         if(e==null){
+                                            object.put(Globals.PILOT_NAME,pName.getText().toString());
+                                            object.put(Globals.PILOT_DRONE,dName.getText().toString());
 
+                                            object.saveInBackground(new SaveCallback() {
+                                                @Override
+                                                public void done(ParseException e) {
+                                                    if(e==null){
+                                                        Toast.makeText(ac, "", Toast.LENGTH_SHORT).show();
+                                                    }
+                                                    else{
+                                                        Toast.makeText(ac, e.getMessage(), Toast.LENGTH_LONG).show();
+                                                    }
+                                                }
+                                            });
                                         }
                                         else{
                                             Toast.makeText(ac, e.getMessage(), Toast.LENGTH_SHORT).show();
@@ -217,6 +233,25 @@ public class AccountsAdapter extends BaseAdapter {
                     public void onClick(View v) {
 
                         AlertDialog.Builder confChange = new AlertDialog.Builder(ac);
+
+                        confChange.setTitle("Cancel");
+
+                        confChange.setMessage("Cancel editing?");
+
+                        confChange.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                adEdit.dismiss();
+                                dialog.dismiss();
+                            }
+                        });
+
+                        confChange.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
                     }
                 });
             }
