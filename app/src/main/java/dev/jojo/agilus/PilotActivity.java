@@ -118,7 +118,7 @@ public class PilotActivity extends AppCompatActivity {
 
                     case 1:
                         //Pinned Locations
-
+                        startActivity(new Intent().setClass(getApplicationContext(),PinnedLocations.class));
                         break;
 
                     case 2:

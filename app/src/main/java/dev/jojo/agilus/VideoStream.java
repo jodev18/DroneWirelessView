@@ -159,33 +159,14 @@ public class VideoStream extends BaseActivity
         mUSBMonitor = new USBMonitor(this, mOnDeviceConnectListener);
         mCameraHandler = UVCCameraHandlerMultiSurface.createHandler(this, mUVCCameraView,
                 USE_SURFACE_ENCODER ? 0 : 1, PREVIEW_WIDTH, PREVIEW_HEIGHT, PREVIEW_MODE);
+
+        initializeOpenCVDependencies();
     }
 
-    private BaseLoaderCallback baseLoaderCallback = new BaseLoaderCallback(this) {
-        @Override
-        public void onManagerConnected(int status) {
-            switch (status) {
-                case LoaderCallbackInterface.SUCCESS:
-                    initializeOpenCVDependencies();
-                    break;
-                default:
-                    super.onManagerConnected(status);
-                    finish();
-                    break;
-            }
-        }
-    };
 
     @Override
     public void onResume(){
         super.onResume();
-        if (!OpenCVLoader.initDebug()) {
-            Log.d(TAG, "Internal OpenCV library not found. Using OpenCV Manager for initialization");
-            OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_2_4_11, this, baseLoaderCallback);
-        } else {
-            Log.d(TAG, "OpenCV library found inside package. Using it!");
-            baseLoaderCallback.onManagerConnected(LoaderCallbackInterface.SUCCESS);
-        }
     }
 
     private void initializeOpenCVDependencies() {
