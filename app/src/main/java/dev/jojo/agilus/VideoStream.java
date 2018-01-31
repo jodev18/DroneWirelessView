@@ -9,6 +9,7 @@ import android.graphics.SurfaceTexture;
 import android.graphics.Typeface;
 import android.hardware.usb.UsbDevice;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.Surface;
@@ -22,6 +23,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+//import com.devpaul.bluetoothutillib.SimpleBluetooth;
 import com.serenegiant.common.BaseActivity;
 import com.serenegiant.opencv.ImageProcessor;
 import com.serenegiant.usb.CameraDialog;
@@ -35,7 +37,15 @@ import com.serenegiant.widget.UVCCameraTextureView;
 import org.opencv.android.BaseLoaderCallback;
 import org.opencv.android.LoaderCallbackInterface;
 import org.opencv.android.OpenCVLoader;
+import org.opencv.android.Utils;
+import org.opencv.core.Core;
 import org.opencv.core.Mat;
+import org.opencv.core.MatOfRect;
+import org.opencv.core.Point;
+import org.opencv.core.Rect;
+import org.opencv.core.Scalar;
+import org.opencv.core.Size;
+import org.opencv.imgproc.Imgproc;
 import org.opencv.objdetect.CascadeClassifier;
 
 import java.io.File;
@@ -49,6 +59,13 @@ public class VideoStream extends BaseActivity
 
     private static final boolean DEBUG = true;	// TODO set false on release
     private static final String TAG = "VideoStream";
+
+    /**
+     * For gathering GPS coordinates
+     */
+    //private SimpleBluetooth simpleBluetooth;
+    private Handler h;
+    private StringBuilder sb; // For containing the gps coordinates
 
     /**
      * set true if you want to record movie using MediaSurfaceEncoder
@@ -160,15 +177,25 @@ public class VideoStream extends BaseActivity
         mCameraHandler = UVCCameraHandlerMultiSurface.createHandler(this, mUVCCameraView,
                 USE_SURFACE_ENCODER ? 0 : 1, PREVIEW_WIDTH, PREVIEW_HEIGHT, PREVIEW_MODE);
 
-        initializeOpenCVDependencies();
+
     }
 
 
     @Override
     public void onResume(){
         super.onResume();
+        if (!OpenCVLoader.initDebug()) {
+            Log.d("OpenCV", "Internal OpenCV library not found. Using OpenCV Manager for initialization");
+            OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_3_0_0, this, mLoaderCallback);
+        } else {
+            Log.d("OpenCV", "OpenCV library found inside package. Using it!");
+            mLoaderCallback.onManagerConnected(LoaderCallbackInterface.SUCCESS);
+        }
     }
 
+    /**
+     * OPENCV Stuff
+     */
     private void initializeOpenCVDependencies() {
 
         try {
@@ -189,11 +216,34 @@ public class VideoStream extends BaseActivity
             // Load the cascade classifier
             mClassifier = new CascadeClassifier(mCascadeFile.getAbsolutePath());
 
+            Log.d("CLASSIFIER","Loaded classifier.");
+
         } catch (Exception e) {
             Log.e("OpenCVActivity", "Error loading cascade", e);
         }
 
     }
+
+    /**
+     * Callback for loading opencv dependencies.
+     */
+    private BaseLoaderCallback mLoaderCallback = new BaseLoaderCallback(this) {
+        @Override
+        public void onManagerConnected(int status) {
+            switch (status) {
+                case LoaderCallbackInterface.SUCCESS:
+                {
+                    Log.i("OpenCV", "OpenCV loaded successfully");
+                    //imageMat=new Mat();
+                    initializeOpenCVDependencies();
+                } break;
+                default:
+                {
+                    super.onManagerConnected(status);
+                } break;
+            }
+        }
+    };
 
     @Override
     protected void onStart() {
@@ -720,6 +770,50 @@ public class VideoStream extends BaseActivity
                 try {
                     frame.clear();
                     mFrame.copyPixelsFromBuffer(frame);
+                    Mat mat = new Mat();
+                    Bitmap bmp32 = mFrame.copy(Bitmap.Config.ARGB_8888, true);
+                    Utils.bitmapToMat(bmp32, mat);
+
+                    if(mat.empty()){
+                        Log.d("BITMAP_PROC", "Mat is empty pa din!!!!");
+                    }
+
+//					Imgproc.putText(mat, "TEST",
+//							new Point( 40, 40),
+//							Core.FONT_HERSHEY_SIMPLEX, 3.0, new Scalar(255));
+//					Imgproc.rectangle(mat,new Point(30,30),new Point(40,40),new Scalar(255),4);
+
+                    final Scalar FACE_RECT_COLOR = new Scalar(0, 255, 0, 255);
+
+                    MatOfRect faces = new MatOfRect();
+
+                    mClassifier.detectMultiScale(mat, faces, 1.1, 2, 2, // TODO: objdetect.CV_HAAR_SCALE_IMAGE
+                            new Size(50, 80), new Size());
+
+                    Rect[] facesArray = faces.toArray();
+
+                    Log.d("DETECTED",Integer.valueOf(facesArray.length).toString());
+//
+                    Imgproc.putText(mat, "TEST",
+                            new Point( 10, 10),
+                            Core.FONT_HERSHEY_SIMPLEX, 1.0, new Scalar(255));
+
+                    //Core.putText();
+
+
+                    for (int i = 0; i < facesArray.length; i++)
+                    {
+                        Imgproc.rectangle(mat, facesArray[i].tl(), facesArray[i].br(),
+                                FACE_RECT_COLOR, 3);
+
+                    }
+
+                    mFrame = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+
+                    Utils.matToBitmap(mat,mFrame);
+
+
+
                     final Canvas canvas = holder.lockCanvas();
                     if (canvas != null) {
                         try {
