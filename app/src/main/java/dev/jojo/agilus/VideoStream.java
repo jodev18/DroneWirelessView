@@ -1,29 +1,44 @@
 package dev.jojo.agilus;
 
+import android.Manifest;
 import android.animation.Animator;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.SurfaceTexture;
 import android.graphics.Typeface;
+import android.graphics.drawable.BitmapDrawable;
 import android.hardware.usb.UsbDevice;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 import android.view.Surface;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
 //import com.devpaul.bluetoothutillib.SimpleBluetooth;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapView;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.LatLng;
 import com.serenegiant.common.BaseActivity;
 import com.serenegiant.opencv.ImageProcessor;
 import com.serenegiant.usb.CameraDialog;
@@ -47,17 +62,25 @@ import org.opencv.core.Scalar;
 import org.opencv.core.Size;
 import org.opencv.imgproc.Imgproc;
 import org.opencv.objdetect.CascadeClassifier;
+import org.opencv.video.Video;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import dev.jojo.agilus.adapters.LegendsAdapter;
+import dev.jojo.agilus.objects.LegendObject;
 
 public class VideoStream extends BaseActivity
         implements CameraDialog.CameraDialogParent {
 
-    private static final boolean DEBUG = true;	// TODO set false on release
+    private static final boolean DEBUG = true;    // TODO set false on release
     private static final String TAG = "VideoStream";
 
     /**
@@ -135,20 +158,31 @@ public class VideoStream extends BaseActivity
     //Haar cascade classifier
     private CascadeClassifier mClassifier;
 
+    //Scan mode toggle
+    private ToggleButton mScanModeButton;
+
+    @BindView(R.id.fabPinLoc) FloatingActionButton fPinLoc;
+
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (DEBUG) Log.v(TAG, "onCreate:");
         setContentView(R.layout.activity_video_stream);
+
+        ButterKnife.bind(this);
+
         mCameraButton = findViewById(R.id.camera_button);
         mCameraButton.setOnCheckedChangeListener(mOnCheckedChangeListener);
         mCaptureButton = findViewById(R.id.capture_button);
         mCaptureButton.setOnClickListener(mOnClickListener);
         mCaptureButton.setVisibility(View.INVISIBLE);
 
+        mScanModeButton = findViewById(R.id.tbSurveyMode);
+        mScanModeButton.setOnCheckedChangeListener(scanMode);
+
         mUVCCameraView = findViewById(R.id.camera_view);
         mUVCCameraView.setOnLongClickListener(mOnLongClickListener);
-        mUVCCameraView.setAspectRatio(PREVIEW_WIDTH / (float)PREVIEW_HEIGHT);
+        mUVCCameraView.setAspectRatio(PREVIEW_WIDTH / (float) PREVIEW_HEIGHT);
 
         mResultView = findViewById(R.id.result_view);
 
@@ -177,12 +211,119 @@ public class VideoStream extends BaseActivity
         mCameraHandler = UVCCameraHandlerMultiSurface.createHandler(this, mUVCCameraView,
                 USE_SURFACE_ENCODER ? 0 : 1, PREVIEW_WIDTH, PREVIEW_HEIGHT, PREVIEW_MODE);
 
+        initializeMiniMap(savedInstanceState);
+
+        initListener();
+    }
+
+    private CompoundButton.OnCheckedChangeListener scanMode = new CompoundButton.OnCheckedChangeListener() {
+        @Override
+        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            if(isChecked){
+                mResultView.setVisibility(SurfaceView.VISIBLE);
+            }
+            else{
+                mResultView.setVisibility(SurfaceView.INVISIBLE);
+            }
+        }
+    };
+
+    private void initListener(){
+
+        fPinLoc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pinLocDialog();
+            }
+        });
+    }
+
+    private void pinLocDialog(){
+
+        AlertDialog.Builder pl = new AlertDialog.Builder(VideoStream.this);
+
+        pl.setTitle("Location Source");
+
+        String[] choices = {"Phone GPS","Drone GPS"};
+
+        pl.setSingleChoiceItems(choices, 0, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                switch (which){
+                    case 0:
+                        pinLocPhoneGPS();
+
+                        break;
+                    case 1:
+                        pinLocDroneGPS();
+                        break;
+                }
+
+            }
+        });
+
+        pl.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+
+        pl.create().show();
+    }
+
+    private void pinLocPhoneGPS(){
+        showPinLegendType();
+    }
+
+    private void pinLocDroneGPS(){
+        showPinLegendType();
+    }
+
+    private void showPinLegendType(){
+
+        AlertDialog.Builder ab = new AlertDialog.Builder(VideoStream.this);
+        ab.setTitle("Select Type");
+
+        View vv = this.getLayoutInflater().inflate(R.layout.layout_dialog_legend_list,null);
+
+        ListView dataList = vv.findViewById(R.id.lvLegendList);
+
+        String[] legends = {"Healthy Survivor","Minor Injury","Major Injury","Casualty","Supplies Needed","Trapped Surviors"};
+        int[] colors = {R.drawable.ic_person_pin_circle_green,
+                R.drawable.ic_person_pin_circle_yellow,
+                R.drawable.ic_person_pin_circle_red,
+                R.drawable.ic_person_pin_circle_black,
+                R.drawable.ic_person_pin_circle_brown,
+                R.drawable.ic_person_pin_circle_gray};
+
+        List<LegendObject> lObjs = new ArrayList<LegendObject>();
+
+        for(int i=0;i<legends.length;i++){
+            lObjs.add(new LegendObject(colors[i],legends[i]));
+        }
+
+        LegendsAdapter legendsAdapter = new LegendsAdapter(lObjs,VideoStream.this);
+
+        dataList.setAdapter(legendsAdapter);
+
+        dataList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            }
+        });
+
+        ab.setView(vv);
+
+        ab.create().show();
 
     }
 
 
     @Override
-    public void onResume(){
+    public void onResume() {
         super.onResume();
         if (!OpenCVLoader.initDebug()) {
             Log.d("OpenCV", "Internal OpenCV library not found. Using OpenCV Manager for initialization");
@@ -216,7 +357,7 @@ public class VideoStream extends BaseActivity
             // Load the cascade classifier
             mClassifier = new CascadeClassifier(mCascadeFile.getAbsolutePath());
 
-            Log.d("CLASSIFIER","Loaded classifier.");
+            Log.d("CLASSIFIER", "Loaded classifier.");
 
         } catch (Exception e) {
             Log.e("OpenCVActivity", "Error loading cascade", e);
@@ -231,16 +372,16 @@ public class VideoStream extends BaseActivity
         @Override
         public void onManagerConnected(int status) {
             switch (status) {
-                case LoaderCallbackInterface.SUCCESS:
-                {
+                case LoaderCallbackInterface.SUCCESS: {
                     Log.i("OpenCV", "OpenCV loaded successfully");
                     //imageMat=new Mat();
                     initializeOpenCVDependencies();
-                } break;
-                default:
-                {
+                }
+                break;
+                default: {
                     super.onManagerConnected(status);
-                } break;
+                }
+                break;
             }
         }
     };
@@ -293,11 +434,11 @@ public class VideoStream extends BaseActivity
                     if (mCameraHandler.isOpened()) {
                         if (checkPermissionWriteExternalStorage() && checkPermissionAudio()) {
                             if (!mCameraHandler.isRecording()) {
-                                mCaptureButton.setColorFilter(0xffff0000);	// turn red
+                                mCaptureButton.setColorFilter(0xffff0000);    // turn red
                                 mCameraHandler.startRecording();
 
                             } else {
-                                mCaptureButton.setColorFilter(0);	// return to default color
+                                mCaptureButton.setColorFilter(0);    // return to default color
                                 mCameraHandler.stopRecording();
                             }
                         }
@@ -375,6 +516,7 @@ public class VideoStream extends BaseActivity
     }
 
     private int mPreviewSurfaceId;
+
     private void startPreview() {
         if (DEBUG) Log.v(TAG, "startPreview:");
         mUVCCameraView.resetFps();
@@ -444,6 +586,7 @@ public class VideoStream extends BaseActivity
                 updateItems();
             }
         }
+
         @Override
         public void onDettach(final UsbDevice device) {
             Toast.makeText(VideoStream.this,
@@ -505,15 +648,16 @@ public class VideoStream extends BaseActivity
             final int visible_active = isActive() ? View.VISIBLE : View.INVISIBLE;
             //mToolsLayout.setVisibility(visible_active);
             ///mBrightnessButton.setVisibility(
-                  //  checkSupportFlag(UVCCamera.PU_BRIGHTNESS)
-                    //        ? visible_active : View.INVISIBLE);
+            //  checkSupportFlag(UVCCamera.PU_BRIGHTNESS)
+            //        ? visible_active : View.INVISIBLE);
             //mContrastButton.setVisibility(
-              //      checkSupportFlag(UVCCamera.PU_CONTRAST)
-                //            ? visible_active : View.INVISIBLE);
+            //      checkSupportFlag(UVCCamera.PU_CONTRAST)
+            //            ? visible_active : View.INVISIBLE);
         }
     };
 
     private int mSettingMode = -1;
+
     /**
      * show setting view
      * @param mode
@@ -605,7 +749,7 @@ public class VideoStream extends BaseActivity
                         setValue(mSettingMode, seekBar.getProgress());
                         break;
                 }
-            }	// if (active)
+            }    // if (active)
         }
     };
 
@@ -625,8 +769,7 @@ public class VideoStream extends BaseActivity
             final int id = target.getId();
             switch (animationType) {
                 case ViewAnimationHelper.ANIMATION_FADE_IN:
-                case ViewAnimationHelper.ANIMATION_FADE_OUT:
-                {
+                case ViewAnimationHelper.ANIMATION_FADE_OUT: {
                     final boolean fadeIn = animationType == ViewAnimationHelper.ANIMATION_FADE_IN;
                     if (id == R.id.value_layout) {
                         if (fadeIn) {
@@ -704,9 +847,9 @@ public class VideoStream extends BaseActivity
         if (DEBUG) Log.v(TAG, "startImageProcessor:");
         mIsRunning = true;
         if (mImageProcessor == null) {
-            mImageProcessor = new ImageProcessor(PREVIEW_WIDTH, PREVIEW_HEIGHT,	// src size
-                    new MyImageProcessorCallback(processing_width, processing_height));	// processing size
-            mImageProcessor.start(processing_width, processing_height);	// processing size
+            mImageProcessor = new ImageProcessor(PREVIEW_WIDTH, PREVIEW_HEIGHT,    // src size
+                    new MyImageProcessorCallback(processing_width, processing_height));    // processing size
+            mImageProcessor.start(processing_width, processing_height);    // processing size
             final Surface surface = mImageProcessor.getSurface();
             mImageProcessorSurfaceId = surface != null ? surface.hashCode() : 0;
             if (mImageProcessorSurfaceId != 0) {
@@ -738,6 +881,7 @@ public class VideoStream extends BaseActivity
         private final Matrix matrix = new Matrix();
 
         private Bitmap mFrame;
+
         protected MyImageProcessorCallback(
                 final int processing_width, final int processing_height) {
 
@@ -762,8 +906,8 @@ public class VideoStream extends BaseActivity
 //--------------------------------------------------------------------------------
                 if (mFrame == null) {
                     mFrame = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
-                    final float scaleX = mResultView.getWidth() / (float)width;
-                    final float scaleY = mResultView.getHeight() / (float)height;
+                    final float scaleX = mResultView.getWidth() / (float) width;
+                    final float scaleY = mResultView.getHeight() / (float) height;
                     matrix.reset();
                     matrix.postScale(scaleX, scaleY);
                 }
@@ -774,7 +918,7 @@ public class VideoStream extends BaseActivity
                     Bitmap bmp32 = mFrame.copy(Bitmap.Config.ARGB_8888, true);
                     Utils.bitmapToMat(bmp32, mat);
 
-                    if(mat.empty()){
+                    if (mat.empty()) {
                         Log.d("BITMAP_PROC", "Mat is empty pa din!!!!");
                     }
 
@@ -792,17 +936,16 @@ public class VideoStream extends BaseActivity
 
                     Rect[] facesArray = faces.toArray();
 
-                    Log.d("DETECTED",Integer.valueOf(facesArray.length).toString());
+                    Log.d("DETECTED", Integer.valueOf(facesArray.length).toString());
 //
-                    Imgproc.putText(mat, "TEST",
-                            new Point( 10, 10),
-                            Core.FONT_HERSHEY_SIMPLEX, 1.0, new Scalar(255));
+                    Imgproc.putText(mat, "AGILUS v1.1\nDETECTION MODE",
+                            new Point(10, 40),
+                            Core.FONT_HERSHEY_SIMPLEX, 1.0, FACE_RECT_COLOR);
 
                     //Core.putText();
 
 
-                    for (int i = 0; i < facesArray.length; i++)
-                    {
+                    for (int i = 0; i < facesArray.length; i++) {
                         Imgproc.rectangle(mat, facesArray[i].tl(), facesArray[i].br(),
                                 FACE_RECT_COLOR, 3);
 
@@ -810,8 +953,7 @@ public class VideoStream extends BaseActivity
 
                     mFrame = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
 
-                    Utils.matToBitmap(mat,mFrame);
-
+                    Utils.matToBitmap(mat, mFrame);
 
 
                     final Canvas canvas = holder.lockCanvas();
@@ -835,6 +977,64 @@ public class VideoStream extends BaseActivity
             // do something
         }
 
+    }
+
+    private void initializeMiniMap(Bundle savedInstanceState) {
+
+        final MapView mapView = findViewById(R.id.minimap);
+
+        mapView.onCreate(savedInstanceState);
+
+
+        mapView.getMapAsync(new OnMapReadyCallback() {
+            @Override
+            public void onMapReady(final GoogleMap googleMap) {
+//                VideoStream.this.gMap = googleMap;
+
+//                if (ActivityCompat.checkSelfPermission(VideoStream.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+//                    // TODO: Consider calling
+//                    //    ActivityCompat#requestPermissions
+//                    // here to request the missing permissions, and then overriding
+//                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+//                    //                                          int[] grantResults)
+//                    // to handle the case where the user grants the permission. See the documentation
+//                    // for ActivityCompat#requestPermissions for more details.
+//                    return;
+//                }
+                //googleMap.setMyLocationEnabled(true);
+
+                int height = 100;
+                int width = 100;
+                BitmapDrawable bitmapdraw=(BitmapDrawable)getResources().getDrawable(R.drawable.agilus_graphic);
+                Bitmap b=bitmapdraw.getBitmap();
+                final Bitmap smallMarker = Bitmap.createScaledBitmap(b, width, height, false);
+
+                // Add a marker in Sydney and move the camera
+                final LatLng sydney = new LatLng(-34, 151);
+
+                //googleMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+                googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+                googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(sydney,12.0f));
+
+                // Add a marker in Sydney and move the camera
+                final LatLng sydney2 = new LatLng(-34 + (Math.random()), 151 + (Math.random()));
+
+                //animateMarkerToGB(new MarkerOptions()
+                // .position(sydney2)
+                //.title("Marker in Sydney: ")
+                //.icon(BitmapDescriptorFactory.fromBitmap(smallMarker)),);
+
+//                h.postDelayed(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        animateMarker(0,sydney,sydney2,false,googleMap,smallMarker);
+//                    }
+//                },10000);
+
+
+                mapView.onResume();
+            }
+        });
     }
 
 }

@@ -23,6 +23,7 @@
   -->
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/RelativeLayout1"
     android:layout_width="match_parent"
@@ -36,8 +37,7 @@
         android:id="@+id/camera_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"/>
+        android:layout_marginStart="299dp" />
 
     <ImageView
         android:id="@+id/frame_image"
@@ -50,27 +50,37 @@
         android:src="@drawable/border"
         android:visibility="gone" />
 
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabPinLoc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toStartOf="@+id/result_view"
+        android:clickable="true"
+        android:src="@drawable/agilus_graphic" />
+
     <SurfaceView
         android:id="@+id/result_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="5dp"
-        android:layout_marginRight="5dp"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/minimap"
         android:visibility="visible" />
 
     <com.google.android.gms.maps.MapView
-        android:id="@+id/mapView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true" />
+        android:id="@+id/minimap"
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/frame_image" />
 
     <ToggleButton
         android:id="@+id/camera_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/camera_view"
-        android:layout_alignLeft="@id/camera_view"
-        android:text="ToggleButton"/>
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/minimap"
+        android:text="ToggleButton" />
 
     <ImageButton
         android:id="@+id/capture_button"
@@ -168,5 +178,14 @@
             android:visibility="gone" />
 
     </RelativeLayout>
+
+    <ToggleButton
+        android:id="@+id/tbSurveyMode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:textOff="Normal"
+        android:textOn="Survey" />
 
 </RelativeLayout>

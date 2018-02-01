@@ -4,7 +4,7 @@ android {
     compileSdkVersion 26
     defaultConfig {
         applicationId "dev.jojo.agilus"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
@@ -36,6 +36,7 @@ dependencies {
     compile 'devlight.io:navigationtabbar:1.2.5'
     compile 'com.github.pwittchen:reactivenetwork-rx2:0.12.2'
 
+    implementation 'com.karumi:dexter:4.2.0'
     //compile 'com.github.DeveloperPaul123:SimpleBluetoothLibrary:1.5.1'
 
     implementation project(':libuvccamera-release')

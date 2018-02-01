@@ -1,15 +1,24 @@
 package dev.jojo.agilus;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 
 import com.github.pwittchen.reactivenetwork.library.rx2.Connectivity;
 import com.github.pwittchen.reactivenetwork.library.rx2.ReactiveNetwork;
+import com.karumi.dexter.Dexter;
+import com.karumi.dexter.PermissionToken;
+import com.karumi.dexter.listener.PermissionDeniedResponse;
+import com.karumi.dexter.listener.PermissionGrantedResponse;
+import com.karumi.dexter.listener.PermissionRequest;
+import com.karumi.dexter.listener.single.PermissionListener;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -33,6 +42,22 @@ public class SplashActivity extends AppCompatActivity {
         h = new Handler(this.getMainLooper());
 
         initNetworkListener();
+
+        Dexter.withActivity(SplashActivity.this)
+                .withPermission(Manifest.permission.ACCESS_COARSE_LOCATION)
+                .withListener(new PermissionListener() {
+                    @Override public void onPermissionGranted(PermissionGrantedResponse response) {
+
+                        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(SplashActivity.this);
+
+                        SharedPreferences.Editor e = sp.edit();
+
+                        e.putBoolean("has_permission",true);
+                        e.commit();
+                    }
+                    @Override public void onPermissionDenied(PermissionDeniedResponse response) {/* ... */}
+                    @Override public void onPermissionRationaleShouldBeShown(PermissionRequest permission, PermissionToken token) {/* ... */}
+                }).check();
 
     }
 
