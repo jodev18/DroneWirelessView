@@ -14,11 +14,15 @@ import android.view.Window;
 import com.github.pwittchen.reactivenetwork.library.rx2.Connectivity;
 import com.github.pwittchen.reactivenetwork.library.rx2.ReactiveNetwork;
 import com.karumi.dexter.Dexter;
+import com.karumi.dexter.MultiplePermissionsReport;
 import com.karumi.dexter.PermissionToken;
 import com.karumi.dexter.listener.PermissionDeniedResponse;
 import com.karumi.dexter.listener.PermissionGrantedResponse;
 import com.karumi.dexter.listener.PermissionRequest;
+import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 import com.karumi.dexter.listener.single.PermissionListener;
+
+import java.util.List;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -41,24 +45,41 @@ public class SplashActivity extends AppCompatActivity {
 
         h = new Handler(this.getMainLooper());
 
-        initNetworkListener();
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(SplashActivity.this);
 
-        Dexter.withActivity(SplashActivity.this)
-                .withPermission(Manifest.permission.ACCESS_COARSE_LOCATION)
-                .withListener(new PermissionListener() {
-                    @Override public void onPermissionGranted(PermissionGrantedResponse response) {
+        Boolean hasAllowed = sp.getBoolean("has_permission",false);
 
-                        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(SplashActivity.this);
+        if(!hasAllowed){
 
-                        SharedPreferences.Editor e = sp.edit();
+            Dexter.withActivity(this)
+                    .withPermissions(
+                            Manifest.permission.ACCESS_COARSE_LOCATION,
+                            Manifest.permission.ACCESS_FINE_LOCATION,
+                            Manifest.permission.WRITE_EXTERNAL_STORAGE
+                    ).withListener(new MultiplePermissionsListener() {
 
-                        e.putBoolean("has_permission",true);
-                        e.commit();
-                    }
-                    @Override public void onPermissionDenied(PermissionDeniedResponse response) {/* ... */}
-                    @Override public void onPermissionRationaleShouldBeShown(PermissionRequest permission, PermissionToken token) {/* ... */}
-                }).check();
+                @Override
+                public void onPermissionsChecked(MultiplePermissionsReport report) {
 
+                    SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(SplashActivity.this);
+
+                    SharedPreferences.Editor e = sp.edit();
+
+                    e.putBoolean("has_permission",true);
+                    e.commit();
+
+                    initNetworkListener();
+                }
+                @Override
+                public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
+
+                }
+            }).check();
+
+        }
+        else{
+            initNetworkListener();
+        }
     }
 
     private void initNetworkListener(){

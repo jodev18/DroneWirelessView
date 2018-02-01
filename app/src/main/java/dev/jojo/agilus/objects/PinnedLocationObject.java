@@ -13,5 +13,8 @@ public class PinnedLocationObject {
     public String PILOT_ID;
     public ParseGeoPoint LOC_GEOPOINT;
     public String TIMESTAMP;
+    public String PIN_TYPE;
+    public String PILOT_NAME;
+    public String DRONE_NAME;
 
 }

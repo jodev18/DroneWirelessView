@@ -3,6 +3,8 @@ package dev.jojo.agilus;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import butterknife.ButterKnife;
+
 public class PinnedLocations extends AppCompatActivity {
 
     @Override
@@ -10,6 +12,7 @@ public class PinnedLocations extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pinned_locations);
 
+        ButterKnife.bind(this);
 
 
     }

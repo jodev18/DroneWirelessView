@@ -22,6 +22,6 @@
         android:paddingLeft="6dp"
         android:text="Legend Type"
         android:textColor="@color/BLACK"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        android:textSize="26sp" />
+
 </RelativeLayout>

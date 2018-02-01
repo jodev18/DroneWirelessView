@@ -3,8 +3,10 @@ package dev.jojo.agilus;
 import android.Manifest;
 import android.animation.Animator;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -14,8 +16,13 @@ import android.graphics.SurfaceTexture;
 import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.hardware.usb.UsbDevice;
+import android.location.Criteria;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
@@ -38,7 +45,17 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
+import com.parse.FindCallback;
+import com.parse.ParseException;
+import com.parse.ParseGeoPoint;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+import com.parse.ParseUser;
+import com.parse.SaveCallback;
 import com.serenegiant.common.BaseActivity;
 import com.serenegiant.opencv.ImageProcessor;
 import com.serenegiant.usb.CameraDialog;
@@ -68,7 +85,9 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -76,6 +95,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import dev.jojo.agilus.adapters.LegendsAdapter;
 import dev.jojo.agilus.objects.LegendObject;
+import dev.jojo.agilus.objects.PinnedLocationObject;
 
 public class VideoStream extends BaseActivity
         implements CameraDialog.CameraDialogParent {
@@ -160,6 +180,24 @@ public class VideoStream extends BaseActivity
 
     //Scan mode toggle
     private ToggleButton mScanModeButton;
+    private LocationManager mLocationManager;
+    private Location mDeviceLocation;
+    private GoogleMap mGoogleMap;
+
+    //For gps location source
+    private static final Integer SOURCE_PHONE = 2;
+    private static final Integer SOURCE_DRONE_GPS = 3;
+
+    //For the pin type
+    private static final Integer PIN_TYPE_HEALTHY = 42;
+    private static final Integer PIN_TYPE_MINOR_INJURY = 41;
+    private static final Integer PIN_TYPE_MAJOR_INJURY = 40;
+    private static final Integer PIN_TYPE_CASUALTY = 39;
+    private static final Integer PIN_TYPE_NEED_SUPP = 38;
+    private static final Integer PIN_TYPE_TRAPPED = 37;
+    private static final Integer PIN_TYPE_RESPONDED = 36;
+    
+    private ProgressDialog prg;
 
     @BindView(R.id.fabPinLoc) FloatingActionButton fPinLoc;
 
@@ -211,6 +249,7 @@ public class VideoStream extends BaseActivity
         mCameraHandler = UVCCameraHandlerMultiSurface.createHandler(this, mUVCCameraView,
                 USE_SURFACE_ENCODER ? 0 : 1, PREVIEW_WIDTH, PREVIEW_HEIGHT, PREVIEW_MODE);
 
+        h = new Handler(this.getMainLooper());
         initializeMiniMap(savedInstanceState);
 
         initListener();
@@ -252,14 +291,13 @@ public class VideoStream extends BaseActivity
 
                 switch (which){
                     case 0:
-                        pinLocPhoneGPS();
-
+                        showPinLegendType(SOURCE_PHONE);
                         break;
                     case 1:
-                        pinLocDroneGPS();
+                        showPinLegendType(SOURCE_DRONE_GPS);
                         break;
-                }
 
+                }
             }
         });
 
@@ -273,15 +311,7 @@ public class VideoStream extends BaseActivity
         pl.create().show();
     }
 
-    private void pinLocPhoneGPS(){
-        showPinLegendType();
-    }
-
-    private void pinLocDroneGPS(){
-        showPinLegendType();
-    }
-
-    private void showPinLegendType(){
+    private void showPinLegendType(final Integer GPSSource){
 
         AlertDialog.Builder ab = new AlertDialog.Builder(VideoStream.this);
         ab.setTitle("Select Type");
@@ -290,13 +320,15 @@ public class VideoStream extends BaseActivity
 
         ListView dataList = vv.findViewById(R.id.lvLegendList);
 
-        String[] legends = {"Healthy Survivor","Minor Injury","Major Injury","Casualty","Supplies Needed","Trapped Surviors"};
+        String[] legends = {"Healthy Survivor","Minor Injury","Major Injury","Casualty","Supplies Needed","Trapped Surviors","Area Responded"};
+
         int[] colors = {R.drawable.ic_person_pin_circle_green,
                 R.drawable.ic_person_pin_circle_yellow,
                 R.drawable.ic_person_pin_circle_red,
                 R.drawable.ic_person_pin_circle_black,
                 R.drawable.ic_person_pin_circle_brown,
-                R.drawable.ic_person_pin_circle_gray};
+                R.drawable.ic_person_pin_circle_gray,
+                R.drawable.ic_responded};
 
         List<LegendObject> lObjs = new ArrayList<LegendObject>();
 
@@ -312,6 +344,37 @@ public class VideoStream extends BaseActivity
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
+                if(GPSSource == SOURCE_PHONE){
+
+                    switch(position){
+                        case 0:
+                            pinSelectedLocation(mDeviceLocation,PIN_TYPE_HEALTHY);
+                            break;
+                        case 1:
+                            pinSelectedLocation(mDeviceLocation,PIN_TYPE_MINOR_INJURY);
+                            break;
+                        case 2:
+                            pinSelectedLocation(mDeviceLocation,PIN_TYPE_MAJOR_INJURY);
+                            break;
+                        case 3:
+                            pinSelectedLocation(mDeviceLocation,PIN_TYPE_CASUALTY);
+                            break;
+                        case 4:
+                            pinSelectedLocation(mDeviceLocation,PIN_TYPE_NEED_SUPP);
+                            break;
+                        case 5:
+                            pinSelectedLocation(mDeviceLocation,PIN_TYPE_TRAPPED);
+                            break;
+                        case 6:
+                            pinSelectedLocation(mDeviceLocation,PIN_TYPE_RESPONDED);
+                            break;
+                            default:
+                    }
+                }
+                else if(GPSSource == SOURCE_DRONE_GPS){
+
+                    Toast.makeText(VideoStream.this, "No location received yet.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -319,6 +382,140 @@ public class VideoStream extends BaseActivity
 
         ab.create().show();
 
+    }
+
+    private String getPilotName(){
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(VideoStream.this);
+        return sp.getString(PilotActivity.KEY_PILOT,"None");
+    }
+
+    private String getDroneName(){
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(VideoStream.this);
+        return sp.getString(PilotActivity.KEY_DRONE,"None");
+    }
+
+    private void pinSelectedLocation(final Location loc, final Integer pinType){
+
+        prg = new ProgressDialog(VideoStream.this);
+        prg.setMessage("Pinning location...");
+        prg.setCancelable(false);
+        prg.show();
+
+        // Creating the ParseObject
+        final ParseObject placeObject = new ParseObject(PinnedLocationObject.CLASS_NAME);
+        // Creating the GeoPoint with latitude and longitude defined earlier in code
+        ParseGeoPoint point = new ParseGeoPoint(loc.getLatitude(), loc.getLongitude());
+        // Then, it is necessary to add it to the object as some field
+        placeObject.put("pin_loc", point);
+        placeObject.put("pin_type",pinType);
+        placeObject.put("pilot_obj_id", ParseUser.getCurrentUser().getObjectId());
+        placeObject.put("pin_timestamp", new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss")
+                .format(new Date()).toString());
+        placeObject.put("pilot_name",getPilotName());
+        placeObject.put("pilot_drone",getDroneName());
+
+        // After that, just saveInBackground
+        placeObject.saveInBackground(new SaveCallback() {
+            @Override
+            public void done(ParseException e) {
+
+                prg.dismiss();
+
+                if(e == null){
+                    Toast.makeText(VideoStream.this, "Location pinned successfully.", Toast.LENGTH_SHORT).show();
+
+                    pinLocationToMap(loc,pinType);
+                }
+                else{
+                    Log.e("ERROR_SAVE_PIN",e.getMessage());
+
+                    placeObject.saveEventually(new SaveCallback() {
+                        @Override
+                        public void done(ParseException e) {
+                            if(e==null){
+                                Toast.makeText(VideoStream.this,
+                                        "Location pinned successfully.", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+                }
+            }
+        });
+    }
+
+    private void pinLocationToMap(Location loc, Integer pinType){
+
+        int height = 100;
+        int width = 100;
+        BitmapDrawable bitmapdraw;
+
+        switch (pinType){
+            case 42:
+                bitmapdraw =(BitmapDrawable)getResources()
+                        .getDrawable(R.drawable.ic_person_pin_circle_green);
+                break;
+            case 41:
+                bitmapdraw =(BitmapDrawable)getResources()
+                        .getDrawable(R.drawable.ic_person_pin_circle_yellow);
+                break;
+            case 40:
+                bitmapdraw =(BitmapDrawable)getResources()
+                        .getDrawable(R.drawable.ic_person_pin_circle_red);
+                break;
+            case 39:
+                bitmapdraw =(BitmapDrawable)getResources()
+                        .getDrawable(R.drawable.ic_person_pin_circle_black);
+                break;
+            case 38:
+                bitmapdraw =(BitmapDrawable)getResources()
+                        .getDrawable(R.drawable.ic_person_pin_circle_brown);
+                break;
+            case 37:
+                bitmapdraw =(BitmapDrawable)getResources()
+                        .getDrawable(R.drawable.ic_person_pin_circle_gray);
+                break;
+            case 36:
+                bitmapdraw =(BitmapDrawable)getResources()
+                        .getDrawable(R.drawable.ic_responded);
+                break;
+
+                default: bitmapdraw = null;
+
+        }
+
+        if(bitmapdraw != null){
+            Bitmap b = bitmapdraw.getBitmap();
+
+            final Bitmap smallMarker = Bitmap.createScaledBitmap(b, width, height, false);
+            mGoogleMap.addMarker(new MarkerOptions()
+                    .position(new LatLng(loc.getLatitude(),loc.getLongitude()))
+                    .title(getDroneName() + " of " + getPilotName())
+                    //.snippet(mCarParcelableListCurrentLation.get(position).mAddress)
+                    .icon(BitmapDescriptorFactory.fromBitmap(smallMarker)));
+        }
+    }
+
+    private void loadAllPinnedlocations(){
+
+        if(prg == null){
+            prg = new ProgressDialog(VideoStream.this);
+        }
+
+        prg.setMessage("Loading pinned locations...");
+        prg.setCancelable(false);
+        prg.show();
+
+        ParseQuery<ParseObject> pLocations = ParseQuery.getQuery(PinnedLocationObject.CLASS_NAME);
+
+        pLocations.findInBackground(new FindCallback<ParseObject>() {
+            @Override
+            public void done(List<ParseObject> objects, ParseException e) {
+                prg.dismiss();
+                if(e==null){
+
+                }
+            }
+        });
     }
 
 
@@ -979,6 +1176,7 @@ public class VideoStream extends BaseActivity
 
     }
 
+
     private void initializeMiniMap(Bundle savedInstanceState) {
 
         final MapView mapView = findViewById(R.id.minimap);
@@ -989,35 +1187,17 @@ public class VideoStream extends BaseActivity
         mapView.getMapAsync(new OnMapReadyCallback() {
             @Override
             public void onMapReady(final GoogleMap googleMap) {
-//                VideoStream.this.gMap = googleMap;
 
-//                if (ActivityCompat.checkSelfPermission(VideoStream.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-//                    // TODO: Consider calling
-//                    //    ActivityCompat#requestPermissions
-//                    // here to request the missing permissions, and then overriding
-//                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-//                    //                                          int[] grantResults)
-//                    // to handle the case where the user grants the permission. See the documentation
-//                    // for ActivityCompat#requestPermissions for more details.
-//                    return;
-//                }
-                //googleMap.setMyLocationEnabled(true);
+                mGoogleMap = googleMap;
 
-                int height = 100;
-                int width = 100;
-                BitmapDrawable bitmapdraw=(BitmapDrawable)getResources().getDrawable(R.drawable.agilus_graphic);
-                Bitmap b=bitmapdraw.getBitmap();
-                final Bitmap smallMarker = Bitmap.createScaledBitmap(b, width, height, false);
+                //Permissions asked here already
+                //Ignore the red stuff in these parts... fingers crossed
+                googleMap.setMyLocationEnabled(true);
 
-                // Add a marker in Sydney and move the camera
-                final LatLng sydney = new LatLng(-34, 151);
+                mLocationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+                mLocationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 15000l,
+                       20.0f, mLocationListener);
 
-                //googleMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-                googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
-                googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(sydney,12.0f));
-
-                // Add a marker in Sydney and move the camera
-                final LatLng sydney2 = new LatLng(-34 + (Math.random()), 151 + (Math.random()));
 
                 //animateMarkerToGB(new MarkerOptions()
                 // .position(sydney2)
@@ -1036,5 +1216,57 @@ public class VideoStream extends BaseActivity
             }
         });
     }
+
+    private void drawCurrentLocation(Location location){
+
+        int height = 100;
+        int width = 100;
+
+        BitmapDrawable bitmapdraw=(BitmapDrawable)getResources().getDrawable(R.drawable.agilus_graphic);
+        Bitmap b=bitmapdraw.getBitmap();
+
+        final Bitmap smallMarker = Bitmap.createScaledBitmap(b, width, height, false);
+
+        // Add a marker in Sydney and move the camera
+        final LatLng sydney = new LatLng(location.getLatitude(), location.getLongitude());
+
+        //googleMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+        mGoogleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        mGoogleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(sydney,12.0f));
+
+        // Add a marker in Sydney and move the camera
+        final LatLng sydney2 = new LatLng(-34 + (Math.random()), 151 + (Math.random()));
+
+        final Marker marker = mGoogleMap.addMarker(new MarkerOptions()
+                .position(sydney)
+                .title("Your position")
+                //.snippet(mCarParcelableListCurrentLation.get(position).mAddress)
+                .icon(BitmapDescriptorFactory.fromBitmap(smallMarker)));
+    }
+
+    private LocationListener mLocationListener = new LocationListener() {
+
+        @Override
+        public void onLocationChanged(Location location) {
+            mDeviceLocation = location;
+
+            drawCurrentLocation(mDeviceLocation);
+        }
+
+        @Override
+        public void onStatusChanged(String provider, int status, Bundle extras) {
+
+        }
+
+        @Override
+        public void onProviderEnabled(String provider) {
+
+        }
+
+        @Override
+        public void onProviderDisabled(String provider) {
+
+        }
+    };
 
 }

@@ -160,7 +160,7 @@ public class AdminActivity extends AppCompatActivity {
 
         final String[] colors = getResources().getStringArray(R.array.vertical_ntb);
 
-        final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
+        final ViewPager viewPager = findViewById(R.id.pager);
         viewPager.setAdapter(new PagerAdapter() {
             @Override
             public int getCount() {
@@ -221,7 +221,7 @@ public class AdminActivity extends AppCompatActivity {
             }
         });
 
-        final NavigationTabBar navigationTabBar = (NavigationTabBar) findViewById(R.id.ntb_vertical);
+        final NavigationTabBar navigationTabBar = findViewById(R.id.ntb_vertical);
         final ArrayList<NavigationTabBar.Model> models = new ArrayList<>();
         models.add(
                 new NavigationTabBar.Model.Builder(
@@ -255,13 +255,16 @@ public class AdminActivity extends AppCompatActivity {
 
     private void initMapList(View pager, Bundle savedInstanceState){
 
-        final MapView mapView = (MapView)pager.findViewById(R.id.mapView);
+        final MapView mapView = pager.findViewById(R.id.mapView);
         mapView.onCreate(savedInstanceState);
 
         mapView.getMapAsync(new OnMapReadyCallback() {
             @Override
             public void onMapReady(final GoogleMap googleMap) {
                 AdminActivity.this.gMap = googleMap;
+
+                //This is okay, I asked this during splash
+                googleMap.setMyLocationEnabled(true);
 
                 int height = 100;
                 int width = 100;
@@ -300,14 +303,14 @@ public class AdminActivity extends AppCompatActivity {
 
     private void initInfoDisplay(View pager){
 
-        TextView adminUsername = (TextView)pager.findViewById(R.id.tvUsername);
-        TextView adminRole = (TextView)pager.findViewById(R.id.tvUserRole);
+        TextView adminUsername = pager.findViewById(R.id.tvUsername);
+        TextView adminRole = pager.findViewById(R.id.tvUserRole);
 
         //TODO Put the username and role here.
         adminUsername.setText(ParseUser.getCurrentUser().getUsername());
         adminRole.setText(ParseUser.getCurrentUser().getString("Role"));
 
-        Button logout = (Button)pager.findViewById(R.id.btnLogout);
+        Button logout = pager.findViewById(R.id.btnLogout);
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -367,10 +370,10 @@ public class AdminActivity extends AppCompatActivity {
 
     private void initAccountDisplay(View pager){
 
-        Toolbar toolbar = (Toolbar)pager.findViewById(R.id.toolbar);
+        Toolbar toolbar = pager.findViewById(R.id.toolbar);
         toolbar.setNavigationIcon(R.drawable.agilus_graphic);
 
-        FloatingActionButton fab = (FloatingActionButton)pager.findViewById(R.id.fab);
+        FloatingActionButton fab = pager.findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -378,8 +381,8 @@ public class AdminActivity extends AppCompatActivity {
             }
         });
 
-        final ListView lvPilotList = (ListView)pager.findViewById(R.id.lvAccountsList);
-        final TextView tvStat = (TextView)pager.findViewById(R.id.tvStatusNone);
+        final ListView lvPilotList = pager.findViewById(R.id.lvAccountsList);
+        final TextView tvStat = pager.findViewById(R.id.tvStatusNone);
 
         ParseQuery<ParseObject> pq = ParseQuery.getQuery("PilotAccounts");
 

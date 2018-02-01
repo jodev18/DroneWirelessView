@@ -3,9 +3,11 @@ package dev.jojo.agilus;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
@@ -59,6 +61,10 @@ public class PilotActivity extends AppCompatActivity {
 
     private String pilotObjId;
 
+    private SharedPreferences sp;
+
+    public static final String KEY_PILOT = "sp_pilot_name";
+    public static final String KEY_DRONE = "sp_drone_name";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +82,31 @@ public class PilotActivity extends AppCompatActivity {
         initProfileData();
         initPilotMenu();
         initNetworkListener();
+
+        sp = PreferenceManager.getDefaultSharedPreferences(PilotActivity.this);
+
+    }
+
+    private void saveCurrentPilotInfo(String pilotName, String droneName){
+
+        SharedPreferences.Editor e = sp.edit();
+
+        e.putString(KEY_PILOT,pilotName);
+        e.putString(KEY_DRONE,droneName);
+
+        e.commit();
+
+
+    }
+
+    private void disposeCurrentPilotInfo(){
+
+        SharedPreferences.Editor e = sp.edit();
+
+        e.remove(KEY_DRONE);
+        e.remove(KEY_PILOT);
+
+        e.commit();
 
     }
 
@@ -118,7 +149,7 @@ public class PilotActivity extends AppCompatActivity {
 
                     case 1:
                         //Pinned Locations
-                        startActivity(new Intent().setClass(getApplicationContext(),PinnedLocations.class));
+                        showPinnedLocations();
                         break;
 
                     case 2:
@@ -144,7 +175,8 @@ public class PilotActivity extends AppCompatActivity {
     }
 
     private void showPinnedLocations(){
-
+        Intent goToPinnedLocations = new Intent(getApplicationContext(),PinnedLocations.class);
+        startActivity(goToPinnedLocations);
     }
 
     private void showAllSavedImages(){
@@ -417,6 +449,8 @@ public class PilotActivity extends AppCompatActivity {
                             profName.setText(sPilotName);
                             droneName.setText(sDroneName);
 
+                            saveCurrentPilotInfo(sPilotName,sDroneName);
+
                             pilotObjId = currUser.getString(Globals.PILOT_INFO_TRACKER);
                         }
 
@@ -506,6 +540,8 @@ public class PilotActivity extends AppCompatActivity {
         if (netDisposable != null && !netDisposable.isDisposed()) {
             netDisposable.dispose();
         }
+
+        disposeCurrentPilotInfo();
 
         super.onDestroy();
     }
