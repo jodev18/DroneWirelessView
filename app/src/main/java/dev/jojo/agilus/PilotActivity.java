@@ -95,8 +95,6 @@ public class PilotActivity extends AppCompatActivity {
         e.putString(KEY_DRONE,droneName);
 
         e.commit();
-
-
     }
 
     private void disposeCurrentPilotInfo(){

@@ -16,6 +16,7 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,6 +41,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.parse.FindCallback;
 import com.parse.LogOutCallback;
 import com.parse.ParseException;
+import com.parse.ParseGeoPoint;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
@@ -48,6 +50,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dev.jojo.agilus.objects.AccountObject;
+import dev.jojo.agilus.objects.PinnedLocationObject;
 import devlight.io.library.ntb.NavigationTabBar;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -272,34 +275,184 @@ public class AdminActivity extends AppCompatActivity {
                 Bitmap b=bitmapdraw.getBitmap();
                 final Bitmap smallMarker = Bitmap.createScaledBitmap(b, width, height, false);
 
-                // Add a marker in Sydney and move the camera
-                final LatLng sydney = new LatLng(-34, 151);
+                loadAllPinnedlocations();
 
-                //googleMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-                googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
-                googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(sydney,12.0f));
-
-                // Add a marker in Sydney and move the camera
-                final LatLng sydney2 = new LatLng(-34 + (Math.random()), 151 + (Math.random()));
-
-                //animateMarkerToGB(new MarkerOptions()
-                       // .position(sydney2)
-                        //.title("Marker in Sydney: ")
-                        //.icon(BitmapDescriptorFactory.fromBitmap(smallMarker)),);
-
-                h.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        animateMarker(0,sydney,sydney2,false,googleMap,smallMarker);
-                    }
-                },10000);
-
+//                // Add a marker in Sydney and move the camera
+//                final LatLng sydney = new LatLng(-34, 151);
+//
+//                //googleMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+//                googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+//                googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(sydney,12.0f));
+//
+//                // Add a marker in Sydney and move the camera
+//                final LatLng sydney2 = new LatLng(-34 + (Math.random()), 151 + (Math.random()));
+//
+//                //animateMarkerToGB(new MarkerOptions()
+//                       // .position(sydney2)
+//                        //.title("Marker in Sydney: ")
+//                        //.icon(BitmapDescriptorFactory.fromBitmap(smallMarker)),);
+//
+//                h.postDelayed(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        animateMarker(0,sydney,sydney2,false,googleMap,smallMarker);
+//                    }
+//                },10000);
+                initLocUpdater();
 
                 mapView.onResume();
             }
         });
 
     }
+
+    private void initLocUpdater(){
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                Log.d("UPDATER","Init query");
+
+                ParseQuery<ParseObject> pLocations = ParseQuery.getQuery(PinnedLocationObject.CLASS_NAME);
+                pLocations.orderByAscending("createdAt");
+
+                pLocations.findInBackground(new FindCallback<ParseObject>() {
+                    @Override
+                    public void done(List<ParseObject> objects, ParseException e) {
+                        prg.dismiss();
+                        if(e==null){
+
+                            int obsize = objects.size();
+
+                            for(int i=0;i<obsize;i++){
+
+                                ParseObject parseObject = objects.get(i);
+
+                                ParseGeoPoint parseGeoPoint = parseObject.getParseGeoPoint("pin_loc");
+                                Integer pinType = parseObject.getInt("pin_type");
+                                String pilotName = parseObject.getString("pilot_name");
+                                String pilotDrone = parseObject.getString("pilot_drone");
+                                String timestamp = parseObject.getString("pin_timestamp");
+
+
+                                //Plot to map
+                                pinLocationToMap(pilotName,pilotDrone,parseGeoPoint,pinType,timestamp);
+
+                            }
+
+                        }
+                        else{
+                            Toast.makeText(AdminActivity.this, "There was an error encountered while loading pinned locations.", Toast.LENGTH_SHORT).show();
+                            Log.e("ERROR_PIN_LOC",e.getMessage());
+                        }
+                    }
+                });
+                h.postDelayed(this,15000);
+            }
+        };
+
+        h.post(runnable);
+    }
+
+    private void loadAllPinnedlocations(){
+
+        if(prg == null){
+            prg = new ProgressDialog(AdminActivity.this);
+        }
+
+        prg.setMessage("Loading pinned locations...");
+        prg.setCancelable(false);
+        prg.show();
+
+        ParseQuery<ParseObject> pLocations = ParseQuery.getQuery(PinnedLocationObject.CLASS_NAME);
+        pLocations.orderByAscending("createdAt");
+
+        pLocations.findInBackground(new FindCallback<ParseObject>() {
+            @Override
+            public void done(List<ParseObject> objects, ParseException e) {
+                prg.dismiss();
+                if(e==null){
+
+                    int obsize = objects.size();
+
+                    for(int i=0;i<obsize;i++){
+
+                        ParseObject parseObject = objects.get(i);
+
+                        ParseGeoPoint parseGeoPoint = parseObject.getParseGeoPoint("pin_loc");
+                        Integer pinType = parseObject.getInt("pin_type");
+                        String pilotName = parseObject.getString("pilot_name");
+                        String pilotDrone = parseObject.getString("pilot_drone");
+                        String timestamp = parseObject.getString("pin_timestamp");
+
+
+                        //Plot to map
+                        pinLocationToMap(pilotName,pilotDrone,parseGeoPoint,pinType,timestamp);
+
+                    }
+
+                }
+                else{
+                    Toast.makeText(AdminActivity.this, "There was an error " +
+                            "encountered while loading pinned locations.", Toast.LENGTH_SHORT).show();
+                    Log.e("ERROR_PIN_LOC",e.getMessage());
+                }
+            }
+        });
+    }
+
+    private void pinLocationToMap(String pilotName, String droneName, ParseGeoPoint loc, Integer pinType, String timestamp){
+
+        int height = 100;
+        int width = 100;
+        BitmapDrawable bitmapdraw;
+
+        switch (pinType){
+            case 42:
+                bitmapdraw =(BitmapDrawable)getResources()
+                        .getDrawable(R.drawable.ic_person_pin_circle_green);
+                break;
+            case 41:
+                bitmapdraw =(BitmapDrawable)getResources()
+                        .getDrawable(R.drawable.ic_person_pin_circle_yellow);
+                break;
+            case 40:
+                bitmapdraw =(BitmapDrawable)getResources()
+                        .getDrawable(R.drawable.ic_person_pin_circle_red);
+                break;
+            case 39:
+                bitmapdraw =(BitmapDrawable)getResources()
+                        .getDrawable(R.drawable.ic_person_pin_circle_black);
+                break;
+            case 38:
+                bitmapdraw =(BitmapDrawable)getResources()
+                        .getDrawable(R.drawable.ic_person_pin_circle_brown);
+                break;
+            case 37:
+                bitmapdraw =(BitmapDrawable)getResources()
+                        .getDrawable(R.drawable.ic_person_pin_circle_gray);
+                break;
+            case 36:
+                bitmapdraw =(BitmapDrawable)getResources()
+                        .getDrawable(R.drawable.ic_responded);
+                break;
+
+            default: bitmapdraw = null;
+
+        }
+
+        if(bitmapdraw != null){
+            Bitmap b = bitmapdraw.getBitmap();
+
+            final Bitmap smallMarker = Bitmap.createScaledBitmap(b, width, height, false);
+            gMap.addMarker(new MarkerOptions()
+                    .position(new LatLng(loc.getLatitude(),loc.getLongitude()))
+                    .title(droneName + " of " + pilotName + " on \n" +  timestamp)
+                    .snippet(timestamp)
+                    //.snippet(mCarParcelableListCurrentLation.get(position).mAddress)
+                    .icon(BitmapDescriptorFactory.fromBitmap(smallMarker)));
+        }
+    }
+
 
     private void initInfoDisplay(View pager){
 

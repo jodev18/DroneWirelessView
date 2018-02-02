@@ -344,36 +344,41 @@ public class VideoStream extends BaseActivity
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                if(GPSSource == SOURCE_PHONE){
+                try{
+                    if(GPSSource == SOURCE_PHONE){
 
-                    switch(position){
-                        case 0:
-                            pinSelectedLocation(mDeviceLocation,PIN_TYPE_HEALTHY);
-                            break;
-                        case 1:
-                            pinSelectedLocation(mDeviceLocation,PIN_TYPE_MINOR_INJURY);
-                            break;
-                        case 2:
-                            pinSelectedLocation(mDeviceLocation,PIN_TYPE_MAJOR_INJURY);
-                            break;
-                        case 3:
-                            pinSelectedLocation(mDeviceLocation,PIN_TYPE_CASUALTY);
-                            break;
-                        case 4:
-                            pinSelectedLocation(mDeviceLocation,PIN_TYPE_NEED_SUPP);
-                            break;
-                        case 5:
-                            pinSelectedLocation(mDeviceLocation,PIN_TYPE_TRAPPED);
-                            break;
-                        case 6:
-                            pinSelectedLocation(mDeviceLocation,PIN_TYPE_RESPONDED);
-                            break;
+                        switch(position){
+                            case 0:
+                                pinSelectedLocation(mDeviceLocation,PIN_TYPE_HEALTHY);
+                                break;
+                            case 1:
+                                pinSelectedLocation(mDeviceLocation,PIN_TYPE_MINOR_INJURY);
+                                break;
+                            case 2:
+                                pinSelectedLocation(mDeviceLocation,PIN_TYPE_MAJOR_INJURY);
+                                break;
+                            case 3:
+                                pinSelectedLocation(mDeviceLocation,PIN_TYPE_CASUALTY);
+                                break;
+                            case 4:
+                                pinSelectedLocation(mDeviceLocation,PIN_TYPE_NEED_SUPP);
+                                break;
+                            case 5:
+                                pinSelectedLocation(mDeviceLocation,PIN_TYPE_TRAPPED);
+                                break;
+                            case 6:
+                                pinSelectedLocation(mDeviceLocation,PIN_TYPE_RESPONDED);
+                                break;
                             default:
+                        }
+                    }
+                    else if(GPSSource == SOURCE_DRONE_GPS){
+
+                        Toast.makeText(VideoStream.this, "No location received yet.", Toast.LENGTH_SHORT).show();
                     }
                 }
-                else if(GPSSource == SOURCE_DRONE_GPS){
-
-                    Toast.makeText(VideoStream.this, "No location received yet.", Toast.LENGTH_SHORT).show();
+                catch (Exception ex){
+                    Toast.makeText(VideoStream.this, "LOCATION SELECT ERROR: "+ ex.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -396,52 +401,104 @@ public class VideoStream extends BaseActivity
 
     private void pinSelectedLocation(final Location loc, final Integer pinType){
 
-        prg = new ProgressDialog(VideoStream.this);
-        prg.setMessage("Pinning location...");
-        prg.setCancelable(false);
-        prg.show();
+        try{
+            prg = new ProgressDialog(VideoStream.this);
+            prg.setMessage("Pinning location...");
+            prg.setCancelable(false);
+            prg.show();
 
-        // Creating the ParseObject
-        final ParseObject placeObject = new ParseObject(PinnedLocationObject.CLASS_NAME);
-        // Creating the GeoPoint with latitude and longitude defined earlier in code
-        ParseGeoPoint point = new ParseGeoPoint(loc.getLatitude(), loc.getLongitude());
-        // Then, it is necessary to add it to the object as some field
-        placeObject.put("pin_loc", point);
-        placeObject.put("pin_type",pinType);
-        placeObject.put("pilot_obj_id", ParseUser.getCurrentUser().getObjectId());
-        placeObject.put("pin_timestamp", new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss")
-                .format(new Date()).toString());
-        placeObject.put("pilot_name",getPilotName());
-        placeObject.put("pilot_drone",getDroneName());
+            // Creating the ParseObject
+            final ParseObject placeObject = new ParseObject(PinnedLocationObject.CLASS_NAME);
+            // Creating the GeoPoint with latitude and longitude defined earlier in code
+            ParseGeoPoint point = new ParseGeoPoint(loc.getLatitude(), loc.getLongitude());
+            // Then, it is necessary to add it to the object as some field
+            placeObject.put("pin_loc", point);
+            placeObject.put("pin_type",pinType);
+            placeObject.put("pilot_obj_id", ParseUser.getCurrentUser().getObjectId());
+            placeObject.put("pin_timestamp", new SimpleDateFormat("MM/dd/yyyy HH:mm:ss")
+                    .format(new Date()).toString());
+            placeObject.put("pilot_name",getPilotName());
+            placeObject.put("pilot_drone",getDroneName());
 
-        // After that, just saveInBackground
-        placeObject.saveInBackground(new SaveCallback() {
-            @Override
-            public void done(ParseException e) {
+            // After that, just saveInBackground
+            placeObject.saveInBackground(new SaveCallback() {
+                @Override
+                public void done(ParseException e) {
 
-                prg.dismiss();
+                    prg.dismiss();
 
-                if(e == null){
-                    Toast.makeText(VideoStream.this, "Location pinned successfully.", Toast.LENGTH_SHORT).show();
+                    if(e == null){
+                        Toast.makeText(VideoStream.this, "Location pinned successfully.", Toast.LENGTH_SHORT).show();
 
-                    pinLocationToMap(loc,pinType);
-                }
-                else{
-                    Log.e("ERROR_SAVE_PIN",e.getMessage());
+                        pinLocationToMap(loc,pinType);
+                    }
+                    else{
+                        Log.e("ERROR_SAVE_PIN",e.getMessage());
 
-                    placeObject.saveEventually(new SaveCallback() {
-                        @Override
-                        public void done(ParseException e) {
-                            if(e==null){
-                                Toast.makeText(VideoStream.this,
-                                        "Location pinned successfully.", Toast.LENGTH_SHORT).show();
+                        placeObject.saveEventually(new SaveCallback() {
+                            @Override
+                            public void done(ParseException e) {
+                                if(e==null){
+                                    Toast.makeText(VideoStream.this,
+                                            "Location pinned successfully.", Toast.LENGTH_SHORT).show();
+                                }
                             }
-                        }
-                    });
+                        });
+                    }
                 }
-            }
-        });
+            });
+        }
+        catch (Exception ex){
+            Toast.makeText(this, "Error: " + ex.getMessage(), Toast.LENGTH_LONG).show();
+        }
     }
+
+    private void initLocUpdater(){
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                Log.d("UPDATER","Init query");
+
+                ParseQuery<ParseObject> pLocations = ParseQuery.getQuery(PinnedLocationObject.CLASS_NAME);
+                pLocations.orderByAscending("createdAt");
+
+                pLocations.findInBackground(new FindCallback<ParseObject>() {
+                    @Override
+                    public void done(List<ParseObject> objects, ParseException e) {
+                        prg.dismiss();
+                        if(e==null){
+
+                            int obsize = objects.size();
+
+                            for(int i=0;i<obsize;i++){
+
+                                ParseObject parseObject = objects.get(i);
+
+                                ParseGeoPoint parseGeoPoint = parseObject.getParseGeoPoint("pin_loc");
+                                Integer pinType = parseObject.getInt("pin_type");
+                                String pilotName = parseObject.getString("pilot_name");
+                                String pilotDrone = parseObject.getString("pilot_drone");
+
+
+                                //Plot to map
+                                pinLocationToMap(pilotName,pilotDrone,parseGeoPoint,pinType);
+
+                            }
+
+                        }
+                        else{
+                            Toast.makeText(VideoStream.this, "There was an error encountered while loading pinned locations.", Toast.LENGTH_SHORT).show();
+                            Log.e("ERROR_PIN_LOC",e.getMessage());
+                        }
+                    }
+                });
+                h.postDelayed(this,15000);
+            }
+        };
+
+        h.post(runnable);
+    }
+
 
     private void pinLocationToMap(Location loc, Integer pinType){
 
@@ -495,6 +552,58 @@ public class VideoStream extends BaseActivity
         }
     }
 
+    private void pinLocationToMap(String pilotName, String droneName, ParseGeoPoint loc, Integer pinType){
+
+        int height = 100;
+        int width = 100;
+        BitmapDrawable bitmapdraw;
+
+        switch (pinType){
+            case 42:
+                bitmapdraw =(BitmapDrawable)getResources()
+                        .getDrawable(R.drawable.ic_person_pin_circle_green);
+                break;
+            case 41:
+                bitmapdraw =(BitmapDrawable)getResources()
+                        .getDrawable(R.drawable.ic_person_pin_circle_yellow);
+                break;
+            case 40:
+                bitmapdraw =(BitmapDrawable)getResources()
+                        .getDrawable(R.drawable.ic_person_pin_circle_red);
+                break;
+            case 39:
+                bitmapdraw =(BitmapDrawable)getResources()
+                        .getDrawable(R.drawable.ic_person_pin_circle_black);
+                break;
+            case 38:
+                bitmapdraw =(BitmapDrawable)getResources()
+                        .getDrawable(R.drawable.ic_person_pin_circle_brown);
+                break;
+            case 37:
+                bitmapdraw =(BitmapDrawable)getResources()
+                        .getDrawable(R.drawable.ic_person_pin_circle_gray);
+                break;
+            case 36:
+                bitmapdraw =(BitmapDrawable)getResources()
+                        .getDrawable(R.drawable.ic_responded);
+                break;
+
+            default: bitmapdraw = null;
+
+        }
+
+        if(bitmapdraw != null){
+            Bitmap b = bitmapdraw.getBitmap();
+
+            final Bitmap smallMarker = Bitmap.createScaledBitmap(b, width, height, false);
+            mGoogleMap.addMarker(new MarkerOptions()
+                    .position(new LatLng(loc.getLatitude(),loc.getLongitude()))
+                    .title(droneName + " of " + pilotName)
+                    //.snippet(mCarParcelableListCurrentLation.get(position).mAddress)
+                    .icon(BitmapDescriptorFactory.fromBitmap(smallMarker)));
+        }
+    }
+
     private void loadAllPinnedlocations(){
 
         if(prg == null){
@@ -506,6 +615,7 @@ public class VideoStream extends BaseActivity
         prg.show();
 
         ParseQuery<ParseObject> pLocations = ParseQuery.getQuery(PinnedLocationObject.CLASS_NAME);
+        pLocations.orderByAscending("createdAt");
 
         pLocations.findInBackground(new FindCallback<ParseObject>() {
             @Override
@@ -513,6 +623,27 @@ public class VideoStream extends BaseActivity
                 prg.dismiss();
                 if(e==null){
 
+                    int obsize = objects.size();
+
+                    for(int i=0;i<obsize;i++){
+
+                        ParseObject parseObject = objects.get(i);
+
+                        ParseGeoPoint parseGeoPoint = parseObject.getParseGeoPoint("pin_loc");
+                        Integer pinType = parseObject.getInt("pin_type");
+                        String pilotName = parseObject.getString("pilot_name");
+                        String pilotDrone = parseObject.getString("pilot_drone");
+
+
+                        //Plot to map
+                        pinLocationToMap(pilotName,pilotDrone,parseGeoPoint,pinType);
+
+                    }
+
+                }
+                else{
+                    Toast.makeText(VideoStream.this, "There was an error encountered while loading pinned locations.", Toast.LENGTH_SHORT).show();
+                    Log.e("ERROR_PIN_LOC",e.getMessage());
                 }
             }
         });
@@ -1124,6 +1255,8 @@ public class VideoStream extends BaseActivity
 //							Core.FONT_HERSHEY_SIMPLEX, 3.0, new Scalar(255));
 //					Imgproc.rectangle(mat,new Point(30,30),new Point(40,40),new Scalar(255),4);
 
+                    //Color of the rectangle used for "pointing out"
+                    //the detection regions
                     final Scalar FACE_RECT_COLOR = new Scalar(0, 255, 0, 255);
 
                     MatOfRect faces = new MatOfRect();
@@ -1211,12 +1344,18 @@ public class VideoStream extends BaseActivity
 //                    }
 //                },10000);
 
+                loadAllPinnedlocations();
 
+                initLocUpdater();
                 mapView.onResume();
             }
         });
     }
 
+    /**
+     * Zooms in and views the user's current location.
+     * @param location
+     */
     private void drawCurrentLocation(Location location){
 
         int height = 100;
