@@ -94,8 +94,11 @@ import java.util.Locale;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import dev.jojo.agilus.adapters.LegendsAdapter;
+import dev.jojo.agilus.core.Globals;
 import dev.jojo.agilus.objects.LegendObject;
 import dev.jojo.agilus.objects.PinnedLocationObject;
+
+import static dev.jojo.agilus.core.Globals.STATE_ONLINE;
 
 public class VideoStream extends BaseActivity
         implements CameraDialog.CameraDialogParent {
@@ -253,6 +256,8 @@ public class VideoStream extends BaseActivity
         initializeMiniMap(savedInstanceState);
 
         initListener();
+
+        updateOnlineState(STATE_ONLINE);
     }
 
     private CompoundButton.OnCheckedChangeListener scanMode = new CompoundButton.OnCheckedChangeListener() {
@@ -497,6 +502,34 @@ public class VideoStream extends BaseActivity
         };
 
         h.post(runnable);
+    }
+
+    private void updateOnlineState(final Integer state){
+
+        ParseQuery<ParseObject> pObj = ParseQuery.getQuery(Globals.PILOT_CLASS_NAME);
+        pObj.whereEqualTo("PilotUser",ParseUser.getCurrentUser().getUsername());
+
+        pObj.findInBackground(new FindCallback<ParseObject>() {
+            @Override
+            public void done(List<ParseObject> objects, ParseException e) {
+
+                if (e==null){
+                    if(objects.size() == 1){
+                        ParseObject parseObject = objects.get(0);
+                        parseObject.put("OnlineState",state);
+                        parseObject.saveInBackground(new SaveCallback() {
+                            @Override
+                            public void done(ParseException e) {
+                                if(e==null)
+                                    Log.d("UPDATE_STATE","Successfully updated!");
+                                else
+                                    Log.d("UPDATE_STATE","Error:" + e.getMessage());
+                            }
+                        });
+                    }
+                }
+            }
+        });
     }
 
 

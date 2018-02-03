@@ -26,4 +26,9 @@ public class Globals {
 
     public static final String PILOT_INFO_TRACKER = "PilotTrackID";
 
+    public static final Integer STATE_ONLINE = 5;
+    public static final Integer STATE_OFFLINE = 6;
+    public static final Integer STATE_INACTIVE = 7;
+    public static final Integer STATE_STREAM = 8;
+
 }

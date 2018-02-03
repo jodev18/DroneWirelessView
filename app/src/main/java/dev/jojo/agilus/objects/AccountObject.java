@@ -12,7 +12,7 @@ public class AccountObject {
     public String NAME;
     public String DRONE_ID;
 
-    public String IS_ACTIVE;
+    public Integer IS_ACTIVE;
 
     public AccountObject(String username, String password, String pilotName, String droneName){
         this.USERNAME = username;
@@ -29,7 +29,7 @@ public class AccountObject {
         this.OBJECT_ID = objectID;
     }
 
-    public AccountObject(String username, String password, String pilotName, String droneName,String objectID,String isActiveStat){
+    public AccountObject(String username, String password, String pilotName, String droneName,String objectID,Integer isActiveStat){
         this.USERNAME = username;
         this.PASSWORD = password;
         this.NAME = pilotName;

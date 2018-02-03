@@ -107,7 +107,20 @@ public class AccountsAdapter extends BaseAdapter {
 
         pilotName.setText(currAcc.NAME);
         droneName.setText(currAcc.DRONE_ID);
-        isActiveStat.setText((currAcc.IS_ACTIVE != null) ? currAcc.IS_ACTIVE : "Inactive");
+
+        switch (currAcc.IS_ACTIVE){
+            case 5:
+                isActiveStat.setText("Online");
+                break;
+            case 6:
+                isActiveStat.setText("Offline");
+                break;
+            case 7:
+                isActiveStat.setText("Inactive");
+                break;
+                default:
+                    isActiveStat.setText("Offline");
+        }
 
         pilotUser.setText(currAcc.USERNAME);
         pilotPass.setText("******************");

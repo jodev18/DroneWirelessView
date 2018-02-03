@@ -27,6 +27,7 @@ import com.github.pwittchen.reactivenetwork.library.rx2.ReactiveNetwork;
 import com.parse.FindCallback;
 import com.parse.GetCallback;
 import com.parse.LogOutCallback;
+import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
@@ -45,6 +46,10 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
+
+import static dev.jojo.agilus.core.Globals.STATE_INACTIVE;
+import static dev.jojo.agilus.core.Globals.STATE_OFFLINE;
+import static dev.jojo.agilus.core.Globals.STATE_ONLINE;
 
 public class PilotActivity extends AppCompatActivity {
 
@@ -66,6 +71,8 @@ public class PilotActivity extends AppCompatActivity {
     public static final String KEY_PILOT = "sp_pilot_name";
     public static final String KEY_DRONE = "sp_drone_name";
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,6 +91,8 @@ public class PilotActivity extends AppCompatActivity {
         initNetworkListener();
 
         sp = PreferenceManager.getDefaultSharedPreferences(PilotActivity.this);
+
+        updateOnlineState(STATE_ONLINE);
 
     }
 
@@ -153,6 +162,7 @@ public class PilotActivity extends AppCompatActivity {
                     case 2:
 
                         //Images
+                        showAllSavedImages();
 
                         break;
 
@@ -193,7 +203,7 @@ public class PilotActivity extends AppCompatActivity {
         ab.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-
+                updateOnlineState(STATE_OFFLINE);
                 prg.setMessage("Logging out...");
                 prg.show();
 
@@ -204,6 +214,7 @@ public class PilotActivity extends AppCompatActivity {
                         prg.dismiss();
 
                         if(e == null){
+
                             Toast.makeText(PilotActivity.this, "Successfully logged out.", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent().setClass(getApplicationContext(),LoginActivity.class));
                             finish();
@@ -489,6 +500,37 @@ public class PilotActivity extends AppCompatActivity {
 
     }
 
+    private void updateOnlineState(final Integer state){
+
+        if(ParseUser.getCurrentUser() != null){ParseQuery<ParseObject> pObj = ParseQuery.getQuery(Globals.PILOT_CLASS_NAME);
+            pObj.whereEqualTo("PilotUser",ParseUser.getCurrentUser().getUsername());
+
+            pObj.findInBackground(new FindCallback<ParseObject>() {
+                @Override
+                public void done(List<ParseObject> objects, ParseException e) {
+
+                    if (e==null){
+                        if(objects.size() == 1){
+                            Log.d("STATE",state.toString());
+                            ParseObject parseObject = objects.get(0);
+                            parseObject.put("OnlineState",state);
+                            parseObject.saveInBackground(new SaveCallback() {
+                                @Override
+                                public void done(ParseException e) {
+                                    if(e==null)
+                                        Log.d("UPDATE_STATE","Successfully updated!");
+                                    else
+                                        Log.d("UPDATE_STATE","Error:" + e.getMessage());
+                                }
+                            });
+                        }
+                    }
+                }
+            });
+
+        }
+    }
+
     /**
      * TODO Adds new flying session.
      */
@@ -534,11 +576,25 @@ public class PilotActivity extends AppCompatActivity {
     }
 
     @Override
+    public void onStop(){
+        updateOnlineState(STATE_INACTIVE);
+
+        super.onStop();
+    }
+
+    @Override
+    public void onResume(){
+        updateOnlineState(STATE_ONLINE);
+
+        super.onResume();
+    }
+
+    @Override
     public void onDestroy(){
         if (netDisposable != null && !netDisposable.isDisposed()) {
             netDisposable.dispose();
         }
-
+        updateOnlineState(STATE_OFFLINE);
         disposeCurrentPilotInfo();
 
         super.onDestroy();

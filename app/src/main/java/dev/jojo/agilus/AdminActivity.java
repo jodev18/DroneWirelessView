@@ -306,7 +306,11 @@ public class AdminActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * A thread that will run indefinitely
+     */
     private void initLocUpdater(){
+
         Runnable runnable = new Runnable() {
             @Override
             public void run() {
@@ -565,7 +569,8 @@ public class AdminActivity extends AppCompatActivity {
                                     objects.get(i).getString("PilotPass"),
                                     objects.get(i).getString("PilotName"),
                                     objects.get(i).getString("PilotDrone"),
-                                    objects.get(i).getObjectId());
+                                    objects.get(i).getObjectId(),
+                                    objects.get(i).getInt("OnlineState"));
 
                             accountObjects.add(accObj);
                         }
