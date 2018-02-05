@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="12dp">
+
+    <ImageView
+        android:id="@+id/imgListPinType"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        app:srcCompat="@drawable/ic_person_pin_circle_green" />
+
+    <TextView
+        android:id="@+id/tvTimeStamp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/imgListPinType"
+        android:paddingLeft="10dp"
+        android:text="Timestamp"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvPinnedLocCoord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvTimeStamp"
+        android:layout_toEndOf="@+id/imgListPinType"
+        android:paddingLeft="10dp"
+        android:text="Coordinates" />
+</RelativeLayout>

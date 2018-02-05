@@ -256,6 +256,10 @@ public class AdminActivity extends AppCompatActivity {
         navigationTabBar.setViewPager(viewPager, 0);
     }
 
+    private void getAllDroneNames(){
+
+    }
+
     private void initMapList(View pager, Bundle savedInstanceState){
 
         final MapView mapView = pager.findViewById(R.id.mapView);
