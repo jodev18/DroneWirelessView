@@ -80,7 +80,8 @@
                 android:layout_height="wrap_content"
                 android:background="@color/signupBGButton"
                 android:text="Sign Up"
-                android:textColor="@android:color/background_light" />
+                android:textColor="@android:color/background_light"
+                android:visibility="gone" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

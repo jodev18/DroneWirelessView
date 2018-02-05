@@ -21,6 +21,7 @@
         android:layout_toEndOf="@+id/imgListPinType"
         android:paddingLeft="10dp"
         android:text="Timestamp"
+        android:textColor="@color/WHITE"
         android:textSize="18sp"
         android:textStyle="bold" />
 
@@ -31,5 +32,6 @@
         android:layout_below="@+id/tvTimeStamp"
         android:layout_toEndOf="@+id/imgListPinType"
         android:paddingLeft="10dp"
-        android:text="Coordinates" />
+        android:text="Coordinates"
+        android:textColor="@color/WHITE" />
 </RelativeLayout>
