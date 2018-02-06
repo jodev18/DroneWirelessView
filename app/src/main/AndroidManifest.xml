@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <!-- OpenGL GL|ES3を必須にする(ES3をサポートしない端末にはインストールできなくなる) -->
     <uses-feature
@@ -66,8 +67,16 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".AdminActivity" />
         <activity android:name=".EmptyMapTest" />
-        <activity android:name=".VideoStream"
-            android:screenOrientation="landscape"></activity>
+        <activity
+            android:name=".VideoStream"
+            android:screenOrientation="landscape" />
+        <activity android:name=".ReconImagesActivity"></activity>
+
+        <activity
+            android:name="com.etiennelawlor.imagegallery.library.activities.ImageGalleryActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label=""
+            android:theme="@style/Theme.ImageGallery" />
     </application>
 
 </manifest>

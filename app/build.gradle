@@ -37,7 +37,10 @@ dependencies {
     compile 'com.github.pwittchen:reactivenetwork-rx2:0.12.2'
 
     implementation 'com.karumi:dexter:4.2.0'
+    compile 'com.github.lawloretienne:imagegallery:0.1.0'
     //compile 'com.github.DeveloperPaul123:SimpleBluetoothLibrary:1.5.1'
+
+    compile 'com.github.lawloretienne:imagegallery:0.1.0'
 
     implementation project(':libuvccamera-release')
     implementation project(':opencv')

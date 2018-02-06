@@ -258,6 +258,20 @@ public class AdminActivity extends AppCompatActivity {
 
     private void getAllDroneNames(){
 
+        ParseQuery<ParseObject> pO = ParseQuery.getQuery("child_info_obj");
+
+        pO.findInBackground(new FindCallback<ParseObject>() {
+            @Override
+            public void done(List<ParseObject> objects, ParseException e) {
+
+                if(e==null){
+
+                }
+                else{
+                    Log.e("ERROR","Failed to get drones");
+                }
+            }
+        });
     }
 
     private void initMapList(View pager, Bundle savedInstanceState){
@@ -275,7 +289,7 @@ public class AdminActivity extends AppCompatActivity {
 
                 int height = 100;
                 int width = 100;
-                BitmapDrawable bitmapdraw=(BitmapDrawable)getResources().getDrawable(R.drawable.agilus_graphic);
+                BitmapDrawable bitmapdraw=(BitmapDrawable)getResources().getDrawable(R.drawable.ic_pilot_ico);
                 Bitmap b=bitmapdraw.getBitmap();
                 final Bitmap smallMarker = Bitmap.createScaledBitmap(b, width, height, false);
 
@@ -359,6 +373,11 @@ public class AdminActivity extends AppCompatActivity {
         };
 
         h.post(runnable);
+    }
+
+    private void pinDroneLocation(){
+
+        ParseQuery<ParseObject> pQ = ParseQuery.getQuery("child_info_obj");
     }
 
     private void loadAllPinnedlocations(){

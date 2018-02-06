@@ -379,7 +379,106 @@ public class VideoStream extends BaseActivity
                     }
                     else if(GPSSource == SOURCE_DRONE_GPS){
 
-                        Toast.makeText(VideoStream.this, "No location received yet.", Toast.LENGTH_SHORT).show();
+                        final int fposition = position;
+
+                        //Get drone location
+                        ParseQuery<ParseObject> pq = ParseQuery.getQuery("child_info_obj");
+                        pq.whereEqualTo("first_name",getDroneName());
+
+                        Log.d("DRONE NAME",getDroneName());
+
+                        pq.findInBackground(new FindCallback<ParseObject>() {
+                            @Override
+                            public void done(List<ParseObject> objects, ParseException e) {
+                                if(e==null){
+
+                                    int obSize = objects.size();
+
+                                    String droneObjId;
+
+                                    if(obSize > 0){
+                                        if(obSize == 1){
+                                            //Get the first
+                                            ParseObject pOb = objects.get(0);
+                                            droneObjId = pOb.getObjectId();
+                                        }
+                                        else{
+                                            //Get the last object
+                                            ParseObject pObj = objects.get(obSize-1);
+                                            droneObjId = pObj.getObjectId();
+                                        }
+
+                                        //Another query for location of the drone
+                                        ParseQuery<ParseObject> pLoc = ParseQuery.getQuery("track_obj");
+
+                                        pLoc.whereEqualTo("track_child_id",droneObjId);
+                                        pLoc.orderByDescending("createdAt");
+                                        pLoc.setLimit(1);
+
+                                        pLoc.findInBackground(new FindCallback<ParseObject>() {
+                                            @Override
+                                            public void done(List<ParseObject> objects, ParseException e) {
+
+                                                if(e==null){
+
+                                                    int lSize = objects.size();
+
+                                                    if(lSize == 1){
+
+                                                        ParseGeoPoint gPoint = objects.get(0).getParseGeoPoint("track_geopoint");
+
+                                                        switch(fposition){
+                                                            case 0:
+                                                                pinSelectedLocationDrone(gPoint,PIN_TYPE_HEALTHY);
+                                                                break;
+                                                            case 1:
+                                                                pinSelectedLocationDrone(gPoint,PIN_TYPE_MINOR_INJURY);
+                                                                break;
+                                                            case 2:
+                                                                pinSelectedLocationDrone(gPoint,PIN_TYPE_MAJOR_INJURY);
+                                                                break;
+                                                            case 3:
+                                                                pinSelectedLocationDrone(gPoint,PIN_TYPE_CASUALTY);
+                                                                break;
+                                                            case 4:
+                                                                pinSelectedLocationDrone(gPoint,PIN_TYPE_NEED_SUPP);
+                                                                break;
+                                                            case 5:
+                                                                pinSelectedLocationDrone(gPoint,PIN_TYPE_TRAPPED);
+                                                                break;
+                                                            case 6:
+                                                                pinSelectedLocationDrone(gPoint,PIN_TYPE_RESPONDED);
+                                                                break;
+                                                            default:
+                                                        }
+
+                                                    }
+                                                    else{
+                                                        Toast.makeText(VideoStream.this, "Drone unidentified.", Toast.LENGTH_SHORT).show();
+                                                    }
+                                                }
+                                                else{
+                                                    Toast.makeText(VideoStream.this, "There was a problem encountered while loading the drone's location.", Toast.LENGTH_SHORT).show();
+                                                }
+                                            }
+                                        });
+                                    }
+                                    else{
+                                        Toast.makeText(VideoStream.this, "No drones with this name.", Toast.LENGTH_SHORT).show();
+                                    }
+                                    
+                                    
+
+                                    
+
+                                }
+                                else{
+                                    Toast.makeText(VideoStream.this,
+                                            "Something went wrong with getting drone location.", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+
                     }
                 }
                 catch (Exception ex){
@@ -436,6 +535,57 @@ public class VideoStream extends BaseActivity
                         Toast.makeText(VideoStream.this, "Location pinned successfully.", Toast.LENGTH_SHORT).show();
 
                         pinLocationToMap(loc,pinType);
+                    }
+                    else{
+                        Log.e("ERROR_SAVE_PIN",e.getMessage());
+
+                        placeObject.saveEventually(new SaveCallback() {
+                            @Override
+                            public void done(ParseException e) {
+                                if(e==null){
+                                    Toast.makeText(VideoStream.this,
+                                            "Location pinned successfully.", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+                    }
+                }
+            });
+        }
+        catch (Exception ex){
+            Toast.makeText(this, "Error: " + ex.getMessage(), Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private void pinSelectedLocationDrone(final ParseGeoPoint parseGeoPoint, final Integer pinType){
+        try{
+            prg = new ProgressDialog(VideoStream.this);
+            prg.setMessage("Pinning location...");
+            prg.setCancelable(false);
+            prg.show();
+
+            // Creating the ParseObject
+            final ParseObject placeObject = new ParseObject(PinnedLocationObject.CLASS_NAME);
+            // Then, it is necessary to add it to the object as some field
+            placeObject.put("pin_loc", parseGeoPoint);
+            placeObject.put("pin_type",pinType);
+            placeObject.put("pilot_obj_id", ParseUser.getCurrentUser().getObjectId());
+            placeObject.put("pin_timestamp", new SimpleDateFormat("MM/dd/yyyy HH:mm:ss")
+                    .format(new Date()).toString());
+            placeObject.put("pilot_name",getPilotName());
+            placeObject.put("pilot_drone",getDroneName());
+
+            // After that, just saveInBackground
+            placeObject.saveInBackground(new SaveCallback() {
+                @Override
+                public void done(ParseException e) {
+
+                    prg.dismiss();
+
+                    if(e == null){
+                        Toast.makeText(VideoStream.this, "Location pinned successfully.", Toast.LENGTH_SHORT).show();
+
+                        pinLocationToMap(getPilotName(),getDroneName(),parseGeoPoint,pinType);
                     }
                     else{
                         Log.e("ERROR_SAVE_PIN",e.getMessage());
@@ -1318,6 +1468,23 @@ public class VideoStream extends BaseActivity
 
                     Utils.matToBitmap(mat, mFrame);
 
+                    /**
+                     * upon detection
+                     */
+
+//                    FileOutputStream outputStream;
+//
+//                    try{
+//                        outputStream = openFileOutput(getPilotName() + "." + getDroneName()
+//                                + new SimpleDateFormat("MM/dd/yyyy HH:mm:ss")
+//                                .format(new Date()).toString(),Context.MODE_PRIVATE);
+//
+//                        mFrame.compress(Bitmap.CompressFormat.PNG, 100, outputStream);
+//                    }
+//                    catch(Exception ex){
+//                        Toast.makeText(VideoStream.this, "Something went wrong with saving the image.", Toast.LENGTH_SHORT).show();
+//                    }
+
 
                     final Canvas canvas = holder.lockCanvas();
                     if (canvas != null) {
@@ -1394,7 +1561,7 @@ public class VideoStream extends BaseActivity
         int height = 100;
         int width = 100;
 
-        BitmapDrawable bitmapdraw=(BitmapDrawable)getResources().getDrawable(R.drawable.agilus_graphic);
+        BitmapDrawable bitmapdraw=(BitmapDrawable)getResources().getDrawable(R.drawable.ic_pilot_ico);
         Bitmap b=bitmapdraw.getBitmap();
 
         final Bitmap smallMarker = Bitmap.createScaledBitmap(b, width, height, false);

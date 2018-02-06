@@ -22,6 +22,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.etiennelawlor.imagegallery.library.activities.ImageGalleryActivity;
 import com.github.pwittchen.reactivenetwork.library.rx2.Connectivity;
 import com.github.pwittchen.reactivenetwork.library.rx2.ReactiveNetwork;
 import com.parse.FindCallback;
@@ -34,6 +35,7 @@ import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -189,6 +191,37 @@ public class PilotActivity extends AppCompatActivity {
 
     private void showAllSavedImages(){
 
+//        Intent goImages = new Intent(getApplicationContext(),ReconImagesActivity.class);
+//        startActivity(goImages);
+
+        File[] savedImages = getFilesDir().listFiles();
+        
+        if(savedImages.length > 0){
+
+            //Load all saved images
+            List<String> fileNames = new ArrayList<>();
+
+            for(int i=0;i<savedImages.length;i++){
+                if(savedImages[i].isFile()){
+                    if(savedImages[i].getName().substring(savedImages[i]
+                            .getName().lastIndexOf(".") + 1, savedImages[i].getName().length()).equals("png")){
+
+                        fileNames.add(savedImages[i].getAbsolutePath());
+                        Log.d("FILE",savedImages[i].getAbsolutePath());
+                    }
+                }
+            }
+
+            Intent intent = new Intent(getApplicationContext(), ImageGalleryActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putStringArrayList(ImageGalleryActivity.KEY_IMAGES, new ArrayList<>(fileNames));
+            bundle.putString(ImageGalleryActivity.KEY_TITLE, "Saved Images");
+            intent.putExtras(bundle);
+            startActivity(intent);
+        }
+        else {
+            Toast.makeText(this, "No images saved yet.", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void confirmLogoutDialog(){
@@ -362,6 +395,8 @@ public class PilotActivity extends AppCompatActivity {
                                                     if(e==null){
                                                         profName.setText(pilotNewName);
                                                         droneName.setText(droneNewName);
+
+                                                        saveCurrentPilotInfo(pilotNewName,droneNewName);
                                                         Toast.makeText(PilotActivity.this, "Successfully saved pilot!", Toast.LENGTH_SHORT).show();
                                                     }
                                                     else{
